@@ -26,4 +26,225 @@
         }
 
         header { padding: 60px 40px 40px; }
-        header h1
+        header h1 { font-size: 2rem; font-weight: 900; }
+        header p { font-size: 0.95rem; color: #777; margin-top: 8px; }
+
+        .hero { padding: 20px 40px 80px; }
+        .hero .main-title {
+            font-size: clamp(2.4rem, 8vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 50px;
+        }
+        .hero .main-title span { color: var(--point-color); }
+
+        .impact-box {
+            display: inline-flex;
+            flex-direction: column;
+            background: #fff;
+            padding: 30px 45px;
+            border-left: 8px solid var(--point-color);
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
+        }
+        .impact-box .label { color: #888; font-weight: 500; }
+        .impact-box .value {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--point-color);
+        }
+        .impact-box .desc {
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            color: #555;
+        }
+        .impact-box ul {
+            margin-top: 12px;
+            font-size: 0.95rem;
+            color: #666;
+            list-style: none;
+        }
+        .impact-box ul li::before {
+            content: "• ";
+        }
+
+        section { padding: 100px 40px; }
+        .section-tag {
+            font-size: 0.8rem;
+            letter-spacing: 0.2rem;
+            color: #999;
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        .about {
+            background: #fff;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        .about h3 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        .about p {
+            font-size: 1.05rem;
+            color: #666;
+            margin-bottom: 16px;
+        }
+        .about strong {
+            display: block;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .work { background: #E9E7E4; }
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .video-card {
+            background: #000;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+        .video-desc {
+            background: #fff;
+            padding: 16px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        footer {
+            padding: 120px 40px;
+            background: var(--point-color);
+            color: #fff;
+            text-align: center;
+        }
+        footer h3 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: #fff;
+            color: var(--point-color);
+            padding: 22px 60px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .about { grid-template-columns: 1fr; }
+            header, section, footer { padding: 60px 24px; }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Sieer</h1>
+    <p>조용한 시선으로 담은 장면</p>
+</header>
+
+<section class="hero">
+    <h2 class="main-title">
+        단 1분의 콘텐츠로<br>
+        공간을 <span>가고 싶은 장소</span>로 만듭니다.
+    </h2>
+
+    <div class="impact-box">
+        <p class="label">OPEN : 3 MONTHS</p>
+        <p class="value">400,000+</p>
+        <p class="desc">계정 개설 3개월 만에 달성한 누적 조회수</p>
+        <ul>
+            <li>최고 조회 릴스 13만+</li>
+            <li>평균 조회수 1~3만</li>
+            <li>저장 · 공유 중심 반응 구조</li>
+        </ul>
+    </div>
+</section>
+
+<section class="about">
+    <div>
+        <span class="section-tag">IDENTITY</span>
+        <h3>공간의 무드를 읽고<br>결과를 설계합니다.</h3>
+        <strong>
+            시어는 조회수를 만드는 계정이 아니라<br>
+            저장되는 공간을 만드는 계정입니다.
+        </strong>
+        <p>
+            시어(Sieer)는 단순히 공간을 촬영하지 않습니다.
+            공간이 가진 분위기와 흐름을 읽고,
+            사람들이 ‘가보고 싶다’고 느끼는 장면을 설계합니다.
+        </p>
+        <p>
+            감성적인 영상미 위에 실제 반응으로 증명된 콘텐츠 구조를 더해
+            공간을 하나의 목적지로 만듭니다.
+        </p>
+    </div>
+    <div style="background:#ddd; aspect-ratio:4/5;"></div>
+</section>
+
+<section class="work">
+    <span class="section-tag">SELECTED PORTFOLIO</span>
+
+    <div class="work-grid">
+
+        <div>
+            <div class="video-card">
+                <blockquote class="instagram-media"
+                    data-instgrm-permalink="https://www.instagram.com/reel/DR7Gv12D5sH/"
+                    data-instgrm-version="14"></blockquote>
+            </div>
+            <div class="video-desc">
+                ｜카페<br>
+                조용한 무드와 자연광 중심 구성 → 저장 유도형 릴스
+            </div>
+        </div>
+
+        <div>
+            <div class="video-card">
+                <blockquote class="instagram-media"
+                    data-instgrm-permalink="https://www.instagram.com/reel/DTuoxxQkbfR/"
+                    data-instgrm-version="14"></blockquote>
+            </div>
+            <div class="video-desc">
+                ｜맛집<br>
+                메뉴·동선 집중 컷 구성 → 공유 및 댓글 반응 유도
+            </div>
+        </div>
+
+        <div>
+            <div class="video-card">
+                <blockquote class="instagram-media"
+                    data-instgrm-permalink="https://www.instagram.com/reel/DSp6NWSkx0M/"
+                    data-instgrm-version="14"></blockquote>
+            </div>
+            <div class="video-desc">
+                ｜공간 큐레이션<br>
+                ‘여기 어디야?’ 반응을 만드는 시선 설계
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <h3>
+        우리 공간,<br>
+        릴스로 만들면 어떻게 보일까요?
+    </h3>
+    <a class="cta-btn" href="https://open.kakao.com/...">
+        콘텐츠 제안 받아보기
+    </a>
+    <p style="margin-top:40px; font-size:0.8rem; opacity:0.6;">
+        © 2024 Sieer. All rights reserved.
+    </p>
+</footer>
+
+<script async src="//www.instagram.com/embed.js"></script>
+</body>
+</html>
