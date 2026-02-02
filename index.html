@@ -69,3 +69,78 @@
         /* 포트폴리오 섹션 */
         .work { padding: 100px 40px; background-color: #f9f9f9; }
         .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .video-card { border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+        /* 푸터 */
+        footer { padding: 150px 40px; background: #111; color: #fff; text-align: left; }
+        footer h3 { font-size: 2.8rem; font-weight: 900; margin-bottom: 40px; line-height: 1.2; }
+        .cta-btn { 
+            display: inline-block; background: var(--point-color); color: #fff; padding: 22px 60px; 
+            font-weight: 700; text-decoration: none; border-radius: 4px; transition: 0.3s; 
+        }
+        .cta-btn:hover { background: #465a61; }
+
+        @media (max-width: 768px) {
+            header, .hero, .performance, .diff, .work, footer { padding: 60px 24px; }
+            .hero .sub-performance { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header><h1>Sieer</h1></header>
+
+    <section class="hero">
+        <h2 class="main-title">
+            단 1분의 영상으로<br>사장님의 공간을<br><span>가고 싶은 곳으로 만듭니다.</span>
+        </h2>
+        <p class="sub-performance">
+            계정 개설 <b>3달 만에 누적 조회수 40만 회</b> 달성,<br>데이터와 감도로 증명하는 시어(Sieer)의 기획력입니다.
+        </p>
+    </section>
+
+    <section class="performance">
+        <span class="section-tag">Key Performance Indicator</span>
+        <div class="stats-grid">
+            <div class="stat-item"><p class="label">최고 조회수</p><p class="value">13.2<small>만</small></p></div>
+            <div class="stat-item"><p class="label">자발적 공유</p><p class="value">3,000<small>+</small></p></div>
+            <div class="stat-item"><p class="label">방문 저장</p><p class="value">2,000<small>+</small></p></div>
+        </div>
+    </section>
+
+    <section class="diff">
+        <span class="section-tag">The Sieer Difference</span>
+        <h3 class="diff-title">차별화된 감도,<br>결과를 만드는 바이럴 기획</h3>
+        <div class="diff-grid">
+            <div class="diff-item">
+                <h4>시선을 머물게 하는 톤</h4>
+                <p>무분별한 고화질보다 중요한 것은 공간의 온도입니다. 유저가 피드를 내리다 멈출 수밖에 없는 시어만의 독보적인 색감과 구도를 제안합니다.</p>
+            </div>
+            <div class="diff-item">
+                <h4>행동을 유도하는 기획</h4>
+                <p>알고리즘이 선호하는 초반 3초 후킹과 실제 저장/공유로 이어지는 정보 배치를 통해 단순 노출 이상의 가치를 만듭니다.</p>
+            </div>
+            <div class="diff-item">
+                <h4>올인원 디렉팅</h4>
+                <p>기획, 촬영, 감성 편집까지 모든 과정을 직접 핸들링하여 외부 단계에서 발생하는 무드 왜곡 없이 최상의 결과물을 보장합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="work">
+        <span class="section-tag">Featured Portfolio</span>
+        <div class="work-grid">
+            <div class="video-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DR7Gv12D5sH/" data-instgrm-version="14"></blockquote></div>
+            <div class="video-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DTuoxxQkbfR/" data-instgrm-version="14"></blockquote></div>
+            <div class="video-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DSp6NWSkx0M/" data-instgrm-version="14"></blockquote></div>
+        </div>
+    </section>
+
+    <footer>
+        <h3>공간에 감성을 더해<br>성과를 설계합니다.</h3>
+        <a href="https://open.kakao.com/..." class="cta-btn">협업 문의하기</a>
+    </footer>
+
+    <script async src="//www.instagram.com/embed.js"></script>
+</body>
+</html>
