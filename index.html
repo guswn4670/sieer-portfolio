@@ -75,6 +75,31 @@
             .about { grid-template-columns: 1fr; }
             header, .hero, .about, .performance, .reviews, .work { padding: 60px 24px; }
         }
+        /* 5. 포트폴리오 스타일 수정 */
+.work-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 30px; 
+    justify-content: center; /* 그리드 아이템들 자체를 중앙으로 */
+}
+
+.video-card { 
+    border-radius: 20px; 
+    overflow: hidden; 
+    background: #fff; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: flex;       /* 내부 임베드 정렬을 위해 flex 설정 */
+    justify-content: center; 
+    align-items: center;
+    padding: 20px 0;    /* 임베드 카드가 꽉 차지 않을 때 대비한 여백 */
+}
+
+/* 인스타그램 임베드 강제 중앙 정렬 */
+.video-card blockquote { 
+    margin: 0 auto !important; 
+    min-width: 326px !important; /* 인스타 임베드 최소 너비 대응 */
+    width: 100% !important;
+}
     </style>
 </head>
 <body>
