@@ -3,174 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sieer | 시어 - 공간의 온도를 설계합니다</title>
+    <title>Sieer | 공간의 온도를 설계합니다</title>
     <style>
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
         
         :root {
-            --bg: #F4F2EE;       /* 따뜻한 베이지 배경 */
-            --point: #2D433E;    /* 신뢰를 주는 딥 그린 */
-            --accent: #D9835D;   /* 온기를 담은 테라코타 */
-            --text: #1A1A1A;     /* 메인 텍스트 */
-            --gray: #666666;     /* 서브 텍스트 */
+            --bg: #F2F0ED;       /* 종이 질감 베이지 */
+            --point: #2D433E;    /* 딥 그린 */
+            --accent: #D9835D;   /* 테라코타 */
+            --white: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: 'Pretendard', sans-serif; 
             background-color: var(--bg); 
-            color: var(--text);
-            line-height: 1.8;
-            word-break: keep-all;
+            color: #1a1a1a;
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
-        /* 공통 스타일 */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-        section { padding: 120px 0; }
-        .tag { color: var(--accent); font-weight: 700; letter-spacing: 0.1rem; font-size: 0.9rem; margin-bottom: 15px; display: block; }
-        h2 { font-size: 2.8rem; font-weight: 800; line-height: 1.3; color: var(--point); margin-bottom: 30px; }
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 60px; }
 
-        /* 1. 히어로 섹션 */
-        .hero { height: 100vh; display: flex; align-items: center; background: white; }
-        .hero-title { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; line-height: 1.15; }
-        .hero-title span { color: var(--accent); }
-        .hero-sub { font-size: 1.4rem; font-weight: 500; margin-top: 40px; color: var(--gray); }
-
-        /* 2. 스토리텔링 & 아이덴티티 */
-        .story { background-color: var(--bg); }
-        .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-        .story-text p { font-size: 1.2rem; margin-bottom: 30px; color: var(--gray); }
-        .story-text b { color: var(--text); }
-
-        /* 3. 성과 지표 */
-        .performance { background: var(--point); color: white; padding: 80px 0; }
-        .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center; }
-        .stat-item .val { font-size: 3.5rem; font-weight: 900; color: var(--accent); display: block; }
-        .stat-item p { font-size: 1rem; opacity: 0.8; margin-top: 10px; }
-
-        /* 4. 촬영 기획 방향성 (맛집/카페/숙소) */
-        .strategy { background: white; }
-        .strat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 50px; }
-        .strat-card { padding: 40px; background: var(--bg); border-radius: 20px; }
-        .strat-card h3 { font-size: 1.5rem; margin-bottom: 20px; color: var(--point); }
-        .strat-card ul { list-style: none; color: var(--gray); }
-        .strat-card li { margin-bottom: 10px; position: relative; padding-left: 20px; }
-        .strat-card li::before { content: "•"; position: absolute; left: 0; color: var(--accent); }
-
-        /* 5. 차별점 (USP) */
-        .usp { background: var(--bg); }
-        .usp-list { counter-reset: section; }
-        .usp-item { display: flex; gap: 40px; margin-bottom: 60px; align-items: center; }
-        .usp-item::before { 
-            counter-increment: section; content: counter(section, decimal-leading-zero); 
-            font-size: 4rem; font-weight: 900; color: rgba(45, 67, 62, 0.1); 
+        /* 1. 히어로 섹션 - 입체적 타이포 */
+        .hero { 
+            height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            position: relative;
+            background: #EBE8E3;
+            overflow: hidden;
         }
-        .usp-info h3 { font-size: 1.8rem; margin-bottom: 10px; }
+        .hero-bg-text {
+            position: absolute;
+            font-size: 25vw;
+            font-weight: 900;
+            color: rgba(45, 67, 62, 0.04);
+            white-space: nowrap;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            letter-spacing: -1rem;
+        }
+        .hero-content { position: relative; z-index: 2; width: 100%; }
+        .hero .main-val { 
+            font-size: 8rem; 
+            font-weight: 900; 
+            line-height: 1; 
+            color: var(--point); 
+            margin-bottom: 20px;
+            display: block;
+        }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.15rem; }
+        .hero h1 span { color: var(--accent); }
 
-        /* 6. 리얼 보이스 (후기) */
-        .reviews { background: white; }
-        .review-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .rev-box { padding: 30px; border: 1px solid #eee; border-radius: 15px; }
-        .rev-box.owner { border-left: 5px solid var(--point); }
-        .rev-box.user { border-left: 5px solid var(--accent); background: #fffaf8; }
-        .rev-name { display: block; margin-top: 15px; font-weight: 700; font-size: 0.9rem; color: var(--gray); }
+        /* 2. 스토리텔링 - 엇갈린 배치 */
+        .section-title { font-size: 0.8rem; font-weight: 700; color: var(--accent); letter-spacing: 0.3rem; margin-bottom: 20px; display: block; }
+        
+        .story { padding: 150px 0; }
+        .story-wrapper { display: flex; gap: 100px; align-items: center; }
+        .story-img { 
+            flex: 1; 
+            height: 600px; 
+            background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800') center/cover;
+            border-radius: 5px;
+            box-shadow: 40px 40px 0px var(--point); /* 입체적 포인트 */
+        }
+        .story-text { flex: 1; padding-left: 40px; }
+        .story-text h2 { font-size: 2.8rem; margin-bottom: 30px; line-height: 1.3; }
 
-        /* 7. 포트폴리오 (인스타 중앙 정렬) */
-        .work { background: var(--bg); text-align: center; }
-        .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; justify-content: center; }
-        .video-card { display: flex; justify-content: center; background: white; padding: 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        /* 3. 전략 카드 - 플로팅 효과 */
+        .strategy { padding: 150px 0; background: var(--white); }
+        .strat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; }
+        .strat-card { 
+            padding: 50px 40px; 
+            background: var(--bg); 
+            border-radius: 2px; 
+            transition: 0.4s;
+            position: relative;
+            top: 0;
+        }
+        .strat-card:hover { 
+            top: -20px; 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1); 
+            background: var(--point); 
+            color: white; 
+        }
+        .strat-card h3 { font-size: 1.6rem; margin-bottom: 20px; }
+
+        /* 4. 후기 - 리드미컬 배치 */
+        .reviews { padding: 150px 0; }
+        .rev-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; }
+        .rev-item { background: var(--white); padding: 40px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .rev-item.big { grid-row: span 2; display: flex; flex-direction: column; justify-content: center; background: var(--accent); color: white; }
+
+        /* 5. 포트폴리오 - 중앙 정렬 */
+        .work { padding: 150px 0; background: var(--white); text-align: center; }
+        .work-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 40px; 
+            justify-content: center; 
+            margin-top: 60px;
+        }
+        .video-card { background: var(--bg); padding: 15px; border-radius: 10px; display: flex; justify-content: center; }
         .video-card blockquote { margin: 0 auto !important; width: 100% !important; }
 
-        /* 8. 푸터 */
-        footer { padding: 100px 0; background: var(--point); color: white; text-align: center; }
-        .cta-btn { display: inline-block; background: var(--accent); color: white; padding: 20px 50px; border-radius: 50px; text-decoration: none; font-weight: 800; margin-top: 40px; transition: 0.3s; }
-        .cta-btn:hover { transform: scale(1.05); }
+        /* 푸터 */
+        footer { padding: 150px 0; background: var(--point); color: white; text-align: center; }
+        .cta-btn { 
+            display: inline-block; background: var(--accent); color: white; 
+            padding: 25px 80px; font-size: 1.2rem; font-weight: 800; 
+            text-decoration: none; margin-top: 50px; 
+        }
 
-        @media (max-width: 768px) {
-            .story-grid, .stats, .review-container { grid-template-columns: 1fr; }
-            h2 { font-size: 2rem; }
-            section { padding: 80px 0; }
+        @media (max-width: 1024px) {
+            .story-wrapper, .strat-grid, .rev-grid { grid-template-columns: 1fr; flex-direction: column; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero .main-val { font-size: 5rem; }
+            .container { padding: 0 30px; }
         }
     </style>
 </head>
 <body>
 
     <section class="hero">
-        <div class="container">
-            <span class="tag">SPACE CURATION SERVICE</span>
-            <h1 class="hero-title">3개월 누적 40만 뷰,<br><span>공간의 온도를 팔리는 장면으로</span><br>설계합니다.</h1>
-            <p class="hero-sub">시어(Sieer) | 조용한 시선으로 담아낸 가장 강렬한 확신</p>
+        <div class="hero-bg-text">400,000+</div>
+        <div class="container hero-content">
+            <span class="main-val">400,000+</span>
+            <h1>숫자로 증명하는 공간의 온도,<br><span>가고 싶은 장면</span>을 설계합니다.</h1>
         </div>
     </section>
 
     <section class="story">
         <div class="container">
-            <div class="story-grid">
-                <h2>공간은 완벽한데,<br>왜 우리 가게 인스타는<br>평범해 보일까요?</h2>
+            <div class="story-wrapper">
+                <div class="story-img"></div>
                 <div class="story-text">
-                    <p>사장님이 쏟은 수억 원의 인테리어 비용, 밤낮없이 연구한 메뉴. 하지만 <b>단 15초의 릴스</b>가 그 가치를 담아내지 못한다면 유저는 스크롤을 멈추지 않습니다.</p>
-                    <p>시어(Sieer)는 단순히 카메라를 드는 사람이 아닙니다. 공간의 결을 읽고, 유저가 <b>'저장'</b>을 누를 수밖에 없는 찰나의 온도를 포착하는 전략가입니다.</p>
-                    <p><b>조용한 시선으로 기록한 장면이 사장님의 매출이 되는 경험, 시어가 증명합니다.</b></p>
+                    <span class="section-tag">IDENTITY</span>
+                    <h2>공간은 완벽한데,<br>왜 인스타는 평범할까요?</h2>
+                    <p>사장님이 쏟은 정성이 단 15초의 릴스에서 멈춘다면 유저는 스크롤을 넘깁니다. 시어는 공간의 결을 읽고 유저가 '저장'을 누르는 찰나를 포착합니다.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="performance">
-        <div class="container stats">
-            <div class="stat-item"><span class="val">400,000+</span><p>누적 조회수</p></div>
-            <div class="stat-item"><span class="val">132,000</span><p>단일 영상 최고 조회수</p></div>
-            <div class="stat-item"><span class="val">5,000+</span><p>자발적 저장 및 공유</p></div>
         </div>
     </section>
 
     <section class="strategy">
         <div class="container">
-            <span class="tag">OUR STRATEGY</span>
-            <h2>공간별 최적의 기획으로<br>사장님의 팬을 만듭니다.</h2>
+            <span class="section-tag">STRATEGY</span>
+            <h2>팔리는 장면의 3가지 공식</h2>
             <div class="strat-grid">
                 <div class="strat-card">
-                    <h3>맛집 / 카페</h3>
-                    <ul>
-                        <li>미각을 자극하는 식재료의 질감 포착</li>
-                        <li>조리 과정의 소리와 무드를 담은 ASMR</li>
-                        <li>공간의 무드와 메뉴의 조화로운 연출</li>
-                    </ul>
+                    <h3>01. 알고리즘</h3>
+                    <p>도달을 결정짓는 초반 3초 후킹과 정보성 레이아웃 설계</p>
                 </div>
                 <div class="strat-card">
-                    <h3>숙소 / 스테이</h3>
-                    <ul>
-                        <li>직접 입실하는 듯한 POV 시점샷</li>
-                        <li>침구의 바스락거림과 빛의 흐름 기록</li>
-                        <li>머무는 '경험'에 집중한 여백의 미</li>
-                    </ul>
+                    <h3>02. 구도와 빛</h3>
+                    <p>사장님도 몰랐던 공간의 베스트 뷰를 찾아내는 공간 분석</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="usp">
-        <div class="container">
-            <span class="tag">WHY SIEER</span>
-            <h2>오직 시어만이 가능한<br>세 가지 약속</h2>
-            <div class="usp-list">
-                <div class="usp-item">
-                    <div class="usp-info">
-                        <h3>알고리즘 최적화 기획</h3>
-                        <p>초반 3초 후킹과 정보성 레이아웃으로 도달률을 극대화합니다.</p>
-                    </div>
-                </div>
-                <div class="usp-item">
-                    <div class="usp-info">
-                        <h3>공간 분석적 시선</h3>
-                        <p>인테리어의 장점과 빛의 방향을 계산하여 최적의 구도를 제안합니다.</p>
-                    </div>
-                </div>
-                <div class="usp-item">
-                    <div class="usp-info">
-                        <h3>원스톱 브랜딩</h3>
-                        <p>기획부터 촬영, 사운드 믹싱까지 전 과정을 디렉터가 직접 핸들링합니다.</p>
-                    </div>
+                <div class="strat-card">
+                    <h3>03. 원스톱</h3>
+                    <p>기획부터 사운드까지 디렉터가 직접 핸들링하는 일관성</p>
                 </div>
             </div>
         </div>
@@ -178,16 +171,17 @@
 
     <section class="reviews">
         <div class="container">
-            <span class="tag">REAL VOICE</span>
-            <h2 style="text-align: center;">성과로 말하는 리얼 후기</h2>
-            <div class="review-container">
-                <div class="rev-box owner">
-                    <p>"릴스 업로드 다음 날부터 영상 보고 왔다는 손님들이 줄을 서네요. 확실히 감도가 다릅니다."</p>
-                    <span class="rev-name">- 성수동 OO 카페 사장님</span>
+            <span class="section-tag">REAL VOICE</span>
+            <div class="rev-grid">
+                <div class="rev-item big">
+                    <h3 style="font-size: 2rem;">"릴스 업로드 다음 날부터 손님들이 줄을 서네요."</h3>
+                    <p style="margin-top:20px;">- 성수동 카페 파트너 사장님</p>
                 </div>
-                <div class="rev-box user">
-                    <p>"영상 보고 이번 주말 여행지로 결정했어요! 친구 태그해서 같이 가기로 했습니다."</p>
-                    <span class="rev-name">- 실제 유저 댓글 반응 중</span>
+                <div class="rev-item">
+                    <p>"영상 색감이 너무 예뻐요. 이번 주말 여행지로 결정했습니다!"</p>
+                </div>
+                <div class="rev-item">
+                    <p>"나만 알고 싶은 곳이었는데 결국 떡상하네요.. 역시 시어."</p>
                 </div>
             </div>
         </div>
@@ -195,21 +189,7 @@
 
     <section class="work">
         <div class="container">
-            <span class="tag">PORTFOLIO</span>
+            <span class="section-tag">PORTFOLIO</span>
             <div class="work-grid">
-                <div class="video-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DR7Gv12D5sH/" data-instgrm-version="14"></blockquote></div>
-                <div class="video-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DTuoxxQkbfR/" data-instgrm-version="14"></blockquote></div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <h2>사장님의 공간을 데이터와<br>감도로 증명할 시간입니다.</h2>
-            <a href="https://open.kakao.com/..." class="cta-btn">무료 상담 및 프로젝트 제안</a>
-        </div>
-    </footer>
-
-    <script async src="//www.instagram.com/embed.js"></script>
-</body>
-</html>
+                <div class="video-card">
+                    <blockquote class="instagram-media" data-instgrm-permalink="
