@@ -3,140 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sieer | 시어 - 성과로 증명하는 공간 큐레이션</title>
+    <title>Sieer | 시어</title>
     <style>
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
         
         :root {
-            --bg-color: #F2F0ED; /* 부드러운 오트밀 베이지 */
-            --point-color: #4A5D54; /* 차분한 세이지 그린 */
-            --highlight-color: #D67D5B; /* 강조 테라코타 */
-            --text-main: #1A1A1A;
+            --bg-color: #F2F0ED;
+            --point-green: #4A5D54;
+            --text-black: #1A1A1A;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: 'Pretendard', sans-serif; 
             background-color: var(--bg-color); 
-            color: var(--text-main);
-            line-height: 1.5;
-            word-break: keep-all;
+            color: var(--text-black);
+            overflow-x: hidden;
         }
 
-        /* 헤더: 로고 및 슬로건 */
-        header { padding: 60px 40px 40px 40px; }
-        header .logo-area h1 { font-weight: 900; font-size: 2rem; color: #000; line-height: 1; }
-        header .logo-area p { 
-            font-size: 0.95rem; 
-            color: #777; 
-            margin-top: 8px; 
-            letter-spacing: 0.05rem; 
-            font-weight: 300;
+        /* 헤더 */
+        header { padding: 40px 60px; }
+        header h1 { font-weight: 900; font-size: 1.8rem; margin-bottom: 5px; }
+        header p { font-size: 0.9rem; color: #888; font-weight: 300; letter-spacing: 0.05rem; }
+
+        /* 히어로 섹션: 좌우 2단 구성으로 휑함 방지 */
+        .hero-container {
+            display: flex;
+            padding: 0 60px 100px 60px;
+            gap: 40px;
+            align-items: center;
         }
 
-        /* 히어로 섹션 */
-        .hero { padding: 20px 40px 80px 40px; }
-        .hero .main-title {
-            font-size: clamp(2.4rem, 8vw, 4.5rem);
+        .hero-left { flex: 1.2; }
+        .hero-right { 
+            flex: 0.8; 
+            height: 500px; 
+            background-color: var(--point-green); 
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
+        }
+        .hero-right img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+
+        .main-title {
+            font-size: clamp(2rem, 5vw, 3.8rem);
             font-weight: 900;
-            line-height: 1.1;
-            letter-spacing: -0.15rem;
-            margin-bottom: 50px;
+            line-height: 1.2;
+            letter-spacing: -0.1rem;
+            margin-bottom: 40px;
         }
-        .hero .main-title span { color: var(--point-color); opacity: 0.8; }
+        .main-title span { color: var(--point-green); }
 
-        /* 핵심 성과 하이라이트 박스 (추가된 부분) */
-        .hero .impact-box {
-            display: inline-flex;
-            flex-direction: column;
+        /* 성과 박스 */
+        .impact-card {
             background: white;
-            padding: 30px 45px;
-            border-radius: 4px; /* 미니멀한 직선미 */
-            border-left: 8px solid var(--point-color);
-            box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
+            padding: 30px;
+            display: inline-block;
+            border-left: 6px solid var(--point-green);
         }
-        .impact-box .label { font-size: 1rem; color: #888; margin-bottom: 5px; font-weight: 500; }
-        .impact-box .value { font-size: 3rem; font-weight: 900; color: var(--point-color); line-height: 1; }
-        .impact-box .value small { font-size: 1.2rem; margin-left: 2px; }
-        .impact-box .desc { margin-top: 15px; font-size: 1.05rem; color: #555; border-top: 1px solid #eee; padding-top: 15px; }
+        .impact-card .val { font-size: 2.8rem; font-weight: 900; color: var(--point-green); line-height: 1; }
+        .impact-card .desc { margin-top: 10px; font-size: 1rem; color: #666; }
 
-        /* 섹션 공통 스타일 */
-        section { padding: 100px 40px; }
-        .section-tag { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2rem; color: #999; margin-bottom: 40px; display: block; }
+        /* 포트폴리오 섹션: 중앙 정렬 및 검은색 제거 */
+        .work-section { 
+            padding: 100px 60px; 
+            background: white; 
+            text-align: center;
+        }
+        .work-section h3 { font-size: 2rem; margin-bottom: 60px; font-weight: 800; }
+        
+        .work-grid {
+            display: flex;
+            justify-content: center; /* 가로 중앙 정렬 */
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-        /* 차별화/개성 섹션 */
-        .about { background: white; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .about-text h3 { font-size: 2.5rem; font-weight: 800; margin-bottom: 25px; line-height: 1.2; }
-        .about-text p { font-size: 1.1rem; color: #666; margin-bottom: 20px; }
+        .work-item {
+            width: 300px;
+            aspect-ratio: 9/16;
+            background: #eee;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .work-item:hover { transform: translateY(-10px); }
+        .work-item img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* 영상 위에 올라갈 레이어 */
+        .work-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.5));
+            color: white;
+            text-align: left;
+        }
 
-        /* 포트폴리오 */
-        .work { background: #E9E7E4; }
-        .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .video-card { border-radius: 0px; overflow: hidden; background: #000; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
-
-        /* 푸터 */
-        footer { padding: 120px 40px; background: var(--point-color); color: white; text-align: center; }
-        footer h3 { font-size: 2.5rem; font-weight: 800; margin-bottom: 40px; }
+        footer { padding: 100px 60px; text-align: center; background: var(--bg-color); }
         .cta-btn { 
-            display: inline-block; background: white; color: var(--point-color); 
-            padding: 22px 60px; font-weight: 800; text-decoration: none; 
-            font-size: 1.1rem; transition: 0.3s;
+            display: inline-block; background: var(--point-green); color: white; 
+            padding: 20px 50px; text-decoration: none; font-weight: 700; border-radius: 5px;
         }
-        .cta-btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-        @media (max-width: 768px) {
-            header, .hero, .about, .work, footer { padding: 60px 24px; }
-            .about { grid-template-columns: 1fr; }
+        @media (max-width: 1024px) {
+            .hero-container { flex-direction: column; padding: 0 30px; }
+            .hero-right { width: 100%; height: 300px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-area">
-            <h1>Sieer</h1>
-            <p>조용한 시선으로 담은 장면</p>
-        </div>
+        <h1>Sieer</h1>
+        <p>조용한 시선으로 담은 장면</p>
     </header>
 
-    <section class="hero">
-        <h2 class="main-title">
-            단 1분의 영상으로<br>사장님의 공간을<br><span>가고 싶은 곳으로 만듭니다.</span>
-        </h2>
-        
-        <div class="impact-box">
-            <p class="label">OPEN : 3 MONTHS</p>
-            <p class="value">400,000<small>회+</small></p>
-            <p class="desc">계정 개설 3달 만에 달성한 <b>누적 조회수</b></p>
-        </div>
-    </section>
-
-    <section class="about">
-        <div class="about-text">
-            <span class="section-tag">Identity</span>
-            <h3>공간의 무드를 읽고<br>데이터로 결과를 냅니다.</h3>
-            <p>시어(Sieer)는 단순히 촬영만 하는 대행사가 아닙니다. 공간이 가진 고유의 온도를 가장 잘 보여줄 수 있는 '조용한 시선'을 제안합니다.</p>
-            <p>동시에 40만 뷰를 만들어낸 철저한 바이럴 기획력을 바탕으로 사장님의 공간을 가장 매력적인 목적지로 바꿉니다.</p>
-        </div>
-        <div style="background:#ddd; aspect-ratio:4/5;">
+    <div class="hero-container">
+        <div class="hero-left">
+            <h2 class="main-title">
+                단 1분의 영상으로<br>사장님의 공간을<br><span>가고 싶은 곳으로</span> 만듭니다.
+            </h2>
+            <div class="impact-card">
+                <p class="val">400,000+</p>
+                <p class="desc">3달 만에 증명한 누적 조회수</p>
             </div>
-    </section>
+        </div>
+        <div class="hero-right">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000" alt="Work Scene">
+        </div>
+    </div>
 
-    <section class="work">
-        <span class="section-tag">Selected Portfolio</span>
+    <section class="work-section">
+        <h3>Featured Work</h3>
         <div class="work-grid">
-            <div class="video-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DR7Gv12D5sH/" data-instgrm-version="14"></blockquote></div>
-            <div class="video-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DTuoxxQkbfR/" data-instgrm-version="14"></blockquote></div>
-            <div class="video-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DSp6NWSkx0M/" data-instgrm-version="14"></blockquote></div>
+            <div class="work-item" onclick="window.open('https://www.instagram.com/reel/DR7Gv12D5sH/')">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=500" alt="Work 1">
+                <div class="work-overlay">13.2만 조회수 기록</div>
+            </div>
+            <div class="work-item" onclick="window.open('https://www.instagram.com/reel/DTuoxxQkbfR/')">
+                <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&q=80&w=500" alt="Work 2">
+                <div class="work-overlay">감성 카페 바이럴</div>
+            </div>
+            <div class="work-item" onclick="window.open('https://www.instagram.com/reel/DSp6NWSkx0M/')">
+                <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=500" alt="Work 3">
+                <div class="work-overlay">공간의 온도를 담다</div>
+            </div>
         </div>
     </section>
 
     <footer>
-        <h3>당신의 장면을<br>설계할 준비가 되셨나요?</h3>
         <a href="https://open.kakao.com/..." class="cta-btn">프로젝트 문의하기</a>
-        <p style="margin-top: 50px; font-size: 0.8rem; opacity: 0.6;">© 2024 Sieer. All rights reserved.</p>
     </footer>
 
-    <script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>
