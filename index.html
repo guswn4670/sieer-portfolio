@@ -3,127 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sieer | 감도를 넘어서는 성과</title>
+    <title>Sieer | 시어 - 성과로 증명하는 공간 큐레이션</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@100;400;700;900&display=swap');
+        /* 프리텐다드 폰트 적용 (가장 신뢰감 있고 깔끔한 폰트) */
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: 'Pretendard', sans-serif; 
             background-color: #ffffff; 
             color: #111;
-            line-height: 1.2;
+            line-height: 1.4;
+            word-break: keep-all;
         }
 
-        /* 헤더 로고 강화 */
-        header {
-            padding: 50px 40px;
-            text-align: left; /* 미니멀 감성을 위해 좌측 정렬 */
-        }
+        /* 헤더 */
+        header { padding: 60px 40px 20px 40px; }
         header h1 { 
             font-weight: 900; 
-            font-size: 2.2rem; 
-            letter-spacing: -0.05rem;
+            font-size: 2.5rem; 
+            letter-spacing: -0.05rem; 
             color: #000;
         }
 
-        /* 히어로 섹션 - 후킹 문구 강조 */
-        .hero {
-            padding: 20px 40px 80px 40px;
-        }
-        .hero-text h2 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem); /* 반응형 큰 글씨 */
+        /* 메인 후킹 문구 */
+        .hero { padding: 0 40px 80px 40px; }
+        .hero h2 {
+            font-size: clamp(2.4rem, 8vw, 4.5rem);
             font-weight: 900;
             line-height: 1.1;
             letter-spacing: -0.15rem;
-            margin-bottom: 30px;
-            word-break: keep-all;
         }
-        .hero-text h2 span { color: #555; } /* 보조 문구 색상 조정 */
+        .hero h2 span { color: #888; display: block; margin-top: 10px; }
 
-        /* 성과 섹션 - 카드 스타일로 변경 */
+        /* 데이터 성과 섹션 */
         .performance {
-            background-color: #f8f9fa;
-            padding: 80px 40px;
-            margin-bottom: 50px;
+            background-color: #000;
+            color: #fff;
+            padding: 100px 40px;
+            margin-bottom: 80px;
         }
-        .section-title {
+        .section-tag {
             font-size: 0.9rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.1rem;
-            margin-bottom: 40px;
+            letter-spacing: 0.2rem;
+            margin-bottom: 50px;
+            display: block;
             color: #666;
         }
-        .stats-container {
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
         }
-        .stat-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-        }
-        .stat-card .label {
-            font-size: 1rem;
-            color: #888;
-            margin-bottom: 10px;
-            font-weight: 400;
-        }
-        .stat-card .value {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: #000;
-            margin-bottom: 5px;
-        }
-        .stat-card .desc {
-            font-size: 0.9rem;
-            color: #444;
-            font-weight: 500;
-        }
+        .stat-item .label { font-size: 1.1rem; color: #aaa; margin-bottom: 15px; }
+        .stat-item .value { font-size: 4rem; font-weight: 900; line-height: 1; }
+        .stat-item .value small { font-size: 1.5rem; margin-left: 5px; }
 
-        /* 포트폴리오 미리보기 */
-        .portfolio {
-            padding: 50px 40px;
-        }
-        .grid {
+        /* 포트폴리오 영상 섹션 */
+        .work { padding: 0 40px 100px 40px; max-width: 1400px; margin: 0 auto; }
+        .work-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
         }
-        .grid-item {
-            aspect-ratio: 9 / 16;
-            background: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            color: #ccc;
-            font-weight: 700;
-            transition: 0.4s;
+        .video-card {
+            background: #fcfcfc;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
         }
-        .grid-item:hover { transform: translateY(-10px); background: #e5e5e5; }
+        .video-card:hover { transform: translateY(-10px); }
+        
+        /* 인스타그램 임베드 반응형 설정 */
+        .instagram-media { 
+            margin: 0 !important; 
+            width: 100% !important; 
+            border: none !important;
+            min-width: 100% !important; 
+        }
 
         /* 하단 컨택트 */
         footer {
-            padding: 120px 40px;
-            background: #000;
-            color: white;
-            text-align: left;
+            padding: 150px 40px;
+            background: #f8f9fa;
+            text-align: center;
         }
-        footer h3 { font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; }
-        .cta-button {
+        footer h3 { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 900; margin-bottom: 30px; }
+        .cta-btn {
             display: inline-block;
-            background: #fff;
-            color: #000;
-            padding: 20px 50px;
+            background: #000;
+            color: #fff;
+            padding: 25px 60px;
+            font-size: 1.2rem;
             font-weight: 700;
             text-decoration: none;
-            border-radius: 50px;
-            margin-top: 30px;
+            border-radius: 100px;
+            transition: 0.3s;
+        }
+        .cta-btn:hover { background: #333; transform: scale(1.05); }
+
+        @media (max-width: 768px) {
+            header { padding: 40px 20px; }
+            .hero { padding: 0 20px 60px 20px; }
+            .performance { padding: 80px 20px; }
+            .work { padding: 0 20px 80px 20px; }
+            .stat-item .value { font-size: 3rem; }
         }
     </style>
 </head>
@@ -134,46 +120,49 @@
     </header>
 
     <section class="hero">
-        <div class="hero-text">
-            <h2>단 1분의 영상으로<br>사장님의 공간을<span><br>가고 싶은 곳으로 만듭니다.</span></h2>
-        </div>
+        <h2>단 1분의 영상으로<br>사장님의 공간을<span>가고 싶은 곳으로 만듭니다.</span></h2>
     </section>
 
     <section class="performance">
-        <p class="section-title">Verified Performance</p>
-        <div class="stats-container">
-            <div class="stat-card">
+        <span class="section-tag">Direct Impact</span>
+        <div class="stats-grid">
+            <div class="stat-item">
                 <p class="label">최고 조회수</p>
-                <p class="value">13.2만</p>
-                <p class="desc">릴스 단일 영상 기준</p>
+                <p class="value">13.2<small>만</small></p>
             </div>
-            <div class="stat-card">
+            <div class="stat-item">
                 <p class="label">자발적 공유</p>
-                <p class="value">3,000+</p>
-                <p class="desc">지인에게 추천된 횟수</p>
+                <p class="value">3,000<small>+</small></p>
             </div>
-            <div class="stat-card">
+            <div class="stat-item">
                 <p class="label">실제 저장</p>
-                <p class="value">2,000+</p>
-                <p class="desc">방문으로 이어지는 핵심 지표</p>
+                <p class="value">2,000<small>+</small></p>
             </div>
         </div>
     </section>
 
-    <section class="portfolio">
-        <p class="section-title">Our Work</p>
-        <div class="grid">
-            <div class="grid-item">대표 영상 1</div>
-            <div class="grid-item">대표 영상 2</div>
-            <div class="grid-item">대표 영상 3</div>
+    <section class="work">
+        <span class="section-tag" style="color: #ccc;">Featured Work</span>
+        <div class="work-grid">
+            <div class="video-card">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DR7Gv12D5sH/" data-instgrm-version="14"></blockquote>
+            </div>
+            <div class="video-card">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DTuoxxQkbfR/" data-instgrm-version="14"></blockquote>
+            </div>
+            <div class="video-card">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DSp6NWSkx0M/" data-instgrm-version="14"></blockquote>
+            </div>
         </div>
     </section>
 
     <footer>
-        <h3>당신의 공간을<br>데이터로 증명하세요.</h3>
-        <p>감도 높은 기획과 확실한 바이럴을 약속합니다.</p>
-        <a href="https://open.kakao.com/..." class="cta-button">무료 상담 신청하기</a>
+        <h3>당신의 공간을 데이터로 증명할 시간입니다.</h3>
+        <p style="margin-bottom: 40px; color: #666;">이미 수많은 유저가 시어의 감도에 반응하고 있습니다.</p>
+        <a href="https://open.kakao.com/..." class="cta-btn">협업 문의하기</a>
+        <p style="margin-top: 60px; font-size: 0.8rem; color: #bbb;">© 2024 Sieer. All rights reserved.</p>
     </footer>
 
+    <script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>
