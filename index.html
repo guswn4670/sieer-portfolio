@@ -1,15 +1,179 @@
-/ (메인)
-- 한 줄 후킹 문장
-- 계정 소개 + 타깃
-- 협업 가능한 브랜드 유형
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sieer | 감도를 넘어서는 성과</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@100;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Pretendard', sans-serif; 
+            background-color: #ffffff; 
+            color: #111;
+            line-height: 1.2;
+        }
 
-/work
-- 릴스 썸네일 + 조회수/저장수
-- 전/후 성과 비교
+        /* 헤더 로고 강화 */
+        header {
+            padding: 50px 40px;
+            text-align: left; /* 미니멀 감성을 위해 좌측 정렬 */
+        }
+        header h1 { 
+            font-weight: 900; 
+            font-size: 2.2rem; 
+            letter-spacing: -0.05rem;
+            color: #000;
+        }
 
-/data
-- 최근 30/60/90일 인사이트 그래프
-- 평균 조회수, 저장률, 도달 대비 전환
+        /* 히어로 섹션 - 후킹 문구 강조 */
+        .hero {
+            padding: 20px 40px 80px 40px;
+        }
+        .hero-text h2 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem); /* 반응형 큰 글씨 */
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.15rem;
+            margin-bottom: 30px;
+            word-break: keep-all;
+        }
+        .hero-text h2 span { color: #555; } /* 보조 문구 색상 조정 */
 
-/contact
-- 협업 제안 폼 (메일 자동 전송)
+        /* 성과 섹션 - 카드 스타일로 변경 */
+        .performance {
+            background-color: #f8f9fa;
+            padding: 80px 40px;
+            margin-bottom: 50px;
+        }
+        .section-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            margin-bottom: 40px;
+            color: #666;
+        }
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .stat-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+        .stat-card .label {
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+        .stat-card .value {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #000;
+            margin-bottom: 5px;
+        }
+        .stat-card .desc {
+            font-size: 0.9rem;
+            color: #444;
+            font-weight: 500;
+        }
+
+        /* 포트폴리오 미리보기 */
+        .portfolio {
+            padding: 50px 40px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .grid-item {
+            aspect-ratio: 9 / 16;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            color: #ccc;
+            font-weight: 700;
+            transition: 0.4s;
+        }
+        .grid-item:hover { transform: translateY(-10px); background: #e5e5e5; }
+
+        /* 하단 컨택트 */
+        footer {
+            padding: 120px 40px;
+            background: #000;
+            color: white;
+            text-align: left;
+        }
+        footer h3 { font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; }
+        .cta-button {
+            display: inline-block;
+            background: #fff;
+            color: #000;
+            padding: 20px 50px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Sieer</h1>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h2>단 1분의 영상으로<br>사장님의 공간을<span><br>가고 싶은 곳으로 만듭니다.</span></h2>
+        </div>
+    </section>
+
+    <section class="performance">
+        <p class="section-title">Verified Performance</p>
+        <div class="stats-container">
+            <div class="stat-card">
+                <p class="label">최고 조회수</p>
+                <p class="value">13.2만</p>
+                <p class="desc">릴스 단일 영상 기준</p>
+            </div>
+            <div class="stat-card">
+                <p class="label">자발적 공유</p>
+                <p class="value">3,000+</p>
+                <p class="desc">지인에게 추천된 횟수</p>
+            </div>
+            <div class="stat-card">
+                <p class="label">실제 저장</p>
+                <p class="value">2,000+</p>
+                <p class="desc">방문으로 이어지는 핵심 지표</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio">
+        <p class="section-title">Our Work</p>
+        <div class="grid">
+            <div class="grid-item">대표 영상 1</div>
+            <div class="grid-item">대표 영상 2</div>
+            <div class="grid-item">대표 영상 3</div>
+        </div>
+    </section>
+
+    <footer>
+        <h3>당신의 공간을<br>데이터로 증명하세요.</h3>
+        <p>감도 높은 기획과 확실한 바이럴을 약속합니다.</p>
+        <a href="https://open.kakao.com/..." class="cta-button">무료 상담 신청하기</a>
+    </footer>
+
+</body>
+</html>
