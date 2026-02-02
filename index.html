@@ -1,200 +1,238 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sieer | 데이터와 성과로 증명하는 공간 디렉팅</title>
-    <style>
-        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sieer — 공간의 여운을 방문으로 설계하다</title>
 
-        :root {
-            --bg: #FFFFFF;
-            --section-bg: #F8F9FA;
-            --point: #111111;
-            --accent: #0052CC; /* 신뢰감을 주는 블루 계열 혹은 기존 테라코타 유지 가능 */
-            --text-sub: #666666;
-            --border: #EEEEEE;
-        }
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
-        * { margin: 0; padding: 0; box-sizing: border-box; letter-spacing: -0.05rem; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Pretendard', sans-serif; background-color: var(--bg); color: var(--point); line-height: 1.6; }
+    :root {
+      --bg: #F2F0ED;
+      --point: #4A5D54;
+      --text: #111;
+      --sub: #666;
+      --white: #fff;
+    }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
-        
-        /* [Navigation] */
-        nav { position: fixed; top: 0; width: 100%; height: 70px; background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid var(--border); }
-        nav .container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
-        .logo { font-size: 1.3rem; font-weight: 900; text-decoration: none; color: var(--point); }
-        .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--point); font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
-        .nav-links a:hover { color: var(--accent); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Pretendard', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      word-break: keep-all;
+    }
 
-        /* [Hero] - 브랜드 정의 */
-        .hero { padding: 200px 0 120px; background: var(--section-bg); }
-        .hero h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.2; margin-bottom: 30px; }
-        .hero h1 span { color: var(--accent); }
-        .hero-desc { font-size: 1.25rem; color: var(--text-sub); max-width: 700px; margin-bottom: 40px; }
+    section { padding: 120px 40px; }
+    .tag {
+      font-size: 0.75rem;
+      letter-spacing: 0.25rem;
+      color: #999;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      display: block;
+    }
 
-        /* [Performance Summary] - 성과 대시보드 */
-        .performance { padding: 100px 0; border-bottom: 1px solid var(--border); }
-        .perf-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-        .perf-item { text-align: left; }
-        .perf-item .label { font-size: 0.85rem; font-weight: 700; color: var(--accent); display: block; margin-bottom: 10px; }
-        .perf-item .value { font-size: 2.8rem; font-weight: 800; display: block; margin-bottom: 5px; }
-        .perf-item .desc { font-size: 0.9rem; color: var(--text-sub); }
+    /* HEADER */
+    header {
+      padding: 60px 40px 0;
+    }
+    header h1 {
+      font-size: 2rem;
+      font-weight: 900;
+    }
+    header p {
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 6px;
+    }
 
-        /* [Experience/Process] - 경험과 방법론 */
-        .experience { padding: 140px 0; }
-        .section-title { font-size: 0.85rem; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 20px; display: block; }
-        .exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 40px; }
-        .exp-card { padding: 40px; border: 1px solid var(--border); border-radius: 8px; transition: 0.3s; }
-        .exp-card:hover { border-color: var(--point); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .exp-card h3 { font-size: 1.5rem; margin-bottom: 20px; }
-        .exp-card p { color: var(--text-sub); margin-bottom: 20px; }
-        .exp-card .tags { display: flex; gap: 10px; }
-        .exp-card .tags span { font-size: 0.75rem; background: #eee; padding: 4px 10px; border-radius: 4px; font-weight: 600; }
+    /* HERO */
+    .hero {
+      padding: 80px 40px 140px;
+    }
+    .hero h2 {
+      font-size: clamp(2.4rem, 7vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.15rem;
+      margin-bottom: 60px;
+    }
+    .hero h2 span {
+      color: var(--point);
+    }
 
-        /* [Case Study] - 실제 사례 중심 */
-        .cases { padding: 140px 0; background: var(--section-bg); }
-        .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 50px; }
-        .case-item { background: white; padding: 40px; border-radius: 12px; }
-        .case-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; }
-        .case-header h4 { font-size: 1.4rem; font-weight: 700; }
-        .case-header .result-tag { background: var(--point); color: white; padding: 5px 12px; font-size: 0.8rem; font-weight: 700; }
-        .case-body p { font-size: 1rem; color: var(--text-sub); margin-bottom: 25px; }
-        .case-metrics { display: flex; gap: 30px; border-top: 1px solid var(--border); padding-top: 25px; }
-        .metric span { display: block; }
-        .metric .m-val { font-weight: 800; font-size: 1.2rem; }
-        .metric .m-lab { font-size: 0.8rem; color: #999; }
+    .metric-box {
+      background: var(--white);
+      display: inline-block;
+      padding: 36px 48px;
+      border-left: 6px solid var(--point);
+      box-shadow: 20px 20px 60px rgba(0,0,0,0.06);
+    }
+    .metric-box strong {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--point);
+      display: block;
+    }
+    .metric-box p {
+      font-size: 1rem;
+      color: var(--sub);
+      margin-top: 10px;
+    }
 
-        /* [CTA] */
-        .cta { padding: 120px 0; text-align: center; }
-        .cta h2 { font-size: 2.5rem; margin-bottom: 30px; }
-        .cta-btn { display: inline-block; background: var(--point); color: white; padding: 20px 60px; text-decoration: none; font-weight: 700; font-size: 1.1rem; border-radius: 4px; transition: 0.3s; }
-        .cta-btn:hover { background: var(--accent); }
+    /* BRAND */
+    .brand {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .brand h3 {
+      font-size: 2.6rem;
+      font-weight: 900;
+      margin-bottom: 30px;
+      line-height: 1.2;
+    }
+    .brand p {
+      font-size: 1.1rem;
+      color: var(--sub);
+      margin-bottom: 22px;
+    }
+    .brand .visual {
+      background: #ddd;
+      aspect-ratio: 4/5;
+    }
 
-        @media (max-width: 900px) {
-            .perf-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-            .exp-grid, .case-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+    /* WORK */
+    .work {
+      background: #E9E7E4;
+    }
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 36px;
+    }
+    .video {
+      background: #000;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+    }
+
+    /* CONTACT */
+    .contact {
+      background: var(--point);
+      color: var(--white);
+      text-align: center;
+    }
+    .contact h3 {
+      font-size: 2.6rem;
+      font-weight: 900;
+      margin-bottom: 40px;
+      line-height: 1.2;
+    }
+    .contact a {
+      display: inline-block;
+      background: var(--white);
+      color: var(--point);
+      padding: 22px 64px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .contact a:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+    }
+
+    footer {
+      background: var(--point);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 40px;
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      section, header, .hero { padding: 80px 24px; }
+      .brand { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
+
 <body>
 
-    <nav>
-        <div class="container">
-            <a href="#" class="logo">SIEER</a>
-            <ul class="nav-links">
-                <li><a href="#performance">PERFORMANCE</a></li>
-                <li><a href="#experience">EXPERIENCE</a></li>
-                <li><a href="#cases">CASES</a></li>
-                <li><a href="#contact">CONTACT</a></li>
-            </ul>
-        </div>
-    </nav>
+<header>
+  <h1>Sieer</h1>
+  <p>공간을 관찰하고, 방문을 설계합니다</p>
+</header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>시어(Sieer)는<br><span>데이터가 증명하는</span><br>공간 마케팅을 합니다.</h1>
-            <p class="hero-desc">우리는 단순한 영상 제작사가 아닙니다. 조회수, 저장수, 실제 방문율이라는 숫자를 통해 사장님의 공간이 가진 비즈니스 가치를 극대화하는 성과 중심의 디렉팅 파트너입니다.</p>
-        </div>
-    </section>
+<section class="hero">
+  <h2>
+    조회수에 머무르지 않는<br>
+    <span>팔리는 공간의 설계</span>
+  </h2>
 
-    <section id="performance" class="performance">
-        <div class="container">
-            <div class="perf-grid">
-                <div class="perf-item">
-                    <span class="label">TOTAL REACH</span>
-                    <span class="value">400K+</span>
-                    <span class="desc">3개월 누적 총 도달 수</span>
-                </div>
-                <div class="perf-item">
-                    <span class="label">AVG. SAVES</span>
-                    <span class="value">5,200+</span>
-                    <span class="desc">실제 방문 의향 지표</span>
-                </div>
-                <div class="perf-item">
-                    <span class="label">PEAK VIEW</span>
-                    <span class="value">130K+</span>
-                    <span class="desc">단일 콘텐츠 최고 조회수</span>
-                </div>
-                <div class="perf-item">
-                    <span class="label">PARTNERS</span>
-                    <span class="value">20+</span>
-                    <span class="desc">협업 완료된 로컬 브랜드</span>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="metric-box">
+    <strong>400,000+</strong>
+    <p>계정 개설 3개월 누적 조회수</p>
+  </div>
+</section>
 
-    <section id="experience" class="experience">
-        <div class="container">
-            <span class="section-title">Experience & Brand Identity</span>
-            <h2>우리는 이런 브랜드입니다.</h2>
-            <div class="exp-grid">
-                <div class="exp-card">
-                    <h3>성과 지향적 기획</h3>
-                    <p>단순히 예쁜 구도가 아니라, 알고리즘이 반응하고 유저가 저장 버튼을 누를 수밖에 없는 '행동 유도형' 콘텐츠를 설계합니다.</p>
-                    <div class="tags"><span>데이터 분석</span><span>후킹 설계</span><span>전환 최적화</span></div>
-                </div>
-                <div class="exp-card">
-                    <h3>공간 본질의 이해</h3>
-                    <p>카페, 숙소, 다이닝 등 20여 곳 이상의 파트너사와 협업하며 쌓은 노하우로 각 업종의 핵심 매출 포인트를 정확히 짚어냅니다.</p>
-                    <div class="tags"><span>공간 브랜딩</span><span>POV 촬영</span><span>무드 큐레이션</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="brand">
+  <div>
+    <span class="tag">Brand Philosophy</span>
+    <h3>
+      공간의 분위기를<br>
+      결과로 번역합니다.
+    </h3>
+    <p>
+      시어(Sieer)는 예쁜 영상보다 먼저  
+      사람들이 왜 움직이는지를 관찰합니다.
+    </p>
+    <p>
+      공간의 강점을 정제하고,  
+      릴스를 ‘방문을 유도하는 장치’로 설계합니다.
+    </p>
+    <p>
+      감도와 데이터,  
+      두 가지를 동시에 설계하는 것이 시어의 방식입니다.
+    </p>
+  </div>
+  <div class="visual"></div>
+</section>
 
-    <section id="cases" class="cases">
-        <div class="container">
-            <span class="section-title">Case Studies</span>
-            <h2>성과로 증명된 기록들</h2>
-            <div class="case-grid">
-                <div class="case-item">
-                    <div class="case-header">
-                        <h4>성수동 카페 A 브랜드</h4>
-                        <span class="result-tag">방문객 20% 증가</span>
-                    </div>
-                    <div class="case-body">
-                        <p>메뉴의 텍스처와 공간의 채광을 강조한 릴스 기획으로 타겟 지역 유저들에게 폭발적인 도달을 기록했습니다.</p>
-                        <div class="case-metrics">
-                            <div class="metric"><span class="m-val">8.2만</span><span class="m-lab">VIEWS</span></div>
-                            <div class="metric"><span class="m-val">1,200+</span><span class="m-lab">SAVES</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="case-item">
-                    <div class="case-header">
-                        <h4>제주 감성 숙소 B 스테이</h4>
-                        <span class="result-tag">예약 문의 2.5배</span>
-                    </div>
-                    <div class="case-body">
-                        <p>숙소 입실부터 머무름의 전 과정을 POV 시점으로 담아내어, 유저들의 실제 예약 문의로 직결되는 성과를 냈습니다.</p>
-                        <div class="case-metrics">
-                            <div class="metric"><span class="m-val">12.5만</span><span class="m-lab">VIEWS</span></div>
-                            <div class="metric"><span class="m-val">3,400+</span><span class="m-lab">SAVES</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="work">
+  <span class="tag">Selected Works</span>
+  <div class="work-grid">
+    <div class="video">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DR7Gv12D5sH/" data-instgrm-version="14"></blockquote>
+    </div>
+    <div class="video">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DTuoxxQkbfR/" data-instgrm-version="14"></blockquote>
+    </div>
+    <div class="video">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DSp6NWSkx0M/" data-instgrm-version="14"></blockquote>
+    </div>
+  </div>
+</section>
 
-    <section id="contact" class="cta">
-        <div class="container">
-            <h2>이제 사장님의 공간을<br>성과로 증명할 차례입니다.</h2>
-            <p style="color:var(--text-sub); margin-bottom: 50px;">지금 바로 시어와 함께 매출을 위한 전략적인 기록을 시작하세요.</p>
-            <a href="https://open.kakao.com/..." class="cta-btn">프로젝트 문의 및 제안받기</a>
-        </div>
-    </section>
+<section class="contact" id="contact">
+  <h3>
+    공간의 다음 장면을<br>
+    함께 설계할 수 있습니다.
+  </h3>
+  <a href="https://open.kakao.com/">프로젝트 문의하기</a>
+</section>
 
-    <footer>
-        <div class="container" style="padding: 60px 0; border-top: 1px solid var(--border); text-align: center; color: #999; font-size: 0.85rem;">
-            &copy; 2024 Studio Sieer. All rights reserved.
-        </div>
-    </footer>
+<footer>
+  © 2024 Sieer. All Rights Reserved.
+</footer>
 
+<script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>
