@@ -3,73 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sieer | 데이터와 성과로 증명하는 공간 디렉팅</title>
+    <title>Sieer | 400,000 Views, One Scene</title>
     <style>
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:italic,wght@400;700&display=swap');
 
         :root {
-            --bg: #FFFFFF;
-            --section-bg: #F9F9F9;
-            --point: #111111;
-            --accent: #2563EB; /* 신뢰를 주는 비즈니스 블루 */
-            --text-sub: #666666;
-            --border: #EEEEEE;
+            --bg: #0C0C0C;       /* 깊이 있는 블랙 */
+            --text-main: #FFFFFF;
+            --text-sub: #A0A0A0;
+            --accent: #D4AF37;   /* 고급스러운 골드/브론즈 계열 */
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; letter-spacing: -0.05rem; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Pretendard', sans-serif; background-color: var(--bg); color: var(--point); line-height: 1.6; }
+        body { font-family: 'Pretendard', sans-serif; background-color: var(--bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
-        
-        /* [Navigation] */
-        nav { position: fixed; top: 0; width: 100%; height: 70px; background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid var(--border); }
-        nav .container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
-        .logo { font-size: 1.3rem; font-weight: 900; text-decoration: none; color: var(--point); letter-spacing: 0.1rem; }
-        .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--point); font-size: 0.9rem; font-weight: 600; }
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 50px; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .italic { font-style: italic; }
 
-        /* [Hero] - 본질 정의 */
-        .hero { padding: 180px 0 100px; background: var(--section-bg); }
-        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.25; margin-bottom: 30px; }
-        .hero h1 span { color: var(--accent); }
-        .hero-desc { font-size: 1.2rem; color: var(--text-sub); max-width: 750px; font-weight: 500; }
+        /* [Header] */
+        nav { position: fixed; top: 0; width: 100%; height: 90px; display: flex; align-items: center; z-index: 1000; border-bottom: var(--border); background: rgba(12, 12, 12, 0.8); backdrop-filter: blur(15px); }
+        nav .container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .logo { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--text-main); letter-spacing: 0.2rem; }
+        .nav-links { display: flex; gap: 40px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-sub); font-size: 0.85rem; font-weight: 500; transition: 0.3s; letter-spacing: 0.1rem; }
+        .nav-links a:hover { color: var(--text-main); }
 
-        /* [Performance Dashboard] */
-        .performance { padding: 80px 0; border-bottom: 1px solid var(--border); }
-        .perf-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-        .perf-item .label { font-size: 0.8rem; font-weight: 800; color: var(--accent); display: block; margin-bottom: 10px; }
-        .perf-item .value { font-size: 2.5rem; font-weight: 900; display: block; margin-bottom: 5px; }
-        .perf-item .desc { font-size: 0.9rem; color: var(--text-sub); font-weight: 500; }
+        /* [1. Intro : Hooking] */
+        .intro { height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+        .intro-bg-text { position: absolute; font-size: 25vw; font-weight: 900; color: rgba(255,255,255,0.02); top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1; pointer-events: none; }
+        .intro-content { position: relative; z-index: 2; text-align: center; }
+        .intro h1 { font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        .intro h1 span { color: var(--accent); }
+        .intro p { font-size: 1.4rem; color: var(--text-sub); font-weight: 300; }
 
-        /* [Experience] */
-        .experience { padding: 120px 0; }
-        .section-tag { font-size: 0.85rem; font-weight: 800; color: var(--accent); margin-bottom: 15px; display: block; }
-        .exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-top: 40px; }
-        .exp-card { padding: 40px; border: 1px solid var(--border); border-radius: 4px; }
-        .exp-card h3 { font-size: 1.4rem; margin-bottom: 20px; font-weight: 700; }
-        .exp-card p { color: var(--text-sub); font-size: 1.05rem; }
+        /* [2. Prologue : Identity] */
+        .prologue { padding: 200px 0; border-bottom: var(--border); }
+        .prologue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+        .prologue-text h2 { font-size: 3rem; font-weight: 700; margin-bottom: 40px; line-height: 1.3; }
+        .prologue-text p { font-size: 1.2rem; color: var(--text-sub); margin-bottom: 30px; }
 
-        /* [Case Study] - 성과 증명 */
-        .cases { padding: 120px 0; background: var(--section-bg); }
-        .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 50px; }
-        .case-item { background: white; padding: 40px; border: 1px solid #eee; border-radius: 8px; }
-        .case-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
-        .case-header h4 { font-size: 1.25rem; font-weight: 800; }
-        .result-badge { background: #EBF2FF; color: var(--accent); padding: 6px 12px; font-size: 0.85rem; font-weight: 700; border-radius: 4px; }
-        .case-metrics { display: flex; gap: 40px; border-top: 1px solid #f0f0f0; padding-top: 20px; margin-top: 20px; }
-        .metric .m-val { font-weight: 800; font-size: 1.3rem; display: block; }
-        .metric .m-lab { font-size: 0.8rem; color: #999; font-weight: 600; }
+        /* [3. Chapter : Data Performance] */
+        .performance { padding: 150px 0; background: #111; }
+        .section-tag { font-size: 0.8rem; font-weight: 700; color: var(--accent); letter-spacing: 0.3rem; margin-bottom: 30px; display: block; }
+        .perf-header { margin-bottom: 100px; }
+        .perf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        .perf-card { padding: 60px 40px; border: 1px solid var(--border); transition: 0.5s; }
+        .perf-card:hover { background: var(--text-main); }
+        .perf-card:hover * { color: var(--bg); }
+        .perf-card .val { font-size: 4rem; font-weight: 800; display: block; margin-bottom: 10px; }
+        .perf-card .lab { font-size: 1.1rem; font-weight: 700; }
 
-        /* [Contact] */
-        .cta { padding: 120px 0; text-align: center; background: var(--point); color: white; }
-        .cta h2 { font-size: 2.2rem; margin-bottom: 30px; font-weight: 800; }
-        .cta-btn { display: inline-block; background: var(--accent); color: white; padding: 22px 60px; text-decoration: none; font-weight: 700; font-size: 1.1rem; border-radius: 4px; transition: 0.3s; }
-        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4); }
+        /* [4. Works : High Sensitivity] */
+        .works { padding: 200px 0; }
+        .work-item { margin-bottom: 150px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; }
+        .work-item:nth-child(even) { direction: rtl; }
+        .work-item:nth-child(even) .work-info { direction: ltr; }
+        .video-box { width: 100%; height: 650px; background: #1a1a1a; position: relative; }
+        .work-info h3 { font-size: 2.5rem; margin-bottom: 25px; }
+        .work-info .result-text { font-size: 1.1rem; color: var(--accent); font-weight: 700; margin-bottom: 20px; display: block; }
+        .work-info p { color: var(--text-sub); font-size: 1.1rem; }
 
-        @media (max-width: 900px) {
-            .perf-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
-            .exp-grid, .case-grid { grid-template-columns: 1fr; }
+        /* [5. Epilogue : Closing] */
+        .epilogue { padding: 200px 0; text-align: center; background: var(--text-main); color: var(--bg); }
+        .epilogue h2 { font-size: 4rem; font-weight: 800; margin-bottom: 40px; }
+        .cta-btn { display: inline-block; background: var(--bg); color: var(--text-main); padding: 25px 80px; text-decoration: none; font-weight: 800; font-size: 1.2rem; transition: 0.4s; }
+        .cta-btn:hover { transform: scale(1.05); }
+
+        @media (max-width: 1000px) {
+            .prologue-grid, .perf-grid, .work-item { grid-template-columns: 1fr; gap: 50px; }
+            .intro h1 { font-size: 3.5rem; }
         }
     </style>
 </head>
@@ -79,102 +85,90 @@
         <div class="container">
             <a href="#" class="logo">SIEER</a>
             <ul class="nav-links">
-                <li><a href="#performance">PERFORMANCE</a></li>
-                <li><a href="#experience">EXPERIENCE</a></li>
-                <li><a href="#cases">CASES</a></li>
+                <li><a href="#prologue">PROLOGUE</a></li>
+                <li><a href="#performance">DATA</a></li>
+                <li><a href="#works">WORKS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
             </ul>
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="container">
-            <h1>시어(Sieer)는 감성이 아닌<br><span>데이터와 결과</span>로 공간을 증명합니다.</h1>
-            <p class="hero-desc">조회수는 현상일 뿐입니다. 우리는 사장님의 공간이 가진 본질을 분석하여 실제 방문과 매출 전환이라는 실질적인 비즈니스 성과를 만듭니다.</p>
+    <section class="intro">
+        <div class="intro-bg-text serif italic">400,000</div>
+        <div class="container intro-content">
+            <h1>40만 명의 시선을<br><span>단 하나의 장면</span>으로.</h1>
+            <p>우리는 공간이 가진 가장 깊은 온도를 기록합니다.</p>
+        </div>
+    </section>
+
+    <section id="prologue" class="prologue">
+        <div class="container prologue-grid">
+            <div class="prologue-text">
+                <span class="section-tag">PROLOGUE</span>
+                <h2 class="serif">가장 완벽한 공간은<br><span class="italic">발견</span>될 때 완성됩니다.</h2>
+                <p>수억 원의 비용, 수개월의 고민이 들어간 인테리어. 하지만 스마트폰 너머 유저에게 닿는 것은 오직 15초의 릴스뿐입니다.</p>
+                <p>시어(Sieer)는 단순히 영상을 찍지 않습니다. 사장님이 공간에 심어둔 집착과 디테일을 '가야만 하는 이유'로 치환합니다.</p>
+            </div>
+            <div style="width: 100%; height: 500px; background: url('https://images.unsplash.com/photo-1595928642581-f50f4f3453a5?auto=format&fit=crop&q=80&w=800') center/cover; filter: contrast(1.1) grayscale(0.5);"></div>
         </div>
     </section>
 
     <section id="performance" class="performance">
         <div class="container">
+            <div class="perf-header">
+                <span class="section-tag">CHAPTER 1 : DATA</span>
+                <h2 class="serif">숫자는 감각의 <span class="italic">결과</span>입니다.</h2>
+            </div>
             <div class="perf-grid">
-                <div class="perf-item">
-                    <span class="label">REACH</span>
-                    <span class="value">400K+</span>
-                    <span class="desc">누적 콘텐츠 도달 수</span>
+                <div class="perf-card">
+                    <span class="val">400K+</span>
+                    <span class="lab">Total Reach</span>
                 </div>
-                <div class="perf-item">
-                    <span class="label">SAVES</span>
-                    <span class="value">5,200+</span>
-                    <span class="desc">실제 방문 의향 지표</span>
+                <div class="perf-card">
+                    <span class="val">5,200+</span>
+                    <span class="lab">Saves & Action</span>
                 </div>
-                <div class="perf-item">
-                    <span class="label">PARTNERS</span>
-                    <span class="value">20+</span>
-                    <span class="desc">협업 브랜드 수</span>
-                </div>
-                <div class="perf-item">
-                    <span class="label">CONVERSION</span>
-                    <span class="value">2.5x</span>
-                    <span class="desc">평균 문의량 상승 폭</span>
+                <div class="perf-card">
+                    <span class="val">20+</span>
+                    <span class="lab">Brand Partners</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="experience">
+    <section id="works" class="works">
         <div class="container">
-            <span class="section-tag">OUR IDENTITY</span>
-            <h2>확신을 드리는 협업 경험</h2>
-            <div class="exp-grid">
-                <div class="exp-card">
-                    <h3>성과 중심의 기획력</h3>
-                    <p>단순 촬영을 넘어 알고리즘의 흐름을 읽습니다. 유저가 '저장'하고 '공유'할 수밖에 없는 트리거를 설계하여 광고비 없이 확산을 유도합니다.</p>
+            <span class="section-tag">CHAPTER 2 : WORKS</span>
+            
+            <div class="work-item">
+                <div class="video-box"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DR7Gv12D5sH/" data-instgrm-version="14"></blockquote></div>
+                <div class="work-info">
+                    <span class="result-text">Case 01. 매출 20% 상승 견인</span>
+                    <h3 class="serif italic">The Essence of Space</h3>
+                    <p>공간의 채광과 메뉴의 텍스처를 극대화하여 성수동 카페 거리를 찾는 잠재 고객 8만 명의 시선을 점유했습니다.</p>
                 </div>
-                <div class="exp-card">
-                    <h3>다양한 업종의 레퍼런스</h3>
-                    <p>F&B, 스테이, 리테일 등 20여 곳 이상의 공간 파트너와 협업하며 각 업종에 맞는 최적의 소구 포인트를 파악하고 있습니다.</p>
+            </div>
+
+            <div class="work-item">
+                <div class="video-box"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DTuoxxQkbfR/" data-instgrm-version="14"></blockquote></div>
+                <div class="work-info">
+                    <span class="result-text">Case 02. 예약 문의 2.5배 폭주</span>
+                    <h3 class="serif italic">Beyond Staying</h3>
+                    <p>단순한 숙소 소개가 아닌 '머무름의 경험'을 POV 시점으로 담아내어, 업로드 7일 만에 예약 문의가 폭주하는 성과를 냈습니다.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="cases" class="cases">
+    <section id="contact" class="epilogue">
         <div class="container">
-            <span class="section-tag">CASE STUDY</span>
-            <h2>데이터로 기록된 성공 사례</h2>
-            <div class="case-grid">
-                <div class="case-item">
-                    <div class="case-header">
-                        <h4>성수동 카페 A 파트너</h4>
-                        <span class="result-badge">방문객 20% 증가</span>
-                    </div>
-                    <p style="color:#666; margin-bottom:20px;">타겟 유저의 행동 분석을 통한 릴스 기획으로 지역 내 대세감을 형성했습니다.</p>
-                    <div class="case-metrics">
-                        <div class="metric"><span class="m-val">8.2만</span><span class="m-lab">VIEWS</span></div>
-                        <div class="metric"><span class="m-val">1.2K+</span><span class="m-lab">SAVES</span></div>
-                    </div>
-                </div>
-                <div class="case-item">
-                    <div class="case-header">
-                        <h4>제주 감성 숙소 B 스테이</h4>
-                        <span class="result-badge">예약 문의 2.5배 상승</span>
-                    </div>
-                    <p style="color:#666; margin-bottom:20px;">공간의 경험을 POV 시점으로 담아내어 실제 예약 전환율을 극대화했습니다.</p>
-                    <div class="case-metrics">
-                        <div class="metric"><span class="m-val">12.5만</span><span class="m-lab">VIEWS</span></div>
-                        <div class="metric"><span class="m-val">3.4K+</span><span class="m-lab">SAVES</span></div>
-                    </div>
-                </div>
-            </div>
+            <span class="section-tag" style="color: #666;">EPILOGUE</span>
+            <h2 class="serif">당신의 공간은<br>어떤 <span class="italic">장면</span>으로 기억되길 원합니까?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 60px; font-weight: 500;">시어(Sieer)와 함께 공간의 가치를 숫자로 증명하세요.</p>
+            <a href="https://open.kakao.com/..." class="cta-btn">PROJECT INQUIRY</a>
         </div>
     </section>
 
-    <section id="contact" class="cta">
-        <div class="container">
-            <h2>성과를 만드는 파트너십,<br>지금 시작하세요.</h2>
-            <p style="margin-bottom: 40px; opacity: 0.8;">사장님의 공간이 가진 가치를 숫자로 증명해 드립니다.</p>
-            <a href="https://open.kakao.com/..." class="cta-btn">무료 성과 제안받기</a>
-        </div>
-    </section>
-
+    <script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>
