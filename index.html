@@ -3,157 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sieer | 시어 - 성과로 증명하는 공간 큐레이션</title>
+    <title>Sieer | 시어 - 공간을 가고 싶은 장소로</title>
+
     <style>
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-        
+
         :root {
-            --bg-color: #F4F2EE; /* 차분한 베이지 */
-            --point-color: #2D433E; /* 깊이감 있는 딥 그린 (신뢰) */
-            --accent-color: #D9835D; /* 포인트가 되는 테라코타 (개성) */
-            --text-color: #222;
+            --bg-color: #F2F0ED;
+            --point-color: #4A5D54;
+            --highlight-color: #D67D5B;
+            --text-main: #1A1A1A;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Pretendard', sans-serif; 
-            background-color: var(--bg-color); 
-            color: var(--text-color);
-            line-height: 1.6;
+
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.5;
+            word-break: keep-all;
         }
 
-        header { padding: 40px; }
-        header h1 { font-weight: 900; font-size: 1.8rem; color: var(--point-color); }
-
-        /* 1. 히어로 섹션 (임팩트 강화) */
-        .hero { padding: 40px 40px 100px 40px; }
-        .hero .main-title {
-            font-size: clamp(2.2rem, 7vw, 4.2rem);
-            font-weight: 900;
-            line-height: 1.2;
-            letter-spacing: -0.1rem;
-        }
-        .hero .main-title span { color: var(--accent-color); }
-        .hero .sub-perf {
-            margin-top: 30px; font-size: 1.2rem; font-weight: 500;
-            background: white; display: inline-block; padding: 10px 20px;
-            border-radius: 50px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        /* 2. 시어 소개 섹션 (개성 추가) */
-        .about { padding: 100px 40px; background: white; display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: center; }
-        .about-img { width: 100%; aspect-ratio: 1; background: #eee; border-radius: 20px; object-fit: cover; } /* 본인 사진 권장 */
-        .about-text h3 { font-size: 2.5rem; margin-bottom: 20px; color: var(--point-color); }
-        .about-text p { font-size: 1.1rem; color: #555; margin-bottom: 20px; }
-
-        /* 3. 데이터 성과 (카드 스타일) */
-        .performance { padding: 100px 40px; background: var(--point-color); color: white; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
-        .stat-card { text-align: center; border: 1px solid rgba(255,255,255,0.2); padding: 40px; border-radius: 20px; }
-        .stat-card .value { font-size: 3.5rem; font-weight: 900; display: block; margin-bottom: 10px; color: var(--accent-color); }
-
-        /* 4. 바이럴 반응 (신뢰성 추가) */
-        .reviews { padding: 100px 40px; background: #fff; }
-        .review-title { text-align: center; font-size: 2rem; font-weight: 800; margin-bottom: 50px; }
-        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .review-box { background: var(--bg-color); padding: 25px; border-radius: 15px; font-style: italic; color: #444; }
-
-        /* 5. 포트폴리오 */
-        .work { padding: 100px 40px; }
-        .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .video-card { border-radius: 20px; overflow: hidden; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-
-        /* 6. 푸터 */
-        footer { padding: 120px 40px; background: #222; color: #fff; text-align: center; }
-        .cta-btn { 
-            display: inline-block; background: var(--accent-color); color: #fff; 
-            padding: 20px 60px; font-weight: 700; text-decoration: none; 
-            border-radius: 50px; margin-top: 30px; font-size: 1.2rem;
-        }
-
-        @media (max-width: 768px) {
-            .about { grid-template-columns: 1fr; }
-            header, .hero, .about, .performance, .reviews, .work { padding: 60px 24px; }
-        }
-        /* 5. 포트폴리오 스타일 수정 */
-.work-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-    gap: 30px; 
-    justify-content: center; /* 그리드 아이템들 자체를 중앙으로 */
-}
-
-.video-card { 
-    border-radius: 20px; 
-    overflow: hidden; 
-    background: #fff; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    display: flex;       /* 내부 임베드 정렬을 위해 flex 설정 */
-    justify-content: center; 
-    align-items: center;
-    padding: 20px 0;    /* 임베드 카드가 꽉 차지 않을 때 대비한 여백 */
-}
-
-/* 인스타그램 임베드 강제 중앙 정렬 */
-.video-card blockquote { 
-    margin: 0 auto !important; 
-    min-width: 326px !important; /* 인스타 임베드 최소 너비 대응 */
-    width: 100% !important;
-}
-    </style>
-</head>
-<body>
-
-    <header><h1>Sieer</h1></header>
-
-    <section class="hero">
-        <h2 class="main-title">
-            단 1분의 영상으로<br>사장님의 공간을<br><span>가고 싶은 곳으로 만듭니다.</span>
-        </h2>
-        <div class="sub-perf">✨ 3개월 만에 <b>누적 조회수 40만 회</b> 달성</div>
-    </section>
-
-    <section class="about">
-        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1000" class="about-img" alt="Sieer">
-        <div class="about-text">
-            <span style="color:var(--accent-color); font-weight:700;">PRODUCER SIEER</span>
-            <h3>공간에 '결'을 담는 디렉터</h3>
-            <p>단순히 예쁘게 찍는 것을 넘어, 공간이 가진 고유의 무드를 포착합니다. 유저의 심리를 자극하는 릴스 기획으로 실질적인 방문과 저장을 이끌어냅니다.</p>
-            <p><b>기획 · 촬영 · 감성 보정 · 성과 분석</b>까지 시어가 함께합니다.</p>
-        </div>
-    </section>
-
-    <section class="performance">
-        <div class="stats-grid">
-            <div class="stat-card"><span class="value">13.2만</span><p>단일 영상 최고 조회수</p></div>
-            <div class="stat-card"><span class="value">3,000+</span><p>자발적 공유 횟수</p></div>
-            <div class="stat-card"><span class="value">2,000+</span><p>실제 방문 저장 건수</p></div>
-        </div>
-    </section>
-
-    <section class="reviews">
-        <div class="review-title">이미 수많은 유저가<br>시어의 감도에 반응하고 있습니다.</div>
-        <div class="review-grid">
-            <div class="review-box">"여기 진짜 가보고 싶어요! 저장해둡니다."</div>
-            <div class="review-box">"영상 색감이 너무 예뻐요.. 분위기 대박"</div>
-            <div class="review-box">"다음 주 여행은 여기로 결정했습니다!"</div>
-            <div class="review-box">"친구야 여기 어때? 같이 가자!"</div>
-        </div>
-    </section>
-
-    <section class="work">
-        <div class="work-grid">
-            <div class="video-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DR7Gv12D5sH/" data-instgrm-version="14"></blockquote></div>
-            <div class="video-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DTuoxxQkbfR/" data-instgrm-version="14"></blockquote></div>
-            <div class="video-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DSp6NWSkx0M/" data-instgrm-version="14"></blockquote></div>
-        </div>
-    </section>
-
-    <footer>
-        <h3>당신의 공간을 데이터로 증명할 시간입니다.</h3>
-        <a href="https://open.kakao.com/..." class="cta-btn">무료 상담 신청하기</a>
-    </footer>
-
-    <script async src="//www.instagram.com/embed.js"></script>
-</body>
-</html>
+        header { padding: 60px 40px 40px; }
+        header h1
