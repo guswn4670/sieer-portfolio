@@ -8,188 +8,209 @@
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
         
         :root {
-            --bg: #F2F0ED;       /* 종이 질감 베이지 */
+            --bg: #F4F2EE;       /* 프리미엄 베이지 */
             --point: #2D433E;    /* 딥 그린 */
-            --accent: #D9835D;   /* 테라코타 */
+            --accent: #D9835D;   /* 테라코타 브라운 */
             --white: #ffffff;
+            --black: #1a1a1a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: 'Pretendard', sans-serif; 
             background-color: var(--bg); 
-            color: #1a1a1a;
-            line-height: 1.7;
+            color: var(--black);
+            line-height: 1.8;
             overflow-x: hidden;
         }
 
-        .container { max-width: 1300px; margin: 0 auto; padding: 0 60px; }
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 50px; }
+        .section-tag { font-size: 0.85rem; font-weight: 800; color: var(--accent); letter-spacing: 0.3rem; display: block; margin-bottom: 20px; text-transform: uppercase; }
+        h2 { font-size: 3rem; font-weight: 900; line-height: 1.2; color: var(--point); margin-bottom: 40px; }
 
-        /* 1. 히어로 섹션 - 입체적 타이포 */
-        .hero { 
-            height: 100vh; 
-            display: flex; 
-            align-items: center; 
-            position: relative;
-            background: #EBE8E3;
-            overflow: hidden;
-        }
-        .hero-bg-text {
-            position: absolute;
-            font-size: 25vw;
-            font-weight: 900;
-            color: rgba(45, 67, 62, 0.04);
-            white-space: nowrap;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            letter-spacing: -1rem;
-        }
-        .hero-content { position: relative; z-index: 2; width: 100%; }
-        .hero .main-val { 
-            font-size: 8rem; 
-            font-weight: 900; 
-            line-height: 1; 
-            color: var(--point); 
-            margin-bottom: 20px;
-            display: block;
-        }
-        .hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.15rem; }
+        /* [1. Hero] */
+        .hero { height: 100vh; display: flex; align-items: center; position: relative; background: #fff; overflow: hidden; }
+        .hero-floating-txt { position: absolute; font-size: 20vw; font-weight: 900; color: rgba(45, 67, 62, 0.03); white-space: nowrap; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1; pointer-events: none; }
+        .hero-content { position: relative; z-index: 2; }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.2rem; }
         .hero h1 span { color: var(--accent); }
+        .hero-sub { font-size: 1.5rem; margin-top: 30px; font-weight: 500; color: var(--point); opacity: 0.8; }
 
-        /* 2. 스토리텔링 - 엇갈린 배치 */
-        .section-title { font-size: 0.8rem; font-weight: 700; color: var(--accent); letter-spacing: 0.3rem; margin-bottom: 20px; display: block; }
+        /* [2. Identity] & [3. Performance] */
+        .identity { padding: 150px 0; background: var(--bg); }
+        .ident-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .ident-img { width: 100%; height: 600px; background: #ddd url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800') center/cover; border-radius: 5px; box-shadow: 30px 30px 0 var(--point); }
+        .ident-text p { font-size: 1.25rem; margin-bottom: 40px; color: #444; }
         
-        .story { padding: 150px 0; }
-        .story-wrapper { display: flex; gap: 100px; align-items: center; }
-        .story-img { 
-            flex: 1; 
-            height: 600px; 
-            background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800') center/cover;
-            border-radius: 5px;
-            box-shadow: 40px 40px 0px var(--point); /* 입체적 포인트 */
-        }
-        .story-text { flex: 1; padding-left: 40px; }
-        .story-text h2 { font-size: 2.8rem; margin-bottom: 30px; line-height: 1.3; }
+        .perf-stats { display: flex; gap: 40px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 40px; }
+        .stat-box .num { font-size: 2.5rem; font-weight: 900; color: var(--accent); display: block; }
+        .stat-box span { font-size: 0.9rem; font-weight: 600; color: var(--gray); }
 
-        /* 3. 전략 카드 - 플로팅 효과 */
-        .strategy { padding: 150px 0; background: var(--white); }
-        .strat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; }
-        .strat-card { 
-            padding: 50px 40px; 
-            background: var(--bg); 
-            border-radius: 2px; 
-            transition: 0.4s;
-            position: relative;
-            top: 0;
-        }
-        .strat-card:hover { 
-            top: -20px; 
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1); 
-            background: var(--point); 
-            color: white; 
-        }
-        .strat-card h3 { font-size: 1.6rem; margin-bottom: 20px; }
+        /* [4. Direction] */
+        .direction { padding: 150px 0; background: var(--white); }
+        .dir-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .dir-card { padding: 50px 40px; background: var(--bg); border-radius: 15px; transition: 0.3s; }
+        .dir-card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .dir-card h3 { font-size: 1.8rem; margin-bottom: 25px; color: var(--point); }
+        .dir-card ul { list-style: none; }
+        .dir-card li { margin-bottom: 12px; padding-left: 20px; position: relative; font-weight: 500; }
+        .dir-card li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
 
-        /* 4. 후기 - 리드미컬 배치 */
-        .reviews { padding: 150px 0; }
-        .rev-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; }
-        .rev-item { background: var(--white); padding: 40px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
-        .rev-item.big { grid-row: span 2; display: flex; flex-direction: column; justify-content: center; background: var(--accent); color: white; }
+        /* [5. Difference] */
+        .diff { padding: 150px 0; background: var(--point); color: white; }
+        .diff h2 { color: white; }
+        .diff-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; }
+        .diff-item { position: relative; }
+        .diff-item span { font-size: 4rem; font-weight: 900; opacity: 0.1; position: absolute; top: -40px; left: 0; }
+        .diff-item h3 { font-size: 1.6rem; margin-bottom: 20px; color: var(--accent); }
 
-        /* 5. 포트폴리오 - 중앙 정렬 */
-        .work { padding: 150px 0; background: var(--white); text-align: center; }
-        .work-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 40px; 
-            justify-content: center; 
-            margin-top: 60px;
-        }
-        .video-card { background: var(--bg); padding: 15px; border-radius: 10px; display: flex; justify-content: center; }
+        /* [6. Real Voice] */
+        .voice { padding: 150px 0; background: var(--bg); }
+        .voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .voice-card { padding: 40px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .voice-card.owner { border-top: 6px solid var(--point); }
+        .voice-card.user { border-top: 6px solid var(--accent); }
+        .voice-card p { font-size: 1.2rem; font-style: italic; margin-bottom: 20px; }
+        .voice-card b { display: block; color: var(--gray); font-size: 0.9rem; }
+
+        /* [7. Portfolio] */
+        .portfolio { padding: 150px 0; background: white; text-align: center; }
+        .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 60px; }
+        .video-card { background: var(--bg); padding: 15px; border-radius: 20px; display: flex; justify-content: center; }
         .video-card blockquote { margin: 0 auto !important; width: 100% !important; }
 
-        /* 푸터 */
+        /* [8. CTA] */
         footer { padding: 150px 0; background: var(--point); color: white; text-align: center; }
-        .cta-btn { 
-            display: inline-block; background: var(--accent); color: white; 
-            padding: 25px 80px; font-size: 1.2rem; font-weight: 800; 
-            text-decoration: none; margin-top: 50px; 
-        }
+        .cta-btn { display: inline-block; background: var(--accent); color: white; padding: 25px 80px; font-size: 1.3rem; font-weight: 900; text-decoration: none; border-radius: 50px; transition: 0.3s; margin-top: 50px; }
+        .cta-btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(217, 131, 93, 0.4); }
 
         @media (max-width: 1024px) {
-            .story-wrapper, .strat-grid, .rev-grid { grid-template-columns: 1fr; flex-direction: column; }
-            .hero h1 { font-size: 2.5rem; }
-            .hero .main-val { font-size: 5rem; }
-            .container { padding: 0 30px; }
+            .ident-grid, .dir-grid, .diff-list, .voice-grid { grid-template-columns: 1fr; }
+            .ident-img { height: 400px; }
+            h2 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
     <section class="hero">
-        <div class="hero-bg-text">400,000+</div>
+        <div class="hero-floating-txt">400,000+</div>
         <div class="container hero-content">
-            <span class="main-val">400,000+</span>
-            <h1>숫자로 증명하는 공간의 온도,<br><span>가고 싶은 장면</span>을 설계합니다.</h1>
+            <span class="section-tag">Directing Studio Sieer</span>
+            <h1>3개월 누적 40만 뷰,<br><span>공간의 온도를 팔리는 장면으로</span><br>설계합니다.</h1>
+            <p class="hero-sub">예쁜 영상을 넘어, 방문으로 증명되는 고감도 큐레이션</p>
         </div>
     </section>
 
-    <section class="story">
-        <div class="container">
-            <div class="story-wrapper">
-                <div class="story-img"></div>
-                <div class="story-text">
-                    <span class="section-tag">IDENTITY</span>
-                    <h2>공간은 완벽한데,<br>왜 인스타는 평범할까요?</h2>
-                    <p>사장님이 쏟은 정성이 단 15초의 릴스에서 멈춘다면 유저는 스크롤을 넘깁니다. 시어는 공간의 결을 읽고 유저가 '저장'을 누르는 찰나를 포착합니다.</p>
+    <section class="identity">
+        <div class="container ident-grid">
+            <div class="ident-img"></div>
+            <div class="ident-text">
+                <span class="section-tag">Our Identity</span>
+                <h2>조용한 시선으로<br>담아내는 공간의 결</h2>
+                <p>시어(Sieer)는 단순히 촬영하지 않습니다. 공간이 가진 고유의 온도와 사장님의 철학을 읽고, 유저가 '저장' 버튼을 누를 수밖에 없는 찰나를 기록합니다.</p>
+                
+                <div class="perf-stats">
+                    <div class="stat-box"><span class="num">40만+</span><span>누적 조회수</span></div>
+                    <div class="stat-box"><span class="num">13만+</span><span>단일 최고 조회</span></div>
+                    <div class="stat-box"><span class="num">5천+</span><span>자발적 저장</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="strategy">
+    <section class="direction">
         <div class="container">
-            <span class="section-tag">STRATEGY</span>
-            <h2>팔리는 장면의 3가지 공식</h2>
-            <div class="strat-grid">
-                <div class="strat-card">
-                    <h3>01. 알고리즘</h3>
-                    <p>도달을 결정짓는 초반 3초 후킹과 정보성 레이아웃 설계</p>
+            <span class="section-tag">Directing Detail</span>
+            <h2>공간의 특성에 맞춘<br>전략적 촬영 방향성</h2>
+            <div class="dir-grid">
+                <div class="dir-card">
+                    <h3>맛집 / 카페</h3>
+                    <ul>
+                        <li>미각을 자극하는 식재료 텍스처</li>
+                        <li>현장감을 살리는 사운드(ASMR)</li>
+                        <li>메뉴와 공간의 조화로운 연출</li>
+                    </ul>
                 </div>
-                <div class="strat-card">
-                    <h3>02. 구도와 빛</h3>
-                    <p>사장님도 몰랐던 공간의 베스트 뷰를 찾아내는 공간 분석</p>
+                <div class="dir-card">
+                    <h3>숙소 / 스테이</h3>
+                    <ul>
+                        <li>직접 입실하는 듯한 POV 시점</li>
+                        <li>침구의 질감과 빛의 흐름 기록</li>
+                        <li>'머무는 경험'을 파는 여백 기획</li>
+                    </ul>
                 </div>
-                <div class="strat-card">
-                    <h3>03. 원스톱</h3>
-                    <p>기획부터 사운드까지 디렉터가 직접 핸들링하는 일관성</p>
+                <div class="dir-card">
+                    <h3>브랜딩 공간</h3>
+                    <ul>
+                        <li>브랜드 철학이 묻어나는 동선</li>
+                        <li>공간의 무드에 맞춘 색감 보정</li>
+                        <li>스토리가 있는 숏폼 디렉팅</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="reviews">
+    <section class="diff">
         <div class="container">
-            <span class="section-tag">REAL VOICE</span>
-            <div class="rev-grid">
-                <div class="rev-item big">
-                    <h3 style="font-size: 2rem;">"릴스 업로드 다음 날부터 손님들이 줄을 서네요."</h3>
-                    <p style="margin-top:20px;">- 성수동 카페 파트너 사장님</p>
+            <span class="section-tag" style="color: rgba(255,255,255,0.6);">Difference</span>
+            <h2>시어(Sieer)만이 가능한<br>압도적 차별점</h2>
+            <div class="diff-list">
+                <div class="diff-item">
+                    <span>01</span>
+                    <h3>알고리즘 최적화</h3>
+                    <p>도달을 결정짓는 초반 3초 후킹과 정보성 구성을 통해 알고리즘 확산을 설계합니다.</p>
                 </div>
-                <div class="rev-item">
-                    <p>"영상 색감이 너무 예뻐요. 이번 주말 여행지로 결정했습니다!"</p>
+                <div class="diff-item">
+                    <span>02</span>
+                    <h3>공간 분석적 구도</h3>
+                    <p>사장님도 몰랐던 공간의 베스트 뷰를 찾아내어 가장 가고 싶은 각도로 담아냅니다.</p>
                 </div>
-                <div class="rev-item">
-                    <p>"나만 알고 싶은 곳이었는데 결국 떡상하네요.. 역시 시어."</p>
+                <div class="diff-item">
+                    <span>03</span>
+                    <h3>원스톱 책임제</h3>
+                    <p>기획부터 촬영, 사운드, 색감까지 디렉터가 1:1로 전 과정을 책임지고 관리합니다.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="work">
+    <section class="voice">
         <div class="container">
-            <span class="section-tag">PORTFOLIO</span>
+            <span class="section-tag">Real Voice</span>
+            <h2>성과로 증명된 리얼 후기</h2>
+            <div class="voice-grid">
+                <div class="voice-card owner">
+                    <p>"릴스 업로드 다음 날부터 영상 보고 왔다는 손님들이 줄을 서네요. 확실히 감도가 다릅니다."</p>
+                    <b>- 성수동 OO 카페 사장님</b>
+                </div>
+                <div class="voice-card user">
+                    <p>"여기 어디예요? 이번 주말 여행지로 결정했습니다! 친구 태그해서 같이 가기로 했어요."</p>
+                    <b>- 실제 유저 댓글 반응 중</b>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio">
+        <div class="container">
+            <span class="section-tag">Portfolio</span>
             <div class="work-grid">
-                <div class="video-card">
-                    <blockquote class="instagram-media" data-instgrm-permalink="
+                <div class="video-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DR7Gv12D5sH/" data-instgrm-version="14"></blockquote></div>
+                <div class="video-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DTuoxxQkbfR/" data-instgrm-version="14"></blockquote></div>
+                <div class="video-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DSp6NWSkx0M/" data-instgrm-version="14"></blockquote></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h2>공간의 가치를 증명할 시간입니다.</h2>
+            <a href="https://open.kakao.com/..." class="cta-btn">무료 상담 및 프로젝트 제안</a>
+        </div>
+    </footer>
+
+    <script async src="//www.instagram.com/embed.js"></script>
+</body>
+</html>
