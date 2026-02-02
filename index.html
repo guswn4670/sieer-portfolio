@@ -5,6 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sieer | 시어 - 성과로 증명하는 공간 디렉팅</title>
     <style>
+
+        /* NAV */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: var(--point);
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.nav-menu a:hover {
+  color: var(--accent);
+}
+
+.nav-cta {
+  padding: 10px 22px;
+  background: var(--accent);
+  color: white !important;
+  border-radius: 40px;
+  font-weight: 900;
+}
+
+        
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
         
         :root {
