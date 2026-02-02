@@ -40,7 +40,7 @@
         .main-title { font-size: clamp(2.2rem, 6vw, 4rem); font-weight: 900; line-height: 1.15; letter-spacing: -0.15rem; margin-bottom: 25px; }
         .main-title span { color: var(--point-green); }
 
-        /* [핵심] 아이덴티티 강조 섹션 */
+        /* 아이덴티티 강조 섹션 */
         .identity-box {
             margin-top: 50px;
             padding: 40px;
@@ -51,9 +51,8 @@
         }
         .identity-box h3 { font-size: 1.4rem; font-weight: 800; color: var(--point-green); margin-bottom: 15px; }
         .identity-box p { font-size: 1.1rem; color: #555; line-height: 1.7; }
-        .identity-box b { color: var(--text-main); }
 
-        /* 상세 성과 지표 섹션 */
+        /* 성과 지표 섹션 */
         .performance-detail { background-color: var(--point-green); color: var(--white); text-align: center; }
         .performance-detail .section-tag { color: rgba(255,255,255,0.5); }
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 50px; }
@@ -62,23 +61,42 @@
         .stat-card .number { font-size: 3.5rem; font-weight: 900; line-height: 1; }
         .stat-card .number small { font-size: 1.2rem; margin-left: 5px; }
 
-        /* 차별점 & 경쟁력 섹션 */
+        /* 차별점 섹션 */
         .competency { background: var(--white); }
         .comp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin-top: 40px; }
         .comp-item h3 { font-size: 1.5rem; font-weight: 800; color: var(--point-green); margin-bottom: 20px; border-bottom: 2px solid var(--bg-color); padding-bottom: 15px; }
         .comp-item p { font-size: 1.05rem; color: #555; line-height: 1.8; }
 
-        /* 포트폴리오 섹션 */
+        /* 포트폴리오 섹션 (실제 썸네일 적용) */
         .work { background: #F8F7F5; text-align: center; }
         .work-grid { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 50px; }
-        .work-item { width: 320px; aspect-ratio: 9/16; background: #fff; border-radius: 15px; overflow: hidden; cursor: pointer; transition: 0.4s; position: relative; }
+        .work-item { 
+            width: 320px; 
+            aspect-ratio: 9/16; 
+            background: #fff; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            cursor: pointer; 
+            transition: 0.4s; 
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
         .work-item:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .work-item img { width: 100%; height: 100%; object-fit: cover; }
-        .work-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 30px 20px; background: linear-gradient(transparent, rgba(0,0,0,0.7)); color: white; text-align: left; }
+        .work-info { 
+            position: absolute; 
+            bottom: 0; left: 0; right: 0; 
+            padding: 30px 20px; 
+            background: linear-gradient(transparent, rgba(0,0,0,0.8)); 
+            color: white; 
+            text-align: left; 
+        }
+        .work-info p { font-weight: 700; font-size: 1.1rem; }
 
         /* 푸터 */
         footer { padding: 120px 60px; background: #1A1A1A; color: white; text-align: center; }
-        .cta-btn { display: inline-block; background: var(--point-green); color: white; padding: 22px 60px; font-weight: 800; text-decoration: none; border-radius: 5px; margin-top: 30px; }
+        .cta-btn { display: inline-block; background: var(--point-green); color: white; padding: 22px 60px; font-weight: 800; text-decoration: none; border-radius: 5px; margin-top: 30px; transition: 0.3s; }
+        .cta-btn:hover { opacity: 0.9; transform: scale(1.02); }
 
         @media (max-width: 1024px) {
             header, section, .hero-container { padding: 60px 30px; }
@@ -102,84 +120,4 @@
             <h2 class="main-title">
                 단 1분의 영상으로<br>사장님의 공간을<br><span>가고 싶은 곳으로</span> 만듭니다.
             </h2>
-            <p style="font-size: 1.2rem; color: #666; letter-spacing: -0.05rem;">
-                계정 개설 3달 만에 <b>누적 조회수 40만 회</b> 달성
-            </p>
-
-            <div class="identity-box">
-                <h3>조용한 시선, 확실한 결과</h3>
-                <p>
-                    우리는 자극적인 영상보다 <b>공간의 온도</b>를 먼저 읽습니다.<br>
-                    시어(Sieer)는 사장님의 공간이 가진 고유의 무드를 포착하여<br> 
-                    유저들이 <b>가장 머물고 싶은 장면</b>을 설계하고 데이터로 증명합니다.
-                </p>
-            </div>
-        </div>
-        <div class="hero-right">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" alt="Sieer Identity">
-        </div>
-    </div>
-
-    <section class="performance-detail">
-        <span class="section-tag">Verified Data</span>
-        <h2 style="font-size: 2.5rem; font-weight: 800;">숫자로 증명하는 시각적 영향력</h2>
-        <div class="stats-grid">
-            <div class="stat-card">
-                <h4>누적 조회수</h4>
-                <p class="number">40<small>만+</small></p>
-            </div>
-            <div class="stat-card">
-                <h4>최고 조회수 (단일)</h4>
-                <p class="number">13.2<small>만</small></p>
-            </div>
-            <div class="stat-card">
-                <h4>자발적 공유/저장</h4>
-                <p class="number">5,000<small>+</small></p>
-            </div>
-        </div>
-    </section>
-
-    <section class="competency">
-        <span class="section-tag">Competitive Edge</span>
-        <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 20px;">시어(Sieer)가 성과를 내는 이유</h2>
-        <div class="comp-grid">
-            <div class="comp-item">
-                <h3>01. 조용한 시선의 미학</h3>
-                <p>자극적이고 빠른 컷 전환보다는 공간의 본질적인 분위기에 집중합니다. 유저들이 편안함을 느끼며 오랫동안 머물 수 있는 '고감도 영상'을 제작합니다.</p>
-            </div>
-            <div class="comp-item">
-                <h3>02. 알고리즘 최적화 기획</h3>
-                <p>단순한 기록이 아닙니다. 인스타그램 알고리즘이 선호하는 초반 3초 후킹과 공유를 부르는 정보성 구성을 통해 자연스러운 확산을 유도합니다.</p>
-            </div>
-            <div class="comp-item">
-                <h3>03. 원스톱 프로덕션</h3>
-                <p>기획, 촬영, 색감 보정, 사운드 믹싱까지 모든 과정을 시어가 직접 핸들링합니다. 외주 단계에서 발생하는 톤의 왜곡 없이 일관된 브랜딩을 보장합니다.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="work">
-        <span class="section-tag">Portfolio</span>
-        <div class="work-grid">
-            <div class="work-item" onclick="window.open('https://www.instagram.com/reel/DR7Gv12D5sH/')">
-                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=500">
-                <div class="work-info"><p>13.2만 조회수 기록</p></div>
-            </div>
-            <div class="work-item" onclick="window.open('https://www.instagram.com/reel/DTuoxxQkbfR/')">
-                <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&q=80&w=500">
-                <div class="work-info"><p>감성 카페 브랜딩</p></div>
-            </div>
-            <div class="work-item" onclick="window.open('https://www.instagram.com/reel/DSp6NWSkx0M/')">
-                <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=500">
-                <div class="work-info"><p>공간의 온도를 담은 시선</p></div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <h3>당신의 공간을 위해<br>가장 전략적인 장면을 설계합니다.</h3>
-        <a href="https://open.kakao.com/..." class="cta-btn">협업 제안하기</a>
-    </footer>
-
-</body>
-</html>
+            <p style="font-size: 1.2rem; color: #666; letter
