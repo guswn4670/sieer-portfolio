@@ -94,83 +94,47 @@
             .hero .big-num { font-size: 5rem; }
             h2 { font-size: 2.2rem; }
         }
-  /* --- 무한 루프 롤링 섹션 스타일 --- */
+ /* 전체 섹션 여백 */
 #work-rolling-container {
-    padding: 100px 0;
-    background-color: #ffffff;
-    overflow: hidden;
+    padding: 80px 0;
+    overflow: hidden; /* 넘치는 사진 숨기기 */
 }
 
+/* 제목 스타일 */
 .rolling-title {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
-.rolling-title h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    letter-spacing: -0.5px;
-}
-
-.rolling-title p {
-    color: #666;
-    font-size: 1rem;
-}
-
-/* 롤러 외곽 컨테이너 (그라데이션 효과) */
-.roller-wrapper {
-    position: relative;
-    width: 100%;
-    mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
-    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
-}
-
-/* 움직이는 트랙 */
+/* 가로로 흐르는 트랙 */
 .roller-track {
-    display: flex;
-    width: calc(250px * 16 + 30px * 16); /* (이미지폭 + 간격) * 전체 이미지 수 */
-    animation: scroll-left 40s linear infinite;
+    display: flex; /* 사진을 가로로 나열 */
+    width: fit-content;
+    animation: scroll-left 30s linear infinite; /* 30초 동안 왼쪽으로 무한 이동 */
 }
 
+/* 각 사진 아이템 */
 .roller-item {
-    flex-shrink: 0;
-    width: 250px; /* 이미지 너비 */
-    margin: 0 15px; /* 이미지 사이 간격 */
+    margin: 0 10px; /* 사진 사이 간격 */
 }
 
+/* 실제 이미지 크기 및 모양 */
 .roller-item img {
-    width: 100%;
-    height: 400px; /* 세로형 이미지에 맞춘 높이 */
-    object-fit: cover;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    width: 250px;      /* 사진 너비 */
+    height: 380px;     /* 사진 높이 */
+    object-fit: cover; /* 사진이 찌그러지지 않게 채우기 */
+    border-radius: 15px; /* 모서리 둥글게 */
 }
 
-/* 마우스 올리면 멈추고 살짝 커짐 */
+/* 마우스를 올리면 슬라이드가 멈춤 */
 .roller-track:hover {
     animation-play-state: paused;
 }
 
-.roller-item img:hover {
-    transform: translateY(-10px) scale(1.02);
-}
-
-/* 좌로 이동하는 애니메이션 */
+/* 왼쪽으로 이동하는 애니메이션 설정 */
 @keyframes scroll-left {
     0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-250px * 8 - 30px * 8)); } /* 이미지 8장분만큼 이동 */
-}
-
-/* 모바일 대응 */
-@media (max-width: 768px) {
-    .roller-item { width: 180px; }
-    .roller-item img { height: 300px; }
-    @keyframes scroll-left {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(calc(-180px * 8 - 30px * 8)); }
-    }
+    100% { transform: translateX(-50%); } /* 전체 길이의 절반(사진 8장)만큼 이동 */
 }
     </style>
 </head>
@@ -271,7 +235,34 @@
             </div>
         </div>
     </section>
+<section id="work-rolling-container">
+    <div class="rolling-title">
+        <h2>My Work Showcase</h2>
+        <p>지금까지 진행한 협찬/광고 작업물입니다.</p>
+    </div>
 
+    <div class="roller-wrapper">
+        <div class="roller-track">
+            <div class="roller-item"><img src="images/1.jpeg" alt="작업물"></div>
+            <div class="roller-item"><img src="images/2.jpeg" alt="작업물"></div>
+            <div class="roller-item"><img src="images/3.jpeg" alt="작업물"></div>
+            <div class="roller-item"><img src="images/4.jpeg" alt="작업물"></div>
+            <div class="roller-item"><img src="images/5.jpeg" alt="작업물"></div>
+            <div class="roller-item"><img src="images/6.jpeg" alt="작업물"></div>
+            <div class="roller-item"><img src="images/7.jpeg" alt="작업물"></div>
+            <div class="roller-item"><img src="images/8.jpeg" alt="작업물"></div>
+            
+            <div class="roller-item"><img src="images/1.jpeg" alt="작업물"></div>
+            <div class="roller-item"><img src="images/2.jpeg" alt="작업물"></div>
+            <div class="roller-item"><img src="images/3.jpeg" alt="작업물"></div>
+            <div class="roller-item"><img src="images/4.jpeg" alt="작업물"></div>
+            <div class="roller-item"><img src="images/5.jpeg" alt="작업물"></div>
+            <div class="roller-item"><img src="images/6.jpeg" alt="작업물"></div>
+            <div class="roller-item"><img src="images/7.jpeg" alt="작업물"></div>
+            <div class="roller-item"><img src="images/8.jpeg" alt="작업물"></div>
+        </div>
+    </div>
+</section>
     <section class="difference">
         <div class="container">
             <span class="section-tag" style="color:rgba(255,255,255,0.4)">The Edge</span>
