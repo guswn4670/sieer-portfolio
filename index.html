@@ -36,11 +36,11 @@
        /* [Showcase] 여기서부터 복사하세요 */
         #work-rolling-container { padding: 120px 0; overflow: hidden; background: #fff; }
 
-        .roller-track { 
+.roller-track { 
             display: flex; 
             width: fit-content; 
             animation: scroll-left 35s linear infinite; 
-            padding: 80px 0; /* 지그재그 배치를 위한 여유 공간 */
+            padding: 80px 0; 
         }
 
         .roller-item { 
@@ -50,18 +50,18 @@
             flex-direction: column;
         }
 
-        /* 사진 위에 붙는 01, 02 같은 번호 디자인 */
+        /* 사진 위 숫자 (디자인 포인트!) */
         .roller-item::before {
             content: attr(data-num); 
             font-size: 0.8rem;
             font-weight: 800;
-            color: var(--main); /* 스카이 블루 색상 */
+            color: var(--main);
             margin-bottom: 15px;
             letter-spacing: 0.1rem;
             font-family: 'Times New Roman', serif;
         }
 
-        /* 짝수 번째 사진만 아래로 60px 내리기 (지그재그 효과) */
+        /* 지그재그 효과 */
         .roller-item:nth-child(even) {
             transform: translateY(60px);
         }
@@ -70,12 +70,11 @@
             width: 300px; 
             height: 430px; 
             object-fit: cover; 
-            border-radius: 8px; /* 세련된 느낌을 주는 살짝 둥근 모서리 */
+            border-radius: 12px; 
             box-shadow: 0 20px 50px rgba(0,0,0,0.06);
             transition: all 0.5s ease;
         }
 
-        /* 마우스 올리면 살짝 더 커지는 효과 */
         .roller-item:hover img { 
             transform: scale(1.05); 
             box-shadow: 0 30px 60px rgba(0, 209, 255, 0.2); 
@@ -132,22 +131,50 @@
             <span class="section-tag">PORTFOLIO</span>
             <h2 style="font-size: 2.5rem; font-weight: 800;">My Work Showcase</h2>
         </div>
-        <div class="roller-track">
-            <div class="roller-item" data-num="01"><img src="images/1.jpeg" alt="01"></div>
-            <div class="roller-item" data-num="02"><img src="images/3.jpeg" alt="03"></div>
-            <div class="roller-item" data-num="03"><img src="images/4.jpeg" alt="04"></div>
-            <div class="roller-item" data-num="04"><img src="images/5.jpeg" alt="05"></div>
-            <div class="roller-item" data-num="05"><img src="images/6.jpeg" alt="06"></div>
-            <div class="roller-item" data-num="06"><img src="images/7.jpeg" alt="07"></div>
-            <div class="roller-item" data-num="07"><img src="images/8.jpeg" alt="08"></div>
+       <div class="roller-track">
+            <div class="roller-item" data-num="01">
+                <a href="https://www.instagram.com/reel/DTAn_NZEYbL/" target="_blank">
+                    <img src="images/1.jpeg" alt="01">
+                </a>
+            </div>
+            <div class="roller-item" data-num="02">
+                <a href="https://www.instagram.com/reel/DTP48cSkQXx/" target="_blank">
+                    <img src="images/3.jpeg" alt="03">
+                </a>
+            </div>
+            <div class="roller-item" data-num="03">
+                <a href="https://www.instagram.com/reel/DSp6NWSkx0M/" target="_blank">
+                    <img src="images/4.jpeg" alt="04">
+                </a>
+            </div>
+            <div class="roller-item" data-num="04">
+                <a href="https://www.instagram.com/reel/DTuoxxQkbfR/" target="_blank">
+                    <img src="images/5.jpeg" alt="05">
+                </a>
+            </div>
+            <div class="roller-item" data-num="05">
+                <a href="https://www.instagram.com/reel/DSlp68eD_L1/" target="_blank">
+                    <img src="images/6.jpeg" alt="06">
+                </a>
+            </div>
+            <div class="roller-item" data-num="06">
+                <a href="https://www.instagram.com/reel/DTkomaakaum/" target="_blank">
+                    <img src="images/7.jpeg" alt="07">
+                </a>
+            </div>
+            <div class="roller-item" data-num="07">
+                <a href="https://www.instagram.com/reel/DThk0B4kRP9/" target="_blank">
+                    <img src="images/8.jpeg" alt="08">
+                </a>
+            </div>
 
-            <div class="roller-item" data-num="01"><img src="images/1.jpeg" alt="01"></div>
-            <div class="roller-item" data-num="02"><img src="images/3.jpeg" alt="03"></div>
-            <div class="roller-item" data-num="03"><img src="images/4.jpeg" alt="04"></div>
-            <div class="roller-item" data-num="04"><img src="images/5.jpeg" alt="05"></div>
-            <div class="roller-item" data-num="05"><img src="images/6.jpeg" alt="06"></div>
-            <div class="roller-item" data-num="06"><img src="images/7.jpeg" alt="07"></div>
-            <div class="roller-item" data-num="07"><img src="images/8.jpeg" alt="08"></div>
+            <div class="roller-item" data-num="01"><a href="https://www.instagram.com/reel/DTAn_NZEYbL/" target="_blank"><img src="images/1.jpeg" alt="01"></a></div>
+            <div class="roller-item" data-num="02"><a href="https://www.instagram.com/reel/DTP48cSkQXx/" target="_blank"><img src="images/3.jpeg" alt="03"></a></div>
+            <div class="roller-item" data-num="03"><a href="https://www.instagram.com/reel/DSp6NWSkx0M/" target="_blank"><img src="images/4.jpeg" alt="04"></a></div>
+            <div class="roller-item" data-num="04"><a href="https://www.instagram.com/reel/DTuoxxQkbfR/" target="_blank"><img src="images/5.jpeg" alt="05"></a></div>
+            <div class="roller-item" data-num="05"><a href="https://www.instagram.com/reel/DSlp68eD_L1/" target="_blank"><img src="images/6.jpeg" alt="06"></a></div>
+            <div class="roller-item" data-num="06"><a href="https://www.instagram.com/reel/DTkomaakaum/" target="_blank"><img src="images/7.jpeg" alt="07"></a></div>
+            <div class="roller-item" data-num="07"><a href="https://www.instagram.com/reel/DThk0B4kRP9/" target="_blank"><img src="images/8.jpeg" alt="08"></a></div>
         </div>
 
 
