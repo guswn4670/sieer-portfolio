@@ -111,54 +111,51 @@
         .card h3 { font-size: 1.5rem; margin-bottom: 20px; color: var(--text); font-weight: 800; }
         .card p { font-size: 1rem; color: var(--text-sub); }
 
-        /* [Footer] 화사한 컬러 버튼 */
-        /* [Footer] 여기서부터 복사 */
+        /* [Footer] 세련되고 친근한 스타일 */
         footer { 
-            padding: 100px 0 60px; 
-            background: #fff; 
-            border-top: 1px solid #eee;
+            padding: 120px 0 80px; 
+            background: #fdfdfd; /* 완전 흰색보다 더 포근한 느낌 */
+            border-top: 1px solid #f0f0f0;
             text-align: center; 
         }
 
+        .footer-content { max-width: 600px; margin: 0 auto; }
+
         footer h2 { 
-            font-size: 2rem; 
-            font-weight: 800; 
-            margin-bottom: 40px; 
-            color: var(--text);
+            font-size: 2.2rem; font-weight: 800; margin-bottom: 15px; 
+            letter-spacing: -0.05rem; line-height: 1.3;
         }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 50px;
-            flex-wrap: wrap; /* 모바일 대응 */
+        footer p.sub-text {
+            font-size: 1.05rem; color: #777; margin-bottom: 45px;
+            line-height: 1.6; font-weight: 500;
         }
 
-        .social-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-size: 0.9rem;
-            font-weight: 700;
-            transition: 0.3s;
-            padding: 12px 25px;
-            border: 1px solid #eee;
-            border-radius: 50px;
+        /* 문의/채널 카드 레이아웃 */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px; margin-bottom: 60px;
         }
 
-        .social-links a:hover {
-            background: var(--main);
-            color: white;
-            border-color: var(--main);
-            transform: translateY(-5px);
+        .contact-card {
+            background: #fff; padding: 25px 20px; border-radius: 24px;
+            border: 1px solid #eee; text-decoration: none; color: #333;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex; flex-direction: column; align-items: center; gap: 10px;
         }
 
-        .copyright {
-            font-size: 0.8rem;
-            color: #aaa;
-            letter-spacing: 0.05rem;
-        }
-        /* 여기까지 복사해서 교체 */
+        /* 카드별 포인트 컬러 */
+        .card-blog:hover { border-color: #03cf5d; background: #f0fff5; } /* 네이버 초록 */
+        .card-insta:hover { border-color: #e1306c; background: #fff0f5; } /* 인스타 핑크 */
+        .card-kakao:hover { border-color: #fee500; background: #fffdeb; } /* 카카오 노랑 */
+
+        .contact-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+
+        .contact-card span.label { font-size: 0.75rem; font-weight: 800; color: #aaa; letter-spacing: 0.05rem; }
+        .contact-card span.name { font-size: 1.1rem; font-weight: 800; }
+
+        .copyright { font-size: 0.8rem; color: #ccc; }
         .cta-btn { 
             display: inline-block; 
             background: linear-gradient(135deg, var(--main), var(--point));
@@ -257,16 +254,31 @@
     </section>
 
     <footer>
-        <div class="container">
-            <h2>Contact & Channels</h2>
+        <div class="container footer-content">
+            <h2>공간에 대한 고민,<br>함께 나누면 더 쉬워져요.</h2>
+            <p class="sub-text">
+                인스타그램에서 영감을 얻고, 블로그에서 기록을 봅니다.<br>
+                궁금한 점은 언제든 카톡으로 편하게 물어봐 주세요!
+            </p>
             
-            <div class="social-links">
-                <a href="본인_블로그_주소" target="_blank">BLOG</a>
-                <a href="본인_카카오톡_오픈채팅_주소" target="_blank">KAKAOTALK</a>
-                <a href="https://www.instagram.com/본인_아이디" target="_blank">INSTAGRAM</a>
+            <div class="contact-grid">
+                <a href="블로그주소" target="_blank" class="contact-card card-blog">
+                    <span class="label">INSIGHT</span>
+                    <span class="name">Naver Blog</span>
+                </a>
+
+                <a href="인스타주소" target="_blank" class="contact-card card-insta">
+                    <span class="label">DAILY MOOD</span>
+                    <span class="name">Instagram</span>
+                </a>
+
+                <a href="오픈채팅주소" target="_blank" class="contact-card card-kakao">
+                    <span class="label">CONTACT</span>
+                    <span class="name">Kakao Talk</span>
+                </a>
             </div>
 
-            <p class="copyright">© 2024 STUDIO SIEER. All rights reserved.</p>
+            <p class="copyright">© 2024 STUDIO SIEER. Crafted with care.</p>
         </div>
     </footer>
 
