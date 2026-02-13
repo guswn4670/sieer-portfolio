@@ -6,7 +6,6 @@
 <title>Sieer | 공간 디렉팅 스튜디오</title>
 
 <style>
-
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
 :root {
@@ -62,7 +61,11 @@ body {
   left: -100px;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(0, 209, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(
+    circle,
+    rgba(0, 209, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
   filter: blur(80px);
   z-index: 0;
 }
@@ -74,7 +77,11 @@ body {
   right: -50px;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(255, 94, 142, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 94, 142, 0.1) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
   filter: blur(60px);
   z-index: 0;
 }
@@ -102,6 +109,175 @@ body {
   font-weight: 500;
 }
 
+/* SHOWCASE */
+#work-rolling-container {
+  padding: 120px 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+.roller-track {
+  display: flex;
+  width: fit-content;
+  animation: scroll-left 35s linear infinite;
+  padding: 80px 0;
+}
+
+.roller-item {
+  margin: 0 25px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.roller-item::before {
+  content: attr(data-num);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--main);
+  margin-bottom: 15px;
+  letter-spacing: 0.1rem;
+  font-family: 'Times New Roman', serif;
+}
+
+.roller-item:nth-child(even) {
+  transform: translateY(60px);
+}
+
+.roller-item img {
+  width: 300px;
+  height: 430px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+  transition: all 0.5s ease;
+}
+
+.roller-item:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 30px 60px rgba(0, 209, 255, 0.2);
+}
+
+.roller-track:hover {
+  animation-play-state: paused;
+}
+
+.roller-item a {
+  cursor: pointer;
+  display: block;
+}
+
+.roller-item a:hover img {
+  filter: brightness(1.1);
+  transition: filter 0.3s ease;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* IMPACT */
+.impact {
+  padding: 100px 0;
+  text-align: center;
+  background: #fff;
+}
+
+.impact-grid {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.impact-number {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--main);
+  display: block;
+}
+
+.impact-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #666;
+}
+
+/* SERVICES */
+.services {
+  padding: 150px 0;
+  background: #fff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 60px 40px;
+  border-radius: 40px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+  transition: 0.4s;
+}
+
+.card-num {
+  font-family: 'Times New Roman', serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--main);
+  margin-bottom: 25px;
+  letter-spacing: 0.1rem;
+}
+
+.card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.card p {
+  font-size: 1.05rem;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+/* FOOTER */
+footer {
+  padding: 120px 0 80px;
+  background: #fdfdfd;
+  border-top: 1px solid #f0f0f0;
+  text-align: center;
+}
+
+.cta-container {
+  margin: 60px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.cta-button {
+  padding: 22px 50px;
+  background: var(--main);
+  color: white;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.3rem;
+  box-shadow: 0 15px 30px rgba(0, 209, 255, 0.3);
+  transition: 0.3s;
+}
+
+.cta-button:hover {
+  transform: translateY(-5px);
+  background: #00c2ee;
+}
+
 </style>
 </head>
 
@@ -117,6 +293,8 @@ body {
     <p>숫자로 증명하는 고감도 공간 디렉팅 솔루션</p>
   </div>
 </section>
+
+<!-- 나머지 body 구조는 기존과 동일하게 유지 -->
 
 </body>
 </html>
