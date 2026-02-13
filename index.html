@@ -215,6 +215,22 @@
         .cta-btn:hover { transform: scale(1.1); box-shadow: 0 15px 40px rgba(255, 94, 142, 0.4); }
 
         @media (max-width: 1024px) { .grid { grid-template-columns: 1fr; } }
+
+        /* 성과 섹션 디자인 */
+.impact { padding: 100px 0; text-align: center; background: #fff; }
+.impact-grid { display: flex; justify-content: center; gap: 50px; margin-top: 40px; flex-wrap: wrap; }
+.impact-number { font-size: 3.5rem; font-weight: 900; color: var(--main); display: block; }
+.impact-label { font-size: 1rem; font-weight: 700; color: #666; }
+
+/* 상담 버튼 디자인 */
+.cta-container { margin: 60px 0; display: flex; justify-content: center; }
+.cta-button { 
+    padding: 22px 50px; background: var(--main); color: white; 
+    border-radius: 100px; text-decoration: none; font-weight: 800; font-size: 1.3rem;
+    box-shadow: 0 15px 30px rgba(0, 209, 255, 0.3); transition: 0.3s;
+}
+.cta-button:hover { transform: translateY(-5px); background: #00c2ee; }
+        
     </style>
 </head>
 <body>
@@ -278,7 +294,17 @@
             <div class="roller-item" data-num="07"><a href="https://www.instagram.com/reel/DThk0B4kRP9/" target="_blank"><img src="images/8.jpeg" alt="08"></a></div>
         </div>
 
-
+<section class="impact">
+    <div class="container">
+        <span class="section-tag">OUR IMPACT</span>
+        <h2 style="font-size: 2.2rem; font-weight: 800; margin-top: 10px;">기록으로 증명하는 공간의 가치</h2>
+        <div class="impact-grid">
+            <div class="impact-item"><span class="impact-number">120<span>+</span></span><span class="impact-label">누적 프로젝트</span></div>
+            <div class="impact-item"><span class="impact-number">85<span>만+</span></span><span class="impact-label">콘텐츠 조회수</span></div>
+            <div class="impact-item"><span class="impact-number">98<span>%</span></span><span class="impact-label">고객 만족도</span></div>
+        </div>
+    </div>
+</section>
     </section>
 <section class="impact">
         <div class="container">
@@ -327,6 +353,11 @@
     <footer>
         <div class="container footer-content">
             <h2>공간에 대한 고민,<br>함께 나누면 더 쉬워져요.</h2>
+            <div class="cta-container">
+    <a href="여기에_카카오톡_링크_넣기" target="_blank" class="cta-button">
+        지금 바로 상담하기 ➔
+    </a>
+</div>
             <p class="sub-text">
                 인스타그램에서 영감을 얻고, 블로그에서 기록을 봅니다.<br>
                 궁금한 점은 언제든 카톡으로 편하게 물어봐 주세요!
