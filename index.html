@@ -1,300 +1,569 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sieer | 공간 디렉팅 스튜디오</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sieer | 공간 디렉팅 스튜디오</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
-<style>
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        :root {
+            --bg: #FFFFFF;
+            --section-bg: #F8F9FA;
+            --main: #00D1FF;
+            /* 청량한 스카이 블루 */
+            --point: #FF5E8E;
+            /* 화사한 핑크 */
+            --text: #111111;
+            --text-sub: #666666;
+        }
 
-:root {
-  --bg: #FFFFFF;
-  --section-bg: #F8F9FA;
-  --main: #00D1FF;
-  --point: #FF5E8E;
-  --text: #111111;
-  --text-sub: #666666;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            word-break: keep-all;
+        }
 
-body {
-  font-family: 'Pretendard', sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  word-break: keep-all;
-}
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
 
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 30px;
-}
+        /* 히어로 섹션 그라데이션 수정본 */
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            /* 위에서 아래로 자연스럽게 빠지는 3톤 그라데이션 */
+            background: linear-gradient(180deg, rgba(0, 209, 255, 0.12) 0%, rgba(255, 94, 142, 0.08) 50%, rgba(255, 255, 255, 1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
 
-/* HERO */
-.hero {
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 209, 255, 0.12) 0%,
-    rgba(255, 94, 142, 0.08) 50%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  position: relative;
-  overflow: hidden;
-}
+        /* 배경에 깊이감을 주는 유동적인 조명 효과 */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -150px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 209, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+            filter: blur(80px);
+            z-index: 0;
+        }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  top: -150px;
-  left: -100px;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(
-    circle,
-    rgba(0, 209, 255, 0.15) 0%,
-    rgba(255, 255, 255, 0) 70%
-  );
-  filter: blur(80px);
-  z-index: 0;
-}
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: -50px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 94, 142, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            filter: blur(60px);
+            z-index: 0;
+        }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  top: -100px;
-  right: -50px;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(
-    circle,
-    rgba(255, 94, 142, 0.1) 0%,
-    rgba(255, 255, 255, 0) 70%
-  );
-  filter: blur(60px);
-  z-index: 0;
-}
+        /* 텍스트가 배경 조명에 묻히지 않게 z-index 조절 */
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
 
-.hero .container {
-  position: relative;
-  z-index: 1;
-}
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: -0.1rem;
+            line-height: 1.1;
+        }
 
-.hero h1 {
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
-  font-weight: 900;
-  letter-spacing: -0.1rem;
-  line-height: 1.1;
-}
+        .hero h1 span {
+            color: var(--main);
+        }
 
-.hero h1 span {
-  color: var(--main);
-}
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 30px;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
 
-.hero p {
-  font-size: 1.2rem;
-  margin-top: 30px;
-  color: var(--text-sub);
-  font-weight: 500;
-}
+        /* [Showcase] */
+        #work-rolling-container {
+            padding: 120px 0;
+            overflow: hidden;
+            background: #fff;
+        }
 
-/* SHOWCASE */
-#work-rolling-container {
-  padding: 120px 0;
-  overflow: hidden;
-  background: #fff;
-}
+        .roller-track {
+            display: flex;
+            width: fit-content;
+            animation: scroll-left 35s linear infinite;
+            padding: 80px 0;
+        }
 
-.roller-track {
-  display: flex;
-  width: fit-content;
-  animation: scroll-left 35s linear infinite;
-  padding: 80px 0;
-}
+        .roller-item {
+            margin: 0 25px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
 
-.roller-item {
-  margin: 0 25px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
+        /* 사진 위 숫자 (디자인 포인트!) */
+        .roller-item::before {
+            content: attr(data-num);
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--main);
+            margin-bottom: 15px;
+            letter-spacing: 0.1rem;
+            font-family: 'Times New Roman', serif;
+        }
 
-.roller-item::before {
-  content: attr(data-num);
-  font-size: 0.8rem;
-  font-weight: 800;
-  color: var(--main);
-  margin-bottom: 15px;
-  letter-spacing: 0.1rem;
-  font-family: 'Times New Roman', serif;
-}
+        /* 지그재그 효과 */
+        .roller-item:nth-child(even) {
+            transform: translateY(60px);
+        }
 
-.roller-item:nth-child(even) {
-  transform: translateY(60px);
-}
+        .roller-item img {
+            width: 300px;
+            height: 430px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+            transition: all 0.5s ease;
+        }
 
-.roller-item img {
-  width: 300px;
-  height: 430px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.06);
-  transition: all 0.5s ease;
-}
+        .roller-item:hover img {
+            transform: scale(1.05);
+            box-shadow: 0 30px 60px rgba(0, 209, 255, 0.2);
+        }
 
-.roller-item:hover img {
-  transform: scale(1.05);
-  box-shadow: 0 30px 60px rgba(0, 209, 255, 0.2);
-}
+        .roller-track:hover {
+            animation-play-state: paused;
+        }
 
-.roller-track:hover {
-  animation-play-state: paused;
-}
+        /* 사진에 마우스 올렸을 때의 디테일 효과 */
+        .roller-item a {
+            cursor: pointer;
+            display: block;
+        }
 
-.roller-item a {
-  cursor: pointer;
-  display: block;
-}
+        .roller-item a:hover img {
+            filter: brightness(1.1);
+            transition: filter 0.3s ease;
+        }
 
-.roller-item a:hover img {
-  filter: brightness(1.1);
-  transition: filter 0.3s ease;
-}
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
 
-@keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
+            100% {
+                transform: translateX(-50%);
+            }
+        }
 
-/* IMPACT */
-.impact {
-  padding: 100px 0;
-  text-align: center;
-  background: #fff;
-}
+        /* [Impact Section] 숫자로 증명하는 성과 */
+        .impact {
+            padding: 100px 0;
+            background-color: #fff;
+            text-align: center;
+        }
 
-.impact-grid {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  margin-top: 40px;
-  flex-wrap: wrap;
-}
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
 
-.impact-number {
-  font-size: 3.5rem;
-  font-weight: 900;
-  color: var(--main);
-  display: block;
-}
+        .impact-item {
+            position: relative;
+        }
 
-.impact-label {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #666;
-}
+        .impact-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 10px;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--main) 0%, var(--point) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 20px rgba(0, 209, 255, 0.1);
+        }
 
-/* SERVICES */
-.services {
-  padding: 150px 0;
-  background: #fff;
-}
+        .impact-number span {
+            font-size: 1.5rem;
+            -webkit-text-fill-color: var(--text);
+            margin-left: 2px;
+            font-weight: 700;
+        }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-}
+        .impact-label {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            letter-spacing: -0.02rem;
+        }
 
-.card {
-  background: rgba(255, 255, 255, 0.7);
-  padding: 60px 40px;
-  border-radius: 40px;
-  border: 1px solid #f0f0f0;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.02);
-  transition: 0.4s;
-}
+        .impact-item::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background-color: #eee;
+        }
 
-.card-num {
-  font-family: 'Times New Roman', serif;
-  font-size: 0.9rem;
-  font-weight: 800;
-  color: var(--main);
-  margin-bottom: 25px;
-  letter-spacing: 0.1rem;
-}
+        .impact-item:last-child::after {
+            display: none;
+        }
 
-.card h3 {
-  font-size: 1.6rem;
-  margin-bottom: 20px;
-  font-weight: 800;
-}
+        @media (max-width: 768px) {
+            .impact-item::after {
+                display: none;
+            }
 
-.card p {
-  font-size: 1.05rem;
-  color: var(--text-sub);
-  line-height: 1.7;
-}
+            .impact-grid {
+                gap: 60px;
+            }
+        }
 
-/* FOOTER */
-footer {
-  padding: 120px 0 80px;
-  background: #fdfdfd;
-  border-top: 1px solid #f0f0f0;
-  text-align: center;
-}
+        /* [Service Section] 업그레이드 스타일 */
+        .services {
+            padding: 150px 0;
+            background: #fff;
+            position: relative;
+        }
 
-.cta-container {
-  margin: 60px 0;
-  display: flex;
-  justify-content: center;
-}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
 
-.cta-button {
-  padding: 22px 50px;
-  background: var(--main);
-  color: white;
-  border-radius: 100px;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 1.3rem;
-  box-shadow: 0 15px 30px rgba(0, 209, 255, 0.3);
-  transition: 0.3s;
-}
+        .card {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 60px 40px;
+            border-radius: 40px;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+        }
 
-.cta-button:hover {
-  transform: translateY(-5px);
-  background: #00c2ee;
-}
+        .card-num {
+            font-family: 'Times New Roman', serif;
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--main);
+            margin-bottom: 25px;
+            letter-spacing: 0.1rem;
+        }
 
-</style>
+        .card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--text);
+            font-weight: 800;
+            letter-spacing: -0.03rem;
+        }
+
+        .card p {
+            font-size: 1.05rem;
+            color: var(--text-sub);
+            line-height: 1.7;
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            background: #fff;
+            box-shadow: 0 30px 60px rgba(0, 209, 255, 0.1);
+            border-color: rgba(0, 209, 255, 0.3);
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--main), var(--point));
+            transition: width 0.4s ease;
+        }
+
+        .card:hover::after {
+            width: 100%;
+        }
+
+        /* [Footer] 세련되고 친근한 스타일 */
+        footer {
+            padding: 120px 0 80px;
+            background: #fdfdfd;
+            border-top: 1px solid #f0f0f0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        footer h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -0.05rem;
+            line-height: 1.3;
+        }
+
+        footer p.sub-text {
+            font-size: 1.05rem;
+            color: #777;
+            margin-bottom: 45px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+            margin-bottom: 60px;
+        }
+
+        .contact-card {
+            background: #fff;
+            padding: 25px 20px;
+            border-radius: 24px;
+            border: 1px solid #eee;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-blog:hover {
+            border-color: #03cf5d;
+            background: #f0fff5;
+        }
+
+        .card-insta:hover {
+            border-color: #e1306c;
+            background: #fff0f5;
+        }
+
+        .card-kakao:hover {
+            border-color: #fee500;
+            background: #fffdeb;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-card span.label {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #aaa;
+            letter-spacing: 0.05rem;
+        }
+
+        .contact-card span.name {
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #ccc;
+        }
+
+        .cta-container {
+            margin: 60px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cta-button {
+            padding: 22px 50px;
+            background: var(--main);
+            color: white;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.3rem;
+            box-shadow: 0 15px 30px rgba(0, 209, 255, 0.3);
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            background: #00c2ee;
+        }
+
+        @media (max-width: 1024px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <section class="hero">
+        <div class="container">
+            <span class="section-tag">Directing Studio Sieer</span>
+            <h1>기록은 <span>방문</span>이 되고,<br>공간은 <span>브랜드</span>가 됩니다.</h1>
+            <p>숫자로 증명하는 고감도 공간 디렉팅 솔루션</p>
+        </div>
+    </section>
 
-<section class="hero">
-  <div class="container">
-    <span class="section-tag">Directing Studio Sieer</span>
-    <h1>
-      기록은 <span>방문</span>이 되고,<br>
-      공간은 <span>브랜드</span>가 됩니다.
-    </h1>
-    <p>숫자로 증명하는 고감도 공간 디렉팅 솔루션</p>
-  </div>
-</section>
+    <section id="work-rolling-container">
+        <div class="container">
+            <span class="section-tag">PORTFOLIO</span>
+            <h2 style="font-size: 2.5rem; font-weight: 800;">My Work Showcase</h2>
+        </div>
+        <div class="roller-track">
+            <div class="roller-item" data-num="01">
+                <a href="https://www.instagram.com/reel/DTAn_NZEYbL/" target="_blank">
+                    <img src="images/1.jpeg" alt="01">
+                </a>
+            </div>
+            <div class="roller-item" data-num="02">
+                <a href="https://www.instagram.com/reel/DTP48cSkQXx/" target="_blank">
+                    <img src="images/3.jpeg" alt="03">
+                </a>
+            </div>
+            <div class="roller-item" data-num="03">
+                <a href="https://www.instagram.com/reel/DSp6NWSkx0M/" target="_blank">
+                    <img src="images/4.jpeg" alt="04">
+                </a>
+            </div>
+            <div class="roller-item" data-num="04">
+                <a href="https://www.instagram.com/reel/DTuoxxQkbfR/" target="_blank">
+                    <img src="images/5.jpeg" alt="05">
+                </a>
+            </div>
+            <div class="roller-item" data-num="05">
+                <a href="https://www.instagram.com/reel/DSlp68eD_L1/" target="_blank">
+                    <img src="images/6.jpeg" alt="06">
+                </a>
+            </div>
+            <div class="roller-item" data-num="06">
+                <a href="https://www.instagram.com/reel/DTkomaakaum/" target="_blank">
+                    <img src="images/7.jpeg" alt="07">
+                </a>
+            </div>
+            <div class="roller-item" data-num="07">
+                <a href="https://www.instagram.com/reel/DThk0B4kRP9/" target="_blank">
+                    <img src="images/8.jpeg" alt="08">
+                </a>
+            </div>
+            <div class="roller-item" data-num="01"><a href="https://www.instagram.com/reel/DTAn_NZEYbL/" target="_blank"><img src="images/1.jpeg" alt="01"></a></div>
+            <div class="roller-item" data-num="02"><a href="https://www.instagram.com/reel/DTP48cSkQXx/" target="_blank"><img src="images/3.jpeg" alt="03"></a></div>
+            <div class="roller-item" data-num="03"><a href="https://www.instagram.com/reel/DSp6NWSkx0M/" target="_blank"><img src="images/4.jpeg" alt="04"></a></div>
+            <div class="roller-item" data-num="04"><a href="https://www.instagram.com/reel/DTuoxxQkbfR/" target="_blank"><img src="images/5.jpeg" alt="05"></a></div>
+            <div class="roller-item" data-num="05"><a href="https://www.instagram.com/reel/DSlp68eD_L1/" target="_blank"><img src="images/6.jpeg" alt="06"></a></div>
+            <div class="roller-item" data-num="06"><a href="https://www.instagram.com/reel/DTkomaakaum/" target="_blank"><img src="images/7.jpeg" alt="07"></a></div>
+            <div class="roller-item" data-num="07"><a href="https://www.instagram.com/reel/DThk0B4kRP9/" target="_blank"><img src="images/8.jpeg" alt="08"></a></div>
+        </div>
+    </section>
 
-<!-- 나머지 body 구조는 기존과 동일하게 유지 -->
+    <section class="impact">
+        <div class="container">
+            <span class="section-tag">OUR IMPACT</span>
+            <h2 style="font-size: 2.2rem; font-weight: 800; margin-top: 10px;">기록으로 증명하는 공간의 가치</h2>
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <span class="impact-number">120<span>+</span></span>
+                    <span class="impact-label">누적 디렉팅 프로젝트</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">85<span>만+</span></span>
+                    <span class="impact-label">콘텐츠 총 조회수</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">98<span>%</span></span>
+                    <span class="impact-label">브랜드 재방문 만족도</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number">15<span>개</span></span>
+                    <span class="impact-label">협업 파트너 브랜드</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section class="services">
+        <div class="container">
+            <div class="grid">
+                <div class="card">
+                    <div class="card-num">01</div>
+                    <h3>Visual & Taste Directing</h3>
+                    <p>공간의 결을 해치지 않으면서<br>음식과 무드를 가장 매력적인 방식으로 연출합니다.</p>
+                </div>
+                <div class="card">
+                    <div class="card-num">02</div>
+                    <h3>Space Curation</h3>
+                    <p>공간의 강점을 분석하고<br>머물고 싶은 이유를 장면으로 구성합니다.</p>
+                </div>
+                <div class="card">
+                    <div class="card-num">03</div>
+                    <h3>Brand Experience Design</h3>
+                    <p>음악, 템포, 분위기를 설계해<br>하나의 브랜드 공간 경험으로 완성합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <h2>공간에 대한 고민,<br>함께 나누면 더 쉬워져요.</h2>
+            <div class="cta-container">
+                <a href="여기에_카카오톡_링크_넣기" target="_blank" class="cta-button"> 지금 바로 상담하기 ➔ </a>
+            </div>
+            <p class="sub-text"> 인스타그램에서 영감을 얻고, 블로그에서 기록을 봅니다.<br> 궁금한 점은 언제든 카톡으로 편하게 물어봐 주세요! </p>
+            <div class="contact-grid">
+                <a href="블로그주소" target="_blank" class="contact-card card-blog">
+                    <span class="label">INSIGHT</span>
+                    <span class="name">Naver Blog</span>
+                </a>
+                <a href="인스타주소" target="_blank" class="contact-card card-insta">
+                    <span class="label">DAILY MOOD</span>
+                    <span class="name">Instagram</span>
+                </a>
+                <a href="오픈채팅주소" target="_blank" class="contact-card card-kakao">
+                    <span class="label">CONTACT</span>
+                    <span class="name">Kakao Talk</span>
+                </a>
+            </div>
+            <p class="copyright">© 2024 STUDIO SIEER. Crafted with care.</p>
+        </div>
+    </footer>
 </body>
+
 </html>
