@@ -3,75 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sieer | 팝한 공간 디렉팅</title>
+    <title>Sieer | 공간 디렉팅 스튜디오</title>
     <style>
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
         
         :root {
-            --bg: #FFFFFF;        
-            --main: #4ADE80;     /* 톡 쏘는 민트 그린 */
-            --sub: #FB7185;      /* 통통 튀는 코랄 */
-            --point: #FDE047;    /* 밝은 옐로우 */
-            --black: #1A1A1A;    /* 선명한 블랙 */
-            --shadow: 8px 8px 0px var(--black); /* 입체적인 그림자 */
+            --bg: #FFFFFF;
+            --section-bg: #F8F9FA;
+            --main: #00D1FF;      /* 청량한 스카이 블루 */
+            --point: #FF5E8E;     /* 화사한 핑크 */
+            --text: #111111;
+            --text-sub: #666666;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: 'Pretendard', sans-serif; 
             background-color: var(--bg); 
-            color: var(--black);
+            color: var(--text);
             line-height: 1.6;
-            overflow-x: hidden;
+            word-break: keep-all;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
 
-        /* [1. Hero] 강렬한 첫인상 */
-        .hero { height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--main); border-bottom: 5px solid var(--black); }
-        .hero-box { background: white; padding: 60px; border: 4px solid var(--black); box-shadow: 15px 15px 0px var(--black); transform: rotate(-2deg); }
-        .hero h1 { font-size: clamp(2rem, 6vw, 4rem); font-weight: 900; line-height: 1.2; color: var(--black); }
-        .hero h1 span { background: var(--point); padding: 0 10px; border: 3px solid var(--black); display: inline-block; margin-top: 10px; transform: rotate(2deg); }
+        /* [Hero] 깔끔하고 감각적인 타이포그래피 */
+        .hero { height: 80vh; display: flex; align-items: center; background: radial-gradient(circle at 10% 20%, rgba(0, 209, 255, 0.05) 0%, rgba(255, 94, 142, 0.05) 90%); }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; letter-spacing: -0.1rem; line-height: 1.1; }
+        .hero h1 span { color: var(--main); }
+        .hero p { font-size: 1.2rem; margin-top: 30px; color: var(--text-sub); font-weight: 500; }
 
-        /* [2. Showcase] 입체적인 슬라이드 */
-        #work-rolling-container { padding: 100px 0; background: var(--bg); }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-size: 3rem; font-weight: 900; -webkit-text-stroke: 2px var(--black); color: white; text-shadow: 5px 5px 0px var(--black); }
-
-        .roller-track { display: flex; width: fit-content; animation: scroll-left 25s linear infinite; padding: 30px 0; }
-        .roller-item { margin: 0 20px; transition: 0.3s; }
+        /* [Showcase] 입체적인 부유 효과 */
+        #work-rolling-container { padding: 120px 0; overflow: hidden; }
+        .section-tag { font-size: 0.9rem; font-weight: 800; color: var(--point); letter-spacing: 0.2rem; margin-bottom: 15px; display: block; }
+        
+        .roller-track { display: flex; width: fit-content; animation: scroll-left 30s linear infinite; padding: 40px 0; }
+        .roller-item { margin: 0 25px; position: relative; }
         .roller-item img { 
-            width: 300px; height: 420px; object-fit: cover; 
-            border: 4px solid var(--black); 
-            box-shadow: 10px 10px 0px var(--sub);
-            border-radius: 10px;
-            transition: 0.3s;
+            width: 300px; height: 430px; object-fit: cover; 
+            border-radius: 30px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08); /* 부드러운 그림자 */
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .roller-item:hover { transform: scale(1.05) rotate(3deg); z-index: 10; }
+        .roller-item:hover img { transform: scale(1.08) translateY(-20px); box-shadow: 0 30px 60px rgba(0,0,0,0.12); }
         .roller-track:hover { animation-play-state: paused; }
 
         @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* [3. Cards] 입체적인 카드 섹션 */
-        .services { padding: 100px 0; background: var(--point); border-top: 5px solid var(--black); border-bottom: 5px solid var(--black); }
-        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        /* [Service] 미니멀한 입체 카드 */
+        .services { padding: 150px 0; background-color: var(--section-bg); }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .card { 
-            background: white; padding: 40px; border: 4px solid var(--black); 
-            box-shadow: var(--shadow); transition: 0.2s; 
+            background: white; padding: 50px 40px; border-radius: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: 0.3s;
         }
-        .card:hover { transform: translate(-5px, -5px); box-shadow: 15px 15px 0px var(--black); }
-        .card h3 { font-size: 1.8rem; margin-bottom: 20px; background: var(--main); display: inline-block; padding: 5px 15px; border: 2px solid var(--black); }
-        .card li { list-style: none; font-weight: 700; margin-bottom: 10px; }
-        .card li::before { content: '⚡ '; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.06); }
+        .card h3 { font-size: 1.5rem; margin-bottom: 20px; color: var(--text); font-weight: 800; }
+        .card p { font-size: 1rem; color: var(--text-sub); }
 
-        /* [4. Footer] 팝한 마무리 */
-        footer { padding: 120px 0; text-align: center; background: white; }
+        /* [Footer] 화사한 컬러 버튼 */
+        footer { padding: 150px 0; text-align: center; }
         .cta-btn { 
-            display: inline-block; background: var(--sub); color: white; padding: 30px 60px; 
-            font-size: 1.5rem; font-weight: 900; text-decoration: none; border: 4px solid var(--black); 
-            box-shadow: 10px 10px 0px var(--black); transition: 0.2s;
+            display: inline-block; 
+            background: linear-gradient(135deg, var(--main), var(--point));
+            color: white; padding: 22px 60px; 
+            font-size: 1.2rem; font-weight: 800; text-decoration: none; 
+            border-radius: 100px; 
+            box-shadow: 0 10px 30px rgba(0, 209, 255, 0.3);
+            transition: 0.4s;
         }
-        .cta-btn:hover { transform: translate(5px, 5px); box-shadow: 0px 0px 0px var(--black); }
+        .cta-btn:hover { transform: scale(1.1); box-shadow: 0 15px 40px rgba(255, 94, 142, 0.4); }
 
         @media (max-width: 1024px) { .grid { grid-template-columns: 1fr; } }
     </style>
@@ -79,31 +81,33 @@
 <body>
 
     <section class="hero">
-        <div class="hero-box">
-            <p style="font-weight: 800; color: var(--sub);">#STUDIO_SIEER</p>
-            <h1>공간의 온도를 담아<br><span>조회수를 폭발시킵니다</span></h1>
+        <div class="container">
+            <span class="section-tag">Directing Studio Sieer</span>
+            <h1>기록이 <span>방문</span>으로,<br>공간을 <span>브랜드</span>로 만듭니다.</h1>
+            <p>숫자로 증명하는 고감도 공간 디렉팅 솔루션</p>
         </div>
     </section>
 
     <section id="work-rolling-container">
-        <div class="section-title">
-            <h2>MY WORK SHOWCASE</h2>
+        <div class="container">
+            <span class="section-tag">PORTFOLIO</span>
+            <h2 style="font-size: 2.5rem; font-weight: 800;">My Work Showcase</h2>
         </div>
         <div class="roller-track">
-            <div class="roller-item"><img src="images/1.jpeg" alt="work1"></div>
-            <div class="roller-item"><img src="images/3.jpeg" alt="work3"></div>
-            <div class="roller-item"><img src="images/4.jpeg" alt="work4"></div>
-            <div class="roller-item"><img src="images/5.jpeg" alt="work5"></div>
-            <div class="roller-item"><img src="images/6.jpeg" alt="work6"></div>
-            <div class="roller-item"><img src="images/7.jpeg" alt="work7"></div>
-            <div class="roller-item"><img src="images/8.jpeg" alt="work8"></div>
-            <div class="roller-item"><img src="images/1.jpeg" alt="work1"></div>
-            <div class="roller-item"><img src="images/3.jpeg" alt="work3"></div>
-            <div class="roller-item"><img src="images/4.jpeg" alt="work4"></div>
-            <div class="roller-item"><img src="images/5.jpeg" alt="work5"></div>
-            <div class="roller-item"><img src="images/6.jpeg" alt="work6"></div>
-            <div class="roller-item"><img src="images/7.jpeg" alt="work7"></div>
-            <div class="roller-item"><img src="images/8.jpeg" alt="work8"></div>
+            <div class="roller-item"><img src="images/1.jpeg" alt="01"></div>
+            <div class="roller-item"><img src="images/3.jpeg" alt="03"></div>
+            <div class="roller-item"><img src="images/4.jpeg" alt="04"></div>
+            <div class="roller-item"><img src="images/5.jpeg" alt="05"></div>
+            <div class="roller-item"><img src="images/6.jpeg" alt="06"></div>
+            <div class="roller-item"><img src="images/7.jpeg" alt="07"></div>
+            <div class="roller-item"><img src="images/8.jpeg" alt="08"></div>
+            <div class="roller-item"><img src="images/1.jpeg" alt="01"></div>
+            <div class="roller-item"><img src="images/3.jpeg" alt="03"></div>
+            <div class="roller-item"><img src="images/4.jpeg" alt="04"></div>
+            <div class="roller-item"><img src="images/5.jpeg" alt="05"></div>
+            <div class="roller-item"><img src="images/6.jpeg" alt="06"></div>
+            <div class="roller-item"><img src="images/7.jpeg" alt="07"></div>
+            <div class="roller-item"><img src="images/8.jpeg" alt="08"></div>
         </div>
     </section>
 
@@ -111,25 +115,16 @@
         <div class="container">
             <div class="grid">
                 <div class="card">
-                    <h3>CAFÉ / F&B</h3>
-                    <ul>
-                        <li>미각을 자극하는 비주얼</li>
-                        <li>공간 맞춤 톤앤매너</li>
-                    </ul>
+                    <h3>Taste Directing</h3>
+                    <p>미각을 깨우는 텍스처와 사운드를 담은 숏폼 콘텐츠를 제작합니다.</p>
                 </div>
                 <div class="card">
-                    <h3>STAY</h3>
-                    <ul>
-                        <li>가보고 싶은 POV 구도</li>
-                        <li>감성적인 여백의 미</li>
-                    </ul>
+                    <h3>Space Curation</h3>
+                    <p>머물고 싶은 공간의 무드를 가장 예쁜 각도로 찾아내어 기록합니다.</p>
                 </div>
                 <div class="card">
-                    <h3>BRANDING</h3>
-                    <ul>
-                        <li>터지는 숏폼 기획</li>
-                        <li>독보적인 색감 디렉팅</li>
-                    </ul>
+                    <h3>Brand Story</h3>
+                    <p>공간 속에 숨겨진 사장님의 진심을 데이터 기반 알고리즘으로 확산시킵니다.</p>
                 </div>
             </div>
         </div>
@@ -137,8 +132,8 @@
 
     <footer>
         <div class="container">
-            <h2 style="font-size: 2.5rem; margin-bottom: 40px;">지금 바로 협업을 제안하세요!</h2>
-            <a href="https://open.kakao.com/..." class="cta-btn">GET IN TOUCH!</a>
+            <h2 style="font-size: 2.2rem; margin-bottom: 50px; font-weight: 800;">공간의 가치를 증명할 시간</h2>
+            <a href="#" class="cta-btn">INQUIRY NOW</a>
         </div>
     </footer>
 
