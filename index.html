@@ -33,22 +33,61 @@
         .hero h1 span { color: var(--main); }
         .hero p { font-size: 1.2rem; margin-top: 30px; color: var(--text-sub); font-weight: 500; }
 
-        /* [Showcase] 입체적인 부유 효과 */
-        #work-rolling-container { padding: 120px 0; overflow: hidden; }
-        .section-tag { font-size: 0.9rem; font-weight: 800; color: var(--point); letter-spacing: 0.2rem; margin-bottom: 15px; display: block; }
-        
-        .roller-track { display: flex; width: fit-content; animation: scroll-left 30s linear infinite; padding: 40px 0; }
-        .roller-item { margin: 0 25px; position: relative; }
-        .roller-item img { 
-            width: 300px; height: 430px; object-fit: cover; 
-            border-radius: 30px; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08); /* 부드러운 그림자 */
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+       /* [Showcase] 여기서부터 복사하세요 */
+        #work-rolling-container { padding: 120px 0; overflow: hidden; background: #fff; }
+
+        .roller-track { 
+            display: flex; 
+            width: fit-content; 
+            animation: scroll-left 35s linear infinite; 
+            padding: 80px 0; /* 지그재그 배치를 위한 여유 공간 */
         }
-        .roller-item:hover img { transform: scale(1.08) translateY(-20px); box-shadow: 0 30px 60px rgba(0,0,0,0.12); }
+
+        .roller-item { 
+            margin: 0 25px; 
+            position: relative; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 사진 위에 붙는 01, 02 같은 번호 디자인 */
+        .roller-item::before {
+            content: attr(data-num); 
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--main); /* 스카이 블루 색상 */
+            margin-bottom: 15px;
+            letter-spacing: 0.1rem;
+            font-family: 'Times New Roman', serif;
+        }
+
+        /* 짝수 번째 사진만 아래로 60px 내리기 (지그재그 효과) */
+        .roller-item:nth-child(even) {
+            transform: translateY(60px);
+        }
+
+        .roller-item img { 
+            width: 300px; 
+            height: 430px; 
+            object-fit: cover; 
+            border-radius: 8px; /* 세련된 느낌을 주는 살짝 둥근 모서리 */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+            transition: all 0.5s ease;
+        }
+
+        /* 마우스 올리면 살짝 더 커지는 효과 */
+        .roller-item:hover img { 
+            transform: scale(1.05); 
+            box-shadow: 0 30px 60px rgba(0, 209, 255, 0.2); 
+        }
+
         .roller-track:hover { animation-play-state: paused; }
 
-        @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes scroll-left { 
+            0% { transform: translateX(0); } 
+            100% { transform: translateX(-50%); } 
+        }
+        /* 여기까지 복사해서 붙여넣으세요 */
 
         /* [Service] 미니멀한 입체 카드 */
         .services { padding: 150px 0; background-color: var(--section-bg); }
@@ -94,21 +133,31 @@
             <h2 style="font-size: 2.5rem; font-weight: 800;">My Work Showcase</h2>
         </div>
         <div class="roller-track">
-            <div class="roller-item"><img src="images/1.jpeg" alt="01"></div>
-            <div class="roller-item"><img src="images/3.jpeg" alt="03"></div>
-            <div class="roller-item"><img src="images/4.jpeg" alt="04"></div>
-            <div class="roller-item"><img src="images/5.jpeg" alt="05"></div>
-            <div class="roller-item"><img src="images/6.jpeg" alt="06"></div>
-            <div class="roller-item"><img src="images/7.jpeg" alt="07"></div>
-            <div class="roller-item"><img src="images/8.jpeg" alt="08"></div>
-            <div class="roller-item"><img src="images/1.jpeg" alt="01"></div>
-            <div class="roller-item"><img src="images/3.jpeg" alt="03"></div>
-            <div class="roller-item"><img src="images/4.jpeg" alt="04"></div>
-            <div class="roller-item"><img src="images/5.jpeg" alt="05"></div>
-            <div class="roller-item"><img src="images/6.jpeg" alt="06"></div>
-            <div class="roller-item"><img src="images/7.jpeg" alt="07"></div>
-            <div class="roller-item"><img src="images/8.jpeg" alt="08"></div>
+            <div class="roller-item" data-num="01"><img src="images/1.jpeg" alt="01"></div>
+            <div class="roller-item" data-num="02"><img src="images/3.jpeg" alt="03"></div>
+            <div class="roller-item" data-num="03"><img src="images/4.jpeg" alt="04"></div>
+            <div class="roller-item" data-num="04"><img src="images/5.jpeg" alt="05"></div>
+            <div class="roller-item" data-num="05"><img src="images/6.jpeg" alt="06"></div>
+            <div class="roller-item" data-num="06"><img src="images/7.jpeg" alt="07"></div>
+            <div class="roller-item" data-num="07"><img src="images/8.jpeg" alt="08"></div>
+
+            <div class="roller-item" data-num="01"><img src="images/1.jpeg" alt="01"></div>
+            <div class="roller-item" data-num="02"><img src="images/3.jpeg" alt="03"></div>
+            <div class="roller-item" data-num="03"><img src="images/4.jpeg" alt="04"></div>
+            <div class="roller-item" data-num="04"><img src="images/5.jpeg" alt="05"></div>
+            <div class="roller-item" data-num="05"><img src="images/6.jpeg" alt="06"></div>
+            <div class="roller-item" data-num="06"><img src="images/7.jpeg" alt="07"></div>
+            <div class="roller-item" data-num="07"><img src="images/8.jpeg" alt="08"></div>
         </div>
+        ```
+
+---
+
+### 💡 확인 팁
+* **CSS:** 지그재그 효과가 사진들 사이에 여유를 줘서 훨씬 **입체적**으로 보일 거예요.
+* **HTML:** 각 사진 위에 `01`, `02` 같은 숫자가 떠서 훨씬 **전문적인 포트폴리오** 느낌이 납니다.
+
+이렇게 수정하고 저장한 뒤, 다시 파일을 열어보거나 깃허브에 올려보세요! 혹시 수정하다 코드가 꼬이면 언제든 말씀해 주세요. 다시 정리해 드릴게요. :)
     </section>
 
     <section class="services">
