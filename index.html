@@ -112,7 +112,53 @@
         .card p { font-size: 1rem; color: var(--text-sub); }
 
         /* [Footer] 화사한 컬러 버튼 */
-        footer { padding: 150px 0; text-align: center; }
+        /* [Footer] 여기서부터 복사 */
+        footer { 
+            padding: 100px 0 60px; 
+            background: #fff; 
+            border-top: 1px solid #eee;
+            text-align: center; 
+        }
+
+        footer h2 { 
+            font-size: 2rem; 
+            font-weight: 800; 
+            margin-bottom: 40px; 
+            color: var(--text);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            flex-wrap: wrap; /* 모바일 대응 */
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: 0.3s;
+            padding: 12px 25px;
+            border: 1px solid #eee;
+            border-radius: 50px;
+        }
+
+        .social-links a:hover {
+            background: var(--main);
+            color: white;
+            border-color: var(--main);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #aaa;
+            letter-spacing: 0.05rem;
+        }
+        /* 여기까지 복사해서 교체 */
         .cta-btn { 
             display: inline-block; 
             background: linear-gradient(135deg, var(--main), var(--point));
@@ -212,8 +258,15 @@
 
     <footer>
         <div class="container">
-            <h2 style="font-size: 2.2rem; margin-bottom: 50px; font-weight: 800;">공간의 가치를 증명할 시간</h2>
-            <a href="#" class="cta-btn">INQUIRY NOW</a>
+            <h2>Contact & Channels</h2>
+            
+            <div class="social-links">
+                <a href="본인_블로그_주소" target="_blank">BLOG</a>
+                <a href="본인_카카오톡_오픈채팅_주소" target="_blank">KAKAOTALK</a>
+                <a href="https://www.instagram.com/본인_아이디" target="_blank">INSTAGRAM</a>
+            </div>
+
+            <p class="copyright">© 2024 STUDIO SIEER. All rights reserved.</p>
         </div>
     </footer>
 
