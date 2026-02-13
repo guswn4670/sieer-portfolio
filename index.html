@@ -5,32 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sieer | 공간 디렉팅 스튜디오</title>
     <style>
-        /* 히어로 구간 그라데이션 배경 */
-        header {
-            width: 100%;
-            height: 100vh; /* 화면 꽉 차게 */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            /* 공간 디렉터 느낌의 고급스러운 그라데이션 */
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
-            position: relative;
-        }
-
-        /* 배경에 몽글몽글한 조명 효과 추가 */
-        header::before {
-            content: "";
-            position: absolute;
-            top: 10%;
-            left: 10%;
-            width: 40vw;
-            height: 40vw;
-            background: radial-gradient(circle, rgba(0, 209, 255, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
-            filter: blur(80px);
-            z-index: 0;
-        }
+      
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
         
         :root {
@@ -54,7 +29,29 @@
         .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
 
         /* [Hero] 깔끔하고 감각적인 타이포그래피 */
-        .hero { height: 80vh; display: flex; align-items: center; background: radial-gradient(circle at 10% 20%, rgba(0, 209, 255, 0.05) 0%, rgba(255, 94, 142, 0.05) 90%); }
+        .hero { 
+    height: 80vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+    /* 세련된 3톤 그라데이션으로 교체 */
+    background: linear-gradient(135deg, #f8faff 0%, #eff4ff 50%, #f9f4ff 100%); 
+    position: relative;
+    overflow: hidden;
+}
+
+/* 배경에 은은한 입체감을 주는 포인트 (32번 줄 아래에 추가) */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 209, 255, 0.07) 0%, rgba(255, 255, 255, 0) 70%);
+    filter: blur(60px);
+}
         .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; letter-spacing: -0.1rem; line-height: 1.1; }
         .hero h1 span { color: var(--main); }
         .hero p { font-size: 1.2rem; margin-top: 30px; color: var(--text-sub); font-weight: 500; }
