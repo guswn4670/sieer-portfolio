@@ -82,6 +82,17 @@
 
         .roller-track:hover { animation-play-state: paused; }
 
+        /* 사진에 마우스 올렸을 때의 디테일 효과 */
+        .roller-item a {
+            cursor: pointer; /* 마우스 화살표가 손가락 모양으로 변함 */
+            display: block;
+        }
+
+        .roller-item a:hover img {
+            filter: brightness(1.1); /* 사진이 살짝 밝아짐 */
+            transition: filter 0.3s ease; /* 부드럽게 변하도록 설정 */
+        }
+
         @keyframes scroll-left { 
             0% { transform: translateX(0); } 
             100% { transform: translateX(-50%); } 
