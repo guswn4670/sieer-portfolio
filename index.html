@@ -9,135 +9,84 @@
         
         :root {
             --bg: #FFFFFF;
-            --section-bg: #F8F9FA;
-            --main: #00D1FF;      /* 스카이 블루 */
-            --point: #FF5E8E;     /* 핑크 */
+            --main: #00D1FF;      
+            --point: #FF5E8E;     
             --text: #111111;
-            --text-sub: #666666;
+            --text-sub: #888888;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Pretendard', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; word-break: keep-all; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
-        .section-tag { font-size: 0.9rem; font-weight: 800; color: var(--main); letter-spacing: 0.2rem; margin-bottom: 20px; display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
 
-        /* 1. [Problem] 문제 인식 */
-        .problem { padding: 180px 0 120px; background: #fff; text-align: center; }
-        .problem h2 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 800; line-height: 1.4; margin-bottom: 30px; color: #111; }
-        .problem h2 span { color: #ccc; text-decoration: line-through; font-weight: 400; }
-        .problem p { font-size: 1.2rem; color: var(--text-sub); font-weight: 500; }
+        /* ① 문제 제기 (Short & Impact) */
+        .intro-ques { padding: 120px 0 60px; text-align: center; }
+        .intro-ques p { font-size: 1.2rem; font-weight: 500; color: #bbb; letter-spacing: -0.02rem; }
+        .intro-ques h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700; margin-top: 10px; color: #333; }
 
-        /* 2. [Hero/Solution] 해결 제안 */
+        /* ② Hero Section (Visual Focus) */
         .hero { 
-            height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center;
-            background: linear-gradient(180deg, rgba(0, 209, 255, 0.12) 0%, rgba(255, 94, 142, 0.08) 50%, #fff 100%); 
-            position: relative; overflow: hidden;
+            height: 85vh; width: 95%; margin: 0 auto; border-radius: 40px;
+            display: flex; align-items: center; justify-content: center; text-align: center;
+            /* 여기에 실제 영상이나 큰 이미지를 넣으세요 */
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('images/main-hero.jpg') center/cover no-repeat;
+            background-color: #f0f4f7; 
+            position: relative; overflow: hidden; color: #fff;
         }
-        .hero h1 { font-size: clamp(2.2rem, 8vw, 4rem); font-weight: 900; letter-spacing: -0.1rem; line-height: 1.2; z-index: 1; }
-        .hero h1 span { color: var(--main); }
+        .hero-content h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.15rem; }
+        .hero-content h1 span { color: var(--main); }
 
-        /* 3. [Services] 어떻게 하는가 */
-        .services { padding: 150px 0; background-color: var(--section-bg); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { 
-            background: #fff; padding: 60px 40px; border-radius: 40px; border: 1px solid #eee; transition: 0.4s; position: relative;
+        /* ③ Portfolio Rolling (앞으로 전진) */
+        .portfolio-top { padding: 100px 0; overflow: hidden; }
+        .roller-track { display: flex; width: fit-content; animation: scroll-left 45s linear infinite; }
+        .roller-item img { width: 320px; height: 450px; object-fit: cover; border-radius: 20px; margin: 0 15px; filter: grayscale(20%); transition: 0.5s; }
+        .roller-item img:hover { filter: grayscale(0%); transform: scale(1.02); }
+
+        /* ④ 우리가 하는 일 (감각적 네이밍) */
+        .services { padding: 150px 0; background-color: #fbfbfb; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 60px; }
+        .s-card { background: transparent; padding: 20px; border-left: 1px solid #eee; transition: 0.3s; }
+        .s-card:hover { border-left: 1px solid var(--main); }
+        .s-card span { font-family: 'serif'; color: var(--main); font-weight: bold; font-style: italic; display: block; margin-bottom: 15px; }
+        .s-card h3 { font-size: 1.8rem; margin-bottom: 20px; font-weight: 800; }
+        .s-card p { color: var(--text-sub); font-size: 1.05rem; }
+
+        /* ⑤ Impact (신뢰 보강용) */
+        .impact { padding: 100px 0; text-align: center; border-top: 1px solid #f0f0f0; }
+        .impact-grid { display: flex; justify-content: center; gap: 80px; flex-wrap: wrap; opacity: 0.6; } /* 은은하게 배치 */
+        .impact-num { font-size: 2.5rem; font-weight: 800; color: #333; }
+        .impact-label { font-size: 0.9rem; color: #999; font-weight: 600; margin-top: 5px; }
+
+        /* ⑥ CTA (감성 제안) */
+        .cta-final { padding: 180px 0; text-align: center; }
+        .cta-final h2 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin-bottom: 50px; color: #111; }
+        .cta-btn { 
+            display: inline-block; padding: 25px 80px; 
+            background: var(--text); color: #fff; 
+            border-radius: 100px; text-decoration: none; font-weight: 800; font-size: 1.3rem;
+            transition: 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        .card-num { font-family: 'Times New Roman', serif; font-size: 0.9rem; font-weight: 800; color: var(--main); margin-bottom: 20px; }
-        .card h3 { font-size: 1.5rem; margin-bottom: 15px; font-weight: 800; }
-        .card p { font-size: 1rem; color: var(--text-sub); }
-        .card:hover { transform: translateY(-15px); border-color: var(--main); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .cta-btn:hover { background: var(--main); transform: scale(1.05); }
 
-        /* 4. [Impact] 성과 */
-        .impact { padding: 150px 0; text-align: center; background: #fff; }
-        .impact-grid { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; margin-top: 60px; }
-        .impact-number { 
-            font-size: 3.5rem; font-weight: 900; display: inline-block; margin-bottom: 10px;
-            background: linear-gradient(135deg, var(--main), var(--point));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .impact-label { font-size: 1rem; font-weight: 700; color: var(--text-sub); }
-
-        /* 5. [Portfolio] 실제 사례 (Rolling) */
-        .portfolio-rolling { padding: 100px 0; overflow: hidden; background: #fff; }
-        .roller-track { display: flex; width: fit-content; animation: scroll-left 40s linear infinite; }
-        .roller-item img { width: 300px; height: 430px; object-fit: cover; border-radius: 20px; margin: 0 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
         @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-        /* 6. [CTA & Footer] 강한 제안 */
-        footer { padding: 150px 0 80px; text-align: center; background: #fdfdfd; border-top: 1px solid #f0f0f0; }
-        .cta-box { 
-            display: inline-block; padding: 25px 60px; background: var(--main); color: #fff; 
-            border-radius: 100px; text-decoration: none; font-weight: 800; font-size: 1.4rem;
-            box-shadow: 0 15px 30px rgba(0, 209, 255, 0.3); transition: 0.4s; margin-bottom: 20px;
-        }
-        .cta-box:hover { transform: scale(1.05); background: #00b8e6; }
-        .footer-links { display: flex; justify-content: center; gap: 20px; margin-top: 60px; }
-        .link-item { text-decoration: none; color: #aaa; font-size: 0.9rem; font-weight: 700; transition: 0.3s; }
-        .link-item:hover { color: var(--main); }
-        .copyright { margin-top: 40px; font-size: 0.8rem; color: #ccc; }
     </style>
 </head>
 <body>
 
-    <section class="problem">
+    <section class="intro-ques">
         <div class="container">
-            <span class="section-tag">QUESTION</span>
-            <h2>왜 많은 공간이 기록되지만<br><span>기억되지는</span> 않을까요?</h2>
-            <p>단순한 업로드를 넘어, 실제 방문으로 이어지는 전략이 필요합니다.</p>
+            <p>Question</p>
+            <h2>왜 기록되지만 기억되지는 않을까요?</h2>
         </div>
     </section>
 
     <section class="hero">
-        <div class="container">
-            <span class="section-tag">SOLUTION</span>
+        <div class="hero-content">
             <h1>기록은 <span>방문</span>이 되고,<br>공간은 <span>브랜드</span>가 됩니다.</h1>
         </div>
     </section>
 
-    <section class="services">
-        <div class="container">
-            <span class="section-tag">OUR SERVICE</span>
-            <div class="grid">
-                <div class="card">
-                    <div class="card-num">01</div>
-                    <h3>Visual & Taste Directing</h3>
-                    <p>공간의 결을 해치지 않으면서 음식과 무드를 가장 매력적인 방식으로 연출합니다.</p>
-                </div>
-                <div class="card">
-                    <div class="card-num">02</div>
-                    <h3>Space Curation</h3>
-                    <p>공간의 강점을 분석하고 머물고 싶은 이유를 장면으로 구성합니다.</p>
-                </div>
-                <div class="card">
-                    <div class="card-num">03</div>
-                    <h3>Brand Experience Design</h3>
-                    <p>음악, 템포, 분위기를 설계해 하나의 브랜드 공간 경험으로 완성합니다.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="impact">
-        <div class="container">
-            <span class="section-tag">IMPACT</span>
-            <div class="impact-grid">
-                <div class="impact-item">
-                    <span class="impact-number">120+</span>
-                    <p class="impact-label">누적 프로젝트</p>
-                </div>
-                <div class="impact-item">
-                    <span class="impact-number">85만+</span>
-                    <p class="impact-label">콘텐츠 조회수</p>
-                </div>
-                <div class="impact-item">
-                    <span class="impact-number">98%</span>
-                    <p class="impact-label">재방문 만족도</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="portfolio-rolling">
+    <section class="portfolio-top">
         <div class="roller-track">
             <div class="roller-item"><img src="images/1.jpeg" alt=""></div>
             <div class="roller-item"><img src="images/3.jpeg" alt=""></div>
@@ -152,20 +101,44 @@
         </div>
     </section>
 
-    <footer>
+    <section class="services">
         <div class="container">
-            <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 40px;">지금 당신의 공간을<br>브랜드로 만들 준비가 되셨나요?</h2>
-            <a href="오픈채팅주소" class="cta-box">프로젝트 문의하기 ➔</a>
-            <p style="color: #999; font-size: 0.9rem;">* 현재 월별 선착순으로 디렉팅을 진행하고 있습니다.</p>
-
-            <div class="footer-links">
-                <a href="인스타주소" class="link-item">Instagram</a>
-                <a href="블로그주소" class="link-item">Naver Blog</a>
-                <a href="카톡주소" class="link-item">Kakao Talk</a>
+            <div class="service-grid">
+                <div class="s-card">
+                    <span>01.</span>
+                    <h3>Mood Capture</h3>
+                    <p>공간의 결을 해치지 않으면서 음식과 무드를 가장 매력적인 방식으로 연출합니다.</p>
+                </div>
+                <div class="s-card">
+                    <span>02.</span>
+                    <h3>Space Highlight</h3>
+                    <p>공간의 강점을 분석하고 머물고 싶은 이유를 장면으로 구성합니다.</p>
+                </div>
+                <div class="s-card">
+                    <span>03.</span>
+                    <h3>Brand Rhythm</h3>
+                    <p>음악, 템포, 분위기를 설계해 하나의 브랜드 공간 경험으로 완성합니다.</p>
+                </div>
             </div>
-            <p class="copyright">© 2024 STUDIO SIEER. Crafted with care.</p>
         </div>
-    </footer>
+    </section>
+
+    <section class="impact">
+        <div class="container">
+            <div class="impact-grid">
+                <div class="impact-item"><p class="impact-num">120+</p><p class="impact-label">Project</p></div>
+                <div class="impact-item"><p class="impact-num">850k</p><p class="impact-label">View</p></div>
+                <div class="impact-item"><p class="impact-num">98%</p><p class="impact-label">Satisfied</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-final">
+        <div class="container">
+            <h2>당신의 공간은<br>어떻게 기억되고 싶나요?</h2>
+            <a href="오픈채팅주소" class="cta-btn">👉 공간을 브랜드로 만들기</a>
+        </div>
+    </section>
 
 </body>
 </html>
