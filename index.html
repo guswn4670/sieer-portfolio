@@ -157,19 +157,31 @@
 
         .impact-item { position: relative; }
         
-        /* 숫자 강조 스타일 */
-        .impact-number { 
-            font-size: 3.5rem; 
-            font-weight: 900; 
-            color: var(--main); 
-            line-height: 1;
-            margin-bottom: 10px;
-            display: block;
-        }
+    
+       /* 성과 섹션 숫자 그라데이션 포인트 */
+.impact-number { 
+    font-size: 3.5rem; 
+    font-weight: 900; 
+    line-height: 1;
+    margin-bottom: 10px;
+    display: inline-block; /* 그라데이션 적용을 위해 필요 */
 
-        /* 단위 스타일 (+, 만회 등) */
-        .impact-number span { font-size: 1.5rem; color: var(--text); margin-left: 2px; }
+    /* 텍스트 그라데이션 핵심 코드 */
+    background: linear-gradient(135deg, var(--main) 0%, var(--point) 100%);
+    -webkit-background-clip: text; /* 배경을 글자 모양으로 자름 */
+    -webkit-text-fill-color: transparent; /* 글자 내부를 투명하게 해서 배경이 보이게 함 */
+    
+    /* 약간의 입체감을 주는 텍스트 그림자 (선택사항) */
+    text-shadow: 0 10px 20px rgba(0, 209, 255, 0.1);
+}
 
+/* 숫자 옆에 붙는 단위(+, 만회 등)는 가독성을 위해 원래 색 유지 */
+.impact-number span { 
+    font-size: 1.5rem; 
+    -webkit-text-fill-color: var(--text); /* 부모의 투명 설정을 해제 */
+    margin-left: 2px; 
+    font-weight: 700;
+}
         .impact-label { 
             font-size: 1rem; 
             font-weight: 700; 
