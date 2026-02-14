@@ -209,105 +209,63 @@
                 transform: translateX(-50%);
             }
         }
-       /* STRATEGY CASE - 스텝 바 디자인 최적화 */
-.case-study { padding: 120px 0; background-color: #fcfcfc; }
+      .case-study { padding: 100px 0; background-color: #fcfcfc; }
+.case-card { display: flex; background: #fff; border-radius: 40px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
 
-.case-card {
-    display: flex;
-    background: #fff;
-    border-radius: 40px;
-    overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.06);
-    border: 1px solid #f0f0f0;
-}
+/* 이미지 영역 */
+.case-img-area { flex: 1; position: relative; min-height: 450px; }
+.case-img-area img { width: 100%; height: 100%; object-fit: cover; }
 
-/* 이미지 분석 포인트 애니메이션 */
-.case-img-area { flex: 1; position: relative; min-height: 500px; }
-.analysis-point {
+/* 리포트 영역 */
+.case-info-area { flex: 1.2; padding: 60px 40px 60px 80px; position: relative; }
+
+/* 수직 점선 - 위치를 40px로 고정 */
+.v-line {
     position: absolute;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 8px 15px;
-    border-radius: 8px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--main);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    backdrop-filter: blur(5px);
-    border-left: 4px solid var(--main);
-    animation: floating 3s ease-in-out infinite;
-    z-index: 10;
-}
-.p1 { top: 25%; left: 15%; }
-.p2 { bottom: 35%; right: 15%; animation-delay: 0.5s; }
-
-@keyframes floating {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-/* 스텝 바 핵심 스타일 */
-.case-info-area {
-    flex: 1.2;
-    padding: 80px 60px;
-    position: relative;
-}
-
-/* 수직 점선 */
-.case-info-area::before {
-    content: '';
-    position: absolute;
-    left: 45px;
-    top: 100px;
-    bottom: 150px;
+    left: 40px;
+    top: 80px;
+    bottom: 80px;
     width: 2px;
-    background: repeating-linear-gradient(to bottom, #eee 0, #eee 4px, transparent 4px, transparent 8px);
+    background: repeating-linear-gradient(to bottom, #ddd 0, #ddd 5px, transparent 5px, transparent 10px);
 }
 
-.case-block {
-    position: relative;
-    padding-left: 60px; /* 선에서 텍스트까지 거리 */
-    margin-bottom: 50px;
-}
+.case-block { position: relative; margin-bottom: 40px; }
 
-/* 스텝 인디케이터 (동그라미) */
+/* 동그라미 인디케이터 - 선 정중앙에 배치 */
 .step-indicator {
     position: absolute;
-    left: 0;
+    left: -55px; /* 선 위치에 맞게 조정 */
     top: 0;
-    font-size: 0.7rem;
-    font-weight: 900;
     width: 30px;
     height: 30px;
-    background: #fff;
-    border: 2px solid #eee;
     border-radius: 50%;
+    background: #fff;
+    border: 2px solid #ddd;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 900;
     z-index: 2;
-    color: #bbb;
-    transform: translateX(30px); /* 선 중앙에 맞춤 */
 }
 
-/* 각 블록별 포인트 컬러 */
-.problem .step-indicator { border-color: #ff5e8e; color: #ff5e8e; }
-.solution .step-indicator { border-color: var(--main); color: var(--main); }
-.result .step-indicator { border-color: #2ecc71; color: #2ecc71; background: #f0fff4; }
+.step-indicator.problem { border-color: #ff5e8e; color: #ff5e8e; }
+.step-indicator.solution { border-color: var(--main); color: var(--main); }
+.step-indicator.result { border-color: #2ecc71; color: #2ecc71; background: #f0fff4; }
 
-.case-block h4 { font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 10px; }
-.case-block p { font-size: 1.1rem; line-height: 1.6; color: #333; }
-.case-block ul { list-style: none; padding: 0; }
-.case-block li { font-size: 1.05rem; margin-bottom: 8px; color: #444; }
-.case-block li::before { content: '•'; color: var(--main); font-weight: bold; margin-right: 10px; }
+.case-content h4 { font-size: 0.9rem; margin-bottom: 8px; color: #666; }
+.case-content p { font-size: 1.05rem; line-height: 1.6; color: #333; }
+.case-content ul { list-style: none; padding: 0; margin-top: 10px; }
+.case-content li { margin-bottom: 8px; font-size: 1rem; color: #444; }
+.case-content li::before { content: '✔'; color: var(--main); margin-right: 8px; font-weight: bold; }
 
-.result-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
-.tag { background: #f0fff4; color: #27ae60; padding: 6px 14px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; border: 1px solid #dcfce7; }
-
+/* 반응형 모바일 */
 @media (max-width: 992px) {
     .case-card { flex-direction: column; }
-    .case-info-area::before { display: none; }
-    .case-block { padding-left: 0; text-align: center; display: flex; flex-direction: column; align-items: center; }
-    .step-indicator { position: static; transform: none; margin-bottom: 10px; }
+    .case-info-area { padding: 40px 20px; }
+    .v-line { display: none; }
+    .step-indicator { position: relative; left: 0; margin-bottom: 15px; }
+    .case-block { text-align: center; display: flex; flex-direction: column; align-items: center; }
 }
         
         /* [Impact Section] 최적화 버전 */
