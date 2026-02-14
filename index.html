@@ -209,170 +209,105 @@
                 transform: translateX(-50%);
             }
         }
-        /* Case Study Section Styles */
-.case-study {
-    padding: 100px 0;
-    background-color: #fcfcfc;
-}
-
-.case-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.case-header h2 {
-    font-size: 2.2rem;
-    font-weight: 900;
-    margin-top: 10px;
-}
+       /* STRATEGY CASE - 스텝 바 디자인 최적화 */
+.case-study { padding: 120px 0; background-color: #fcfcfc; }
 
 .case-card {
     display: flex;
     background: #fff;
-    border-radius: 30px;
+    border-radius: 40px;
     overflow: hidden;
     box-shadow: 0 30px 60px rgba(0,0,0,0.06);
     border: 1px solid #f0f0f0;
 }
 
-.case-img-area {
-    flex: 1;
-    position: relative;
-    min-height: 450px;
-}
-
-.case-img-area img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.img-label {
+/* 이미지 분석 포인트 애니메이션 */
+.case-img-area { flex: 1; position: relative; min-height: 500px; }
+.analysis-point {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    padding: 6px 15px;
-    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px 15px;
+    border-radius: 8px;
     font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--main);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     backdrop-filter: blur(5px);
+    border-left: 4px solid var(--main);
+    animation: floating 3s ease-in-out infinite;
+    z-index: 10;
+}
+.p1 { top: 25%; left: 15%; }
+.p2 { bottom: 35%; right: 15%; animation-delay: 0.5s; }
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
+/* 스텝 바 핵심 스타일 */
 .case-info-area {
     flex: 1.2;
-    padding: 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 80px 60px;
+    position: relative;
+}
+
+/* 수직 점선 */
+.case-info-area::before {
+    content: '';
+    position: absolute;
+    left: 45px;
+    top: 100px;
+    bottom: 150px;
+    width: 2px;
+    background: repeating-linear-gradient(to bottom, #eee 0, #eee 4px, transparent 4px, transparent 8px);
 }
 
 .case-block {
-    margin-bottom: 35px;
+    position: relative;
+    padding-left: 60px; /* 선에서 텍스트까지 거리 */
+    margin-bottom: 50px;
 }
 
-.case-block h4 {
-    font-size: 0.9rem;
-    font-weight: 800;
-    margin-bottom: 12px;
-    letter-spacing: 1px;
-}
-
-.problem h4 { color: #ff5e8e; }
-.solution h4 { color: var(--main); }
-.result h4 { color: #2ecc71; }
-
-.case-block p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #333;
-}
-
-.case-block ul {
-    list-style: none;
-    padding: 0;
-}
-
-.case-block li {
-    margin-bottom: 10px;
-    font-size: 1.05rem;
+/* 스텝 인디케이터 (동그라미) */
+.step-indicator {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 0.7rem;
+    font-weight: 900;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 2px solid #eee;
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    z-index: 2;
+    color: #bbb;
+    transform: translateX(30px); /* 선 중앙에 맞춤 */
 }
 
-.case-block li span {
-    color: var(--main);
-    font-weight: bold;
-}
+/* 각 블록별 포인트 컬러 */
+.problem .step-indicator { border-color: #ff5e8e; color: #ff5e8e; }
+.solution .step-indicator { border-color: var(--main); color: var(--main); }
+.result .step-indicator { border-color: #2ecc71; color: #2ecc71; background: #f0fff4; }
 
-.result-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+.case-block h4 { font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 10px; }
+.case-block p { font-size: 1.1rem; line-height: 1.6; color: #333; }
+.case-block ul { list-style: none; padding: 0; }
+.case-block li { font-size: 1.05rem; margin-bottom: 8px; color: #444; }
+.case-block li::before { content: '•'; color: var(--main); font-weight: bold; margin-right: 10px; }
 
-.result-tags .tag {
-    background: #f0fff4;
-    color: #27ae60;
-    padding: 8px 16px;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    border: 1px solid #dcfce7;
-}
+.result-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+.tag { background: #f0fff4; color: #27ae60; padding: 6px 14px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; border: 1px solid #dcfce7; }
 
-/* 반응형 */
 @media (max-width: 992px) {
     .case-card { flex-direction: column; }
-    .case-img-area { min-height: 300px; }
-    .case-info-area { padding: 40px 30px; }
-}
-/* Testimonials Styles */
-.testimonial-card {
-    padding: 50px 40px;
-    background: #f9fbfd;
-    border-radius: 30px;
-    position: relative;
-    border: 1px solid #f0f4f8;
-}
-
-.feedback-text {
-    font-size: 1.25rem;
-    line-height: 1.8;
-    color: #333;
-    font-weight: 500;
-    word-break: keep-all;
-    margin-bottom: 30px;
-}
-
-.feedback-text strong {
-    color: var(--main);
-    background: linear-gradient(to top, rgba(0, 209, 255, 0.1) 40%, transparent 40%);
-}
-
-.client-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
-
-.client-name {
-    font-weight: 800;
-    font-size: 1.1rem;
-    color: var(--text);
-}
-
-.client-tag {
-    font-size: 0.9rem;
-    color: var(--main);
-    font-weight: 600;
-}
-
-@media (max-width: 768px) {
-    .testimonial-card { padding: 40px 20px; }
-    .feedback-text { font-size: 1.1rem; }
+    .case-info-area::before { display: none; }
+    .case-block { padding-left: 0; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .step-indicator { position: static; transform: none; margin-bottom: 10px; }
 }
         
         /* [Impact Section] 최적화 버전 */
@@ -753,7 +688,7 @@
     </div>
 </section>
     
-   <section class="case-study">
+  <section class="case-study">
     <div class="container">
         <div class="case-header">
             <span class="section-tag" style="color: var(--point); font-weight: 800;">STRATEGY CASE</span>
@@ -762,26 +697,31 @@
 
         <div class="case-card">
             <div class="case-img-area">
-                <img src="images/1.jpeg" alt="Best Case Study Main Cut">
-                <div class="img-label">Directing by SIEER</div>
+                <img src="images/1.jpeg" alt="Best Case Study">
+                <div class="analysis-point p1">Visual Flow 정렬</div>
+                <div class="analysis-point p2">SNS Killer-Shot 설계</div>
+                <div class="img-label">Strategy Report by SIEER</div>
             </div>
             
             <div class="case-info-area">
                 <div class="case-block problem">
+                    <div class="step-indicator">STEP 01</div>
                     <h4>[ Problem ]</h4>
-                    <p>제품과 공간의 완성도는 높았지만,<br>SNS상에서 자발적인 <strong>자연 확산 구조</strong>가 약했던 매장</p>
+                    <p>제품과 공간의 완성도는 높았지만,<br>자발적인 <strong>자연 확산 구조</strong>가 약했던 매장</p>
                 </div>
 
                 <div class="case-block solution">
+                    <div class="step-indicator">STEP 02</div>
                     <h4>[ Solution by SIEER ]</h4>
                     <ul>
-                        <li><span>✔</span> <strong>촬영 동선 중심</strong> 시선 흐름 재정렬</li>
-                        <li><span>✔</span> <strong>메인 컷 집중</strong> 구조(Photo-zone) 설계</li>
-                        <li><span>✔</span> <strong>저장·공유 유도</strong> 콘텐츠 포인트 기획</li>
+                        <li><strong>촬영 동선 중심</strong> 시선 흐름 재정렬</li>
+                        <li><strong>메인 컷 집중</strong> 구조(Photo-zone) 설계</li>
+                        <li><strong>저장·공유 유도</strong> 콘텐츠 포인트 기획</li>
                     </ul>
                 </div>
 
                 <div class="case-block result">
+                    <div class="step-indicator">STEP 03</div>
                     <h4>[ Result ]</h4>
                     <div class="result-tags">
                         <span class="tag">#매장 태그 폭발적 증가</span>
@@ -792,6 +732,7 @@
             </div>
         </div>
     </div>
+</section>
 </section>
  <section id="work-rolling-container">
         <div class="container">
