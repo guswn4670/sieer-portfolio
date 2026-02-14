@@ -209,117 +209,104 @@
                 transform: translateX(-50%);
             }
         }
-/* Strategy Case 최종 스타일 */
+/* Strategy Case - 타이틀 강조 & 테두리 버전 */
 .strategy-case { padding: 120px 0; background-color: #fff; }
-.strategy-header { text-align: center; margin-bottom: 60px; }
 
-.strategy-container {
-    display: flex;
-    gap: 60px;
-    align-items: flex-start;
-}
+.strategy-header { text-align: center; margin-bottom: 80px; }
 
-/* 이미지 영역 */
-.strategy-image {
-    flex: 1;
-    position: relative;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-}
-
-.strategy-image img {
-    width: 100%;
-    display: block;
-    object-fit: cover;
-    transition: 0.5s;
-}
-
-.strategy-image:hover img { transform: scale(1.05); }
-
-.image-badge {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background: var(--main);
-    color: #fff;
-    padding: 5px 15px;
-    border-radius: 50px;
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-/* 텍스트 영역 */
-.strategy-content { flex: 1.2; }
-
-.content-item { margin-bottom: 45px; }
-.content-item:last-child { margin-bottom: 0; }
-
-.label {
-    display: inline-block;
-    font-size: 0.75rem;
+/* 📍 메가 타이틀 강조 */
+.mega-title {
+    font-size: clamp(2.5rem, 6vw, 4.2rem); /* 압도적인 크기 */
     font-weight: 900;
-    letter-spacing: 1.5px;
-    margin-bottom: 15px;
-    padding: 2px 0;
-    border-bottom: 2px solid #eee;
-}
-
-.problem .label { color: #ff5e8e; border-color: #ff5e8e; }
-.solution .label { color: var(--main); border-color: var(--main); }
-.result .label { color: #2ecc71; border-color: #2ecc71; }
-
-.content-item h4 {
-    font-size: 1.3rem;
-    font-weight: 800;
-    margin-bottom: 12px;
+    line-height: 1.1;
+    letter-spacing: -0.1rem;
     color: #111;
 }
 
-.content-item p {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: #555;
-    word-break: keep-all;
+.mega-title .highlight {
+    color: var(--main);
+    position: relative;
+    display: inline-block;
 }
 
-.content-item ul { list-style: none; padding: 0; }
-.content-item li {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: #555;
-    margin-bottom: 8px;
-    padding-left: 20px;
+/* 📍 내용 전체 테두리 박스 */
+.strategy-main-card {
+    display: flex;
+    background: #fff;
+    border: 2px solid #f0f0f0; /* 테두리 추가 */
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.strategy-image {
+    flex: 1;
+    min-height: 500px;
     position: relative;
 }
 
-.content-item li::before {
-    content: "•";
+.strategy-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.image-label {
     position: absolute;
-    left: 0;
-    color: var(--main);
-    font-weight: bold;
+    bottom: 25px;
+    left: 25px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 6px 15px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
 }
 
-.result-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+/* 📍 오른쪽 내용 영역 여백 및 스타일 */
+.strategy-content-box {
+    flex: 1.2;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fcfcfc; /* 은은한 배경색 차이 */
+    border-left: 2px solid #f0f0f0; /* 중앙 수직 구분선 */
+}
+
+.content-item { margin-bottom: 40px; }
+.content-item:last-child { margin-bottom: 0; }
+
+.step-badge {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.problem .step-badge { color: #ff5e8e; }
+.solution .step-badge { color: var(--main); }
+.result .step-badge { color: #2ecc71; }
+
+.content-item h4 { font-size: 1.4rem; font-weight: 800; margin-bottom: 10px; color: #111; }
+.content-item p, .content-item li { font-size: 1.05rem; line-height: 1.7; color: #555; }
+.content-item ul { list-style: none; padding: 0; }
+.content-item li::before { content: "•"; color: var(--main); margin-right: 10px; font-weight: bold; }
+
+.result-tags { display: flex; gap: 10px; margin-top: 15px; }
 .tag {
-    background: #f0fff4;
+    background: #fff;
+    border: 1px solid #2ecc71;
     color: #27ae60;
     padding: 8px 18px;
-    border-radius: 12px;
+    border-radius: 50px;
     font-size: 0.9rem;
     font-weight: 700;
-    border: 1px solid #dcfce7;
 }
 
 /* 모바일 대응 */
 @media (max-width: 992px) {
-    .strategy-container { flex-direction: column; gap: 40px; }
-    .strategy-image { width: 100%; }
-}l { min-height: 350px; }
+    .strategy-main-card { flex-direction: column; border-radius: 20px; }
+    .strategy-content-box { padding: 40px 25px; border-left: none; border-top: 2px solid #f0f0f0; }
+    .mega-title { font-size: 2.2rem; }
 }
-        
         /* [Impact Section] 최적화 버전 */
 .impact { 
     padding: 120px 0; 
@@ -701,38 +688,36 @@
     <div class="container">
         <div class="strategy-header">
             <span class="section-tag">STRATEGY CASE</span>
-            <h2>브랜드 컨셉을 <span style="color: var(--main);">'확산 구조'</span>로 재설계</h2>
+            <h2 class="mega-title">브랜드 컨셉을 <br><span class="highlight">'확산 구조'</span>로 재설계</h2>
         </div>
 
-        <div class="strategy-container">
+        <div class="strategy-main-card">
             <div class="strategy-image">
-                <img src="images/1.jpeg" alt="SIEER Directing Case">
-                <div class="image-badge">MAIN SCENE</div>
+                <img src="images/1.jpeg" alt="SIEER Case Study">
+                <div class="image-label">MAIN SCENE ANALYSIS</div>
             </div>
 
-            <div class="strategy-content">
+            <div class="strategy-content-box">
                 <div class="content-item problem">
-                    <span class="label">PROBLEM</span>
+                    <span class="step-badge">STEP 01. PROBLEM</span>
                     <h4>자발적 확산 구조의 부재</h4>
-                    <p>제품의 완성도는 높았지만, SNS상에서 고객들이 스스로 기록하고 공유하게 만드는 <strong>킬러 포인트</strong>가 부족했던 매장</p>
+                    <p>제품력은 충분하나, 고객의 기록 욕구를 자극하는 <strong>시각적 장치</strong>가 부족했던 매장</p>
                 </div>
 
                 <div class="content-item solution">
-                    <span class="label">SOLUTION</span>
-                    <h4>반응을 유도하는 공간 설계</h4>
+                    <span class="step-badge">STEP 02. SOLUTION</span>
+                    <h4>반응을 설계하는 디렉팅</h4>
                     <ul>
-                        <li><strong>시선 흐름 재정렬:</strong> 입구부터 메인 포인트까지의 촬영 동선 최적화</li>
-                        <li><strong>메인 컷 집중 구조:</strong> 조도와 각도를 고려한 인스타그래머블 포토존 설계</li>
-                        <li><strong>공유 유도 포인트:</strong> 고객이 '저장'하고 싶은 브랜드 경험 흐름 기획</li>
+                        <li><strong>동선 재정렬:</strong> 입구부터 자연스럽게 이어지는 촬영 흐름</li>
+                        <li><strong>포인트 기획:</strong> 저장하고 싶은 킬러 뷰(Killer-View) 설계</li>
                     </ul>
                 </div>
 
                 <div class="content-item result">
-                    <span class="label">RESULT</span>
+                    <span class="step-badge">STEP 03. RESULT</span>
                     <div class="result-tags">
                         <span class="tag">#매장 태그 300% 증가</span>
-                        <span class="tag">#브랜드 언급량 상승</span>
-                        <span class="tag">#재방문 의사 다수 발생</span>
+                        <span class="tag">#자발적 확산 구조 완성</span>
                     </div>
                 </div>
             </div>
