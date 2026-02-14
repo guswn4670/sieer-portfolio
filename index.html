@@ -176,48 +176,80 @@
                 transform: translateX(-50%);
             }
         }
-/* [Impact Section] 수정본 */
-        .impact { padding: 100px 0; background-color: #fff; text-align: center; }
-        .impact-grid { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: flex-start; 
-            margin-top: 60px; 
-            flex-wrap: wrap;
-        }
-        .impact-item { 
-            flex: 1; 
-            min-width: 200px; 
-            position: relative; 
-            padding: 0 20px;
-        }
-        .impact-number { 
-            font-size: 3.8rem; 
-            font-weight: 900; 
-            line-height: 1; 
-            margin-bottom: 15px; 
-            display: block; 
-            background: linear-gradient(135deg, var(--main) 0%, var(--point) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .impact-number span { 
-            font-size: 1.8rem; 
-            margin-left: -5px; /* 숫자와 단위(+ 등)를 밀착시킴 */
-            -webkit-text-fill-color: var(--text); /* 단위는 검정색으로 */
-        }
-        .impact-label { 
-            font-size: 1.1rem; 
-            font-weight: 700; 
-            color: var(--text-sub); 
-            display: block;
-            margin-top: 10px;
-        }
-        .impact-item::after { 
-            content: ''; position: absolute; right: 0; top: 10%; height: 80%; width: 1px; background-color: #eee; 
-        }
-        .impact-item:last-child::after { display: none; }
+/* [Impact Section] 수정본 - 기대 효과 문구 반영 */
+.impact { 
+    padding: 120px 0; 
+    background-color: #fff; 
+    text-align: center; 
+}
 
+.impact-grid { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: stretch; /* 아이템 높이를 일정하게 */
+    margin-top: 60px; 
+    flex-wrap: wrap;
+    gap: 30px 0; /* 모바일 대응용 간격 */
+}
+
+.impact-item { 
+    flex: 1; 
+    min-width: 250px; /* 설명이 길어지므로 최소폭 상향 */
+    position: relative; 
+    padding: 0 25px;
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    align-items: center;
+}
+
+.impact-number { 
+    font-size: 3.8rem; 
+    font-weight: 900; 
+    line-height: 1; 
+    margin-bottom: 10px; 
+    display: block; 
+    background: linear-gradient(135deg, var(--main) 0%, var(--point) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.impact-number span { 
+    font-size: 1.8rem; 
+    margin-left: -5px; 
+    -webkit-text-fill-color: var(--text); 
+}
+
+.impact-label { 
+    font-size: 1.2rem; 
+    font-weight: 800; 
+    color: var(--text); /* 라벨은 좀 더 진하게 */
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* 📍 새로 추가된 기대 효과 스타일 */
+.impact-effect {
+    font-size: 0.95rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+    word-break: keep-all;
+    font-weight: 500;
+    margin-top: auto; /* 하단 밀착 */
+    padding-top: 15px;
+    border-top: 1px dashed #eee; /* 구분선 추가 */
+    width: 100%;
+}
+
+.impact-item::after { 
+    content: ''; position: absolute; right: 0; top: 10%; height: 80%; width: 1px; background-color: #eee; 
+}
+
+/* 태블릿/모바일 대응 */
+@media (max-width: 1024px) {
+    .impact-item::after { display: none; } /* 모바일선 세로선 제거 */
+    .impact-item { border-bottom: 1px solid #f0f0f0; padding-bottom: 30px; }
+    .impact-item:last-child { border-bottom: none; }
+}
         /* [Service Section] 업그레이드 스타일 */
         .services {
             padding: 150px 0;
