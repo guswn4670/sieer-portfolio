@@ -328,7 +328,54 @@
     .case-img-area { min-height: 300px; }
     .case-info-area { padding: 40px 30px; }
 }
-/* [Impact Section] 최적화 버전 */
+/* Testimonials Styles */
+.testimonial-card {
+    padding: 50px 40px;
+    background: #f9fbfd;
+    border-radius: 30px;
+    position: relative;
+    border: 1px solid #f0f4f8;
+}
+
+.feedback-text {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #333;
+    font-weight: 500;
+    word-break: keep-all;
+    margin-bottom: 30px;
+}
+
+.feedback-text strong {
+    color: var(--main);
+    background: linear-gradient(to top, rgba(0, 209, 255, 0.1) 40%, transparent 40%);
+}
+
+.client-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.client-name {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text);
+}
+
+.client-tag {
+    font-size: 0.9rem;
+    color: var(--main);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .testimonial-card { padding: 40px 20px; }
+    .feedback-text { font-size: 1.1rem; }
+}
+        
+        /* [Impact Section] 최적화 버전 */
 .impact { 
     padding: 120px 0; 
     background-color: #fff; 
@@ -795,7 +842,39 @@
             <div class="roller-item" data-num="06"><a href="https://www.instagram.com/reel/DTkomaakaum/" target="_blank"><img src="images/7.jpeg" alt="07"></a></div>
             <div class="roller-item" data-num="07"><a href="https://www.instagram.com/reel/DThk0B4kRP9/" target="_blank"><img src="images/8.jpeg" alt="08"></a></div>
         </div>
-  <section class="impact">
+<section class="testimonials" style="padding: 80px 0; background-color: #fff;">
+    <div class="container">
+        <div class="testimonial-wrapper" style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <span class="section-tag" style="color: var(--main); font-weight: 800;">REAL FEEDBACK</span>
+            <h2 style="font-size: 2rem; font-weight: 900; margin: 15px 0 50px;">파트너 사장님들의 리얼 후기</h2>
+
+            <div class="testimonial-card">
+                <div class="quote-icon" style="font-size: 40px; color: var(--main); opacity: 0.3; margin-bottom: 20px;">"</div>
+                <p class="feedback-text">
+                    "인테리어만 예쁘면 장사가 잘될 줄 알았는데, SIEER님을 만나고 <strong>'팔리는 공간'</strong>은 따로 있다는 걸 깨달았습니다. 
+                    디렉팅 이후 손님들이 먼저 포토존을 찾아주시고, <strong>자발적인 인스타 업로드가 3배 이상 늘어난 게 눈으로 보여서</strong> 정말 신기합니다."
+                </p>
+                <div class="client-info">
+                    <span class="client-name">A 카페 대표님</span>
+                    <span class="client-tag">#공간리뉴얼 #확산구조설계</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card" style="margin-top: 40px;">
+                <p class="feedback-text">
+                    "MD 출신이시라 그런지 단순히 감각적인 게 아니라 <strong>데이터와 동선에 근거한 제안</strong>이 인상적이었습니다. 
+                    반응 없던 매장이 이제는 예약 문의가 끊이지 않는 핫플이 되었네요."
+                </p>
+                <div class="client-info">
+                    <span class="client-name">B 라이프스타일 숍 디렉터</span>
+                    <span class="client-tag">#브랜드큐레이션 #매출상승</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+     
+     <section class="impact">
     <div class="container">
         <span class="section-tag" style="font-weight: 800; color: var(--main);">BUSINESS PROOF</span>
         <h2 style="font-size: 2.5rem; font-weight: 900; margin-top: 10px;">데이터로 증명하는 공간의 힘</h2>
