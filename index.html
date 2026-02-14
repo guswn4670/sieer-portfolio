@@ -209,63 +209,98 @@
                 transform: translateX(-50%);
             }
         }
-      .case-study { padding: 100px 0; background-color: #fcfcfc; }
-.case-card { display: flex; background: #fff; border-radius: 40px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
+      /* Strategy Wide Section */
+.strategy-wide { padding: 100px 0; background: #fff; }
+.strategy-header { text-align: center; margin-bottom: 50px; }
 
-/* 이미지 영역 */
-.case-img-area { flex: 1; position: relative; min-height: 450px; }
-.case-img-area img { width: 100%; height: 100%; object-fit: cover; }
-
-/* 리포트 영역 */
-.case-info-area { flex: 1.2; padding: 60px 40px 60px 80px; position: relative; }
-
-/* 수직 점선 - 위치를 40px로 고정 */
-.v-line {
-    position: absolute;
-    left: 40px;
-    top: 80px;
-    bottom: 80px;
-    width: 2px;
-    background: repeating-linear-gradient(to bottom, #ddd 0, #ddd 5px, transparent 5px, transparent 10px);
-}
-
-.case-block { position: relative; margin-bottom: 40px; }
-
-/* 동그라미 인디케이터 - 선 정중앙에 배치 */
-.step-indicator {
-    position: absolute;
-    left: -55px; /* 선 위치에 맞게 조정 */
-    top: 0;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: #fff;
-    border: 2px solid #ddd;
+.strategy-dashboard {
+    width: 100%;
+    min-height: 500px;
+    border-radius: 40px;
+    background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.65rem;
-    font-weight: 900;
-    z-index: 2;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
 }
 
-.step-indicator.problem { border-color: #ff5e8e; color: #ff5e8e; }
-.step-indicator.solution { border-color: var(--main); color: var(--main); }
-.step-indicator.result { border-color: #2ecc71; color: #2ecc71; background: #f0fff4; }
+.glass-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+}
 
-.case-content h4 { font-size: 0.9rem; margin-bottom: 8px; color: #666; }
-.case-content p { font-size: 1.05rem; line-height: 1.6; color: #333; }
-.case-content ul { list-style: none; padding: 0; margin-top: 10px; }
-.case-content li { margin-bottom: 8px; font-size: 1rem; color: #444; }
-.case-content li::before { content: '✔'; color: var(--main); margin-right: 8px; font-weight: bold; }
+.glass-card {
+    background: rgba(255, 255, 255, 0.1); /* 투명한 유리 효과 */
+    backdrop-filter: blur(15px); /* 배경 흐림 */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 40px 30px;
+    color: #fff;
+    transition: 0.3s;
+}
 
-/* 반응형 모바일 */
+.glass-card.highlight {
+    background: rgba(0, 209, 255, 0.1); /* 메인 컬러 한 스푼 */
+    border-color: rgba(0, 209, 255, 0.3);
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.card-head {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: #00d1ff; /* 포인트 컬러 */
+}
+
+.card-list {
+    list-style: none;
+    padding: 0;
+}
+
+.card-list li {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.card-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #00d1ff;
+}
+
+.result-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tag-pill {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* 모바일 대응 */
 @media (max-width: 992px) {
-    .case-card { flex-direction: column; }
-    .case-info-area { padding: 40px 20px; }
-    .v-line { display: none; }
-    .step-indicator { position: relative; left: 0; margin-bottom: 15px; }
-    .case-block { text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .glass-grid { grid-template-columns: 1fr; }
+    .strategy-dashboard { padding: 20px; }
 }
         
         /* [Impact Section] 최적화 버전 */
@@ -645,51 +680,39 @@
         </div>
     </div>
 </section>
-<section class="case-study">
+<section class="strategy-wide">
     <div class="container">
-        <div class="case-header">
+        <div class="strategy-header">
             <span class="section-tag">STRATEGY CASE</span>
             <h2>브랜드 컨셉을 <span style="color: var(--main);">'확산 구조'</span>로 재설계</h2>
         </div>
 
-        <div class="case-card">
-            <div class="case-img-area">
-                <img src="images/1.jpeg" alt="Best Case Study">
-                <div class="analysis-point p1">Visual Flow 정렬</div>
-                <div class="analysis-point p2">SNS Killer-Shot 설계</div>
-            </div>
-            
-            <div class="case-info-area">
-                <div class="v-line"></div>
-
-                <div class="case-block">
-                    <div class="step-indicator problem">STEP 01</div>
-                    <div class="case-content">
-                        <h4>[ Problem ]</h4>
-                        <p>제품의 완성도는 높았지만,<br>자발적인 <strong>자연 확산 구조</strong>가 약했던 매장</p>
-                    </div>
+        <div class="strategy-dashboard" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/1.jpeg');">
+            <div class="glass-grid">
+                <div class="glass-card">
+                    <div class="card-head">[ Problem ]</div>
+                    <ul class="card-list">
+                        <li>제품·공간 완성도 대비</li>
+                        <li>자발적 SNS 확산 구조 부재</li>
+                        <li>낮은 태그 노출 빈도</li>
+                    </ul>
                 </div>
 
-                <div class="case-block">
-                    <div class="step-indicator solution">STEP 02</div>
-                    <div class="case-content">
-                        <h4>[ Solution by SIEER ]</h4>
-                        <ul>
-                            <li><strong>촬영 동선 중심</strong> 시선 흐름 재정렬</li>
-                            <li><strong>메인 컷 집중</strong> 구조 설계</li>
-                            <li><strong>저장·공유 유도</strong> 포인트 기획</li>
-                        </ul>
-                    </div>
+                <div class="glass-card highlight">
+                    <div class="card-head">[ Solution by SIEER ]</div>
+                    <ul class="card-list">
+                        <li>촬영 동선 중심 시선 재정렬</li>
+                        <li>메인 컷 집중 구조 설계</li>
+                        <li>저장·공유 유도 포인트 기획</li>
+                    </ul>
                 </div>
 
-                <div class="case-block">
-                    <div class="step-indicator result">STEP 03</div>
-                    <div class="case-content">
-                        <h4>[ Result ]</h4>
-                        <div class="result-tags">
-                            <span class="tag">#매장 태그 폭발적 증가</span>
-                            <span class="tag">#브랜드 언급 댓글 상승</span>
-                        </div>
+                <div class="glass-card">
+                    <div class="card-head">[ Result ]</div>
+                    <div class="result-box">
+                        <span class="tag-pill">#매장 태그 폭발적 증가</span>
+                        <span class="tag-pill">#브랜드 언급 상승</span>
+                        <span class="tag-pill">#재방문 의사 다수 발생</span>
                     </div>
                 </div>
             </div>
