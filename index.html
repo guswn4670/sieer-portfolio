@@ -100,7 +100,40 @@
             color: var(--text-sub);
             font-weight: 500;
         }
+/* Identity Banner Styles */
+.identity-banner {
+    padding: 60px 0;
+    background-color: #fcfcfc; /* 아주 연한 회색으로 구획 분리 */
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: center;
+}
 
+.identity-text {
+    font-size: clamp(1.1rem, 3vw, 1.4rem); /* 모바일-데스크탑 유동적 크기 */
+    line-height: 1.6;
+    color: #444;
+    word-break: keep-all;
+}
+
+.identity-text strong {
+    color: var(--main); /* SIEER 강조 */
+    font-weight: 800;
+}
+
+.identity-text span {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--text);
+    background: linear-gradient(to top, rgba(0, 209, 255, 0.15) 35%, transparent 35%); /* 핵심 키워드 강조 */
+    padding: 0 4px;
+}
+
+@media (max-width: 768px) {
+    .identity-banner {
+        padding: 40px 20px;
+    }
+}
         /* [Showcase] */
         #work-rolling-container {
             padding: 120px 0;
@@ -510,7 +543,15 @@
             <p>숫자로 증명하는 고감도 공간 디렉팅 솔루션</p>
         </div>
     </section>
-<section id="about" class="about-section">
+<section class="identity-banner">
+    <div class="container">
+        <p class="identity-text">
+            <strong>SIEER</strong>는 공간 인플루언서 경험과 MD 데이터 분석을 기반으로<br>
+            <span>체류 · 확산 · 재방문 구조</span>를 설계하는 공간 디렉팅 스튜디오입니다.
+        </p>
+    </div>
+</section>
+    <section id="about" class="about-section">
     <div class="container">
         <div class="about-wrapper">
             <div class="about-title-area">
