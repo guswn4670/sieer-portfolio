@@ -209,98 +209,97 @@
                 transform: translateX(-50%);
             }
         }
-      /* Strategy Wide Section */
-.strategy-wide { padding: 100px 0; background: #fff; }
-.strategy-header { text-align: center; margin-bottom: 50px; }
+/* Strategy Report Section */
+.strategy-report { padding: 120px 0; background-color: #fff; }
+.report-header { text-align: center; margin-bottom: 60px; }
 
-.strategy-dashboard {
-    width: 100%;
-    min-height: 500px;
-    border-radius: 40px;
-    background-size: cover;
-    background-position: center;
+.report-wrapper {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
+    gap: 40px;
+    align-items: stretch;
+}
+
+/* 이미지 영역 */
+.report-visual {
+    flex: 1;
     position: relative;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
-.glass-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+.report-visual img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.glass-card {
-    background: rgba(255, 255, 255, 0.1); /* 투명한 유리 효과 */
-    backdrop-filter: blur(15px); /* 배경 흐림 */
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 25px;
-    padding: 40px 30px;
+.visual-overlay {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.7);
     color: #fff;
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* 대시보드 카드 영역 */
+.report-dashboard {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.report-card {
+    background: #f8f9fb;
+    padding: 30px;
+    border-radius: 20px;
+    border-left: 5px solid #ddd;
     transition: 0.3s;
 }
 
-.glass-card.highlight {
-    background: rgba(0, 209, 255, 0.1); /* 메인 컬러 한 스푼 */
-    border-color: rgba(0, 209, 255, 0.3);
+.report-card.problem { border-color: #ff5e8e; }
+.report-card.solution { border-color: var(--main); background: #f0faff; }
+.report-card.result { border-color: #2ecc71; }
+
+.card-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 900;
+    color: #999;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
 }
 
-.glass-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.15);
-}
-
-.card-head {
-    font-size: 1.1rem;
-    font-weight: 800;
-    margin-bottom: 25px;
-    color: #00d1ff; /* 포인트 컬러 */
-}
-
-.card-list {
-    list-style: none;
-    padding: 0;
-}
-
-.card-list li {
-    font-size: 1rem;
-    line-height: 1.8;
-    margin-bottom: 10px;
-    position: relative;
-    padding-left: 20px;
-}
-
-.card-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: #00d1ff;
-}
-
-.result-box {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.tag-pill {
-    background: rgba(255, 255, 255, 0.9);
+.report-card p, .report-card li {
+    font-size: 1.05rem;
     color: #333;
-    padding: 8px 15px;
-    border-radius: 12px;
+    line-height: 1.6;
+}
+
+.report-card ul { list-style: none; padding: 0; }
+.report-card li::before { content: "•"; color: var(--main); margin-right: 10px; font-weight: bold; }
+
+.tag-group { display: flex; flex-wrap: wrap; gap: 10px; }
+.tag-group span {
+    background: #fff;
+    padding: 8px 16px;
+    border-radius: 10px;
     font-size: 0.9rem;
     font-weight: 700;
-    text-align: center;
+    color: #2ecc71;
+    border: 1px solid #e0f9ea;
 }
 
-/* 모바일 대응 */
+/* 반응형 */
 @media (max-width: 992px) {
-    .glass-grid { grid-template-columns: 1fr; }
-    .strategy-dashboard { padding: 20px; }
+    .report-wrapper { flex-direction: column; }
+    .report-visual { min-height: 350px; }
 }
         
         /* [Impact Section] 최적화 버전 */
@@ -680,39 +679,40 @@
         </div>
     </div>
 </section>
-<section class="strategy-wide">
+<section class="strategy-report">
     <div class="container">
-        <div class="strategy-header">
+        <div class="report-header">
             <span class="section-tag">STRATEGY CASE</span>
             <h2>브랜드 컨셉을 <span style="color: var(--main);">'확산 구조'</span>로 재설계</h2>
         </div>
 
-        <div class="strategy-dashboard" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/1.jpeg');">
-            <div class="glass-grid">
-                <div class="glass-card">
-                    <div class="card-head">[ Problem ]</div>
-                    <ul class="card-list">
-                        <li>제품·공간 완성도 대비</li>
-                        <li>자발적 SNS 확산 구조 부재</li>
-                        <li>낮은 태그 노출 빈도</li>
-                    </ul>
+        <div class="report-wrapper">
+            <div class="report-visual">
+                <img src="images/1.jpeg" alt="Project Result">
+                <div class="visual-overlay">MAIN SCENE ANALYSIS</div>
+            </div>
+
+            <div class="report-dashboard">
+                <div class="report-card problem">
+                    <span class="card-label">PROBLEM</span>
+                    <p>제품의 완성도 대비 자발적인 SNS 확산 구조가 부족했던 매장</p>
                 </div>
 
-                <div class="glass-card highlight">
-                    <div class="card-head">[ Solution by SIEER ]</div>
-                    <ul class="card-list">
-                        <li>촬영 동선 중심 시선 재정렬</li>
+                <div class="report-card solution">
+                    <span class="card-label">SOLUTION</span>
+                    <ul>
+                        <li>촬영 동선 중심 시선 흐름 재정렬</li>
                         <li>메인 컷 집중 구조 설계</li>
                         <li>저장·공유 유도 포인트 기획</li>
                     </ul>
                 </div>
 
-                <div class="glass-card">
-                    <div class="card-head">[ Result ]</div>
-                    <div class="result-box">
-                        <span class="tag-pill">#매장 태그 폭발적 증가</span>
-                        <span class="tag-pill">#브랜드 언급 상승</span>
-                        <span class="tag-pill">#재방문 의사 다수 발생</span>
+                <div class="report-card result">
+                    <span class="card-label">RESULT</span>
+                    <div class="tag-group">
+                        <span>#매장 태그 폭발적 증가</span>
+                        <span>#브랜드 언급 상승</span>
+                        <span>#재방문 의사 다수</span>
                     </div>
                 </div>
             </div>
