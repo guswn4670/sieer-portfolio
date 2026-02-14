@@ -6,7 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sieer | 공간 디렉팅 스튜디오</title>
     <style>
+/* 1. 클릭 시 스르륵 내려가는 효과 */
+html {
+    scroll-behavior: smooth;
+}
 
+/* 2. 네비바가 고정되어 있어도 제목이 가려지지 않게 여백 확보 */
+section {
+    scroll-margin-top: 80px; 
+}
+
+/* 3. 푸터(Contact)로 이동할 때도 여백 필요하다면 추가 */
+footer {
+    scroll-margin-top: 80px;
+}
         /* Navigation Styles */
 .navbar {
     position: fixed;
